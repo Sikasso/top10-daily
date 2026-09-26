@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "attemptedAt": "2026-09-26T22:58:06.908626+00:00",
+  "attemptedAt": "2026-09-26T23:08:55.762728+00:00",
   "categories": {
     "strikeouts": {
       "status": "ok",
@@ -257,9 +257,121 @@
           "Reason": "Volume says 2.2 TDs over his last 10; he has 0; Picks up work from Jayden Higgins, Nico Collins"
         }
       ],
+      "value": [
+        {
+          "Player": "TreVeyon Henderson",
+          "Tm": "NE",
+          "Pos": "RB",
+          "Opp": "JAX",
+          "Time": "Sun 12:00PM",
+          "TD%": "48%",
+          "Fair": 110,
+          "Book": "+190 MGM",
+          "Edge": "+7%"
+        },
+        {
+          "Player": "Trey McBride",
+          "Tm": "ARI",
+          "Pos": "TE",
+          "Opp": "SF",
+          "Time": "Sun 3:05PM",
+          "TD%": "46%",
+          "Fair": 116,
+          "Book": "+195 FD",
+          "Edge": "+6%"
+        },
+        {
+          "Player": "Isaac TeSlaa",
+          "Tm": "DET",
+          "Pos": "WR",
+          "Opp": "NYJ",
+          "Time": "Sun 12:00PM",
+          "TD%": "28%",
+          "Fair": 253,
+          "Book": "+500 DK",
+          "Edge": "+6%"
+        },
+        {
+          "Player": "Josh Allen",
+          "Tm": "BUF",
+          "Pos": "QB",
+          "Opp": "LAC",
+          "Time": "Sun 12:00PM",
+          "TD%": "67%",
+          "Fair": -202,
+          "Book": "-129 BR",
+          "Edge": "+5%"
+        },
+        {
+          "Player": "Chris Olave",
+          "Tm": "NO",
+          "Pos": "WR",
+          "Opp": "LV",
+          "Time": "Sun 3:25PM",
+          "TD%": "51%",
+          "Fair": -103,
+          "Book": "+150 FD",
+          "Edge": "+5%"
+        },
+        {
+          "Player": "Pat Freiermuth",
+          "Tm": "PIT",
+          "Pos": "TE",
+          "Opp": "CIN",
+          "Time": "Sun 12:00PM",
+          "TD%": "28%",
+          "Fair": 252,
+          "Book": "+400 FD",
+          "Edge": "+4%"
+        },
+        {
+          "Player": "Devaughn Vele",
+          "Tm": "NO",
+          "Pos": "WR",
+          "Opp": "LV",
+          "Time": "Sun 3:25PM",
+          "TD%": "33%",
+          "Fair": 207,
+          "Book": "+310 DK",
+          "Edge": "+4%"
+        },
+        {
+          "Player": "Bam Knight",
+          "Tm": "ARI",
+          "Pos": "RB",
+          "Opp": "SF",
+          "Time": "Sun 3:05PM",
+          "TD%": "12%",
+          "Fair": 763,
+          "Book": "+2800 BOV",
+          "Edge": "+4%"
+        },
+        {
+          "Player": "Amon-Ra St. Brown",
+          "Tm": "DET",
+          "Pos": "WR",
+          "Opp": "NYJ",
+          "Time": "Sun 12:00PM",
+          "TD%": "61%",
+          "Fair": -155,
+          "Book": "-115 MGM",
+          "Edge": "+4%"
+        },
+        {
+          "Player": "Bo Nix",
+          "Tm": "DEN",
+          "Pos": "QB",
+          "Opp": "LAR",
+          "Time": "Sun 7:20PM",
+          "TD%": "25%",
+          "Fair": 305,
+          "Book": "+475 DK",
+          "Edge": "+4%"
+        }
+      ],
       "status": "ok",
-      "generatedAt": "2026-09-26T22:58:38.662676+00:00",
-      "lastAttemptAt": "2026-09-26T22:58:38.662676+00:00",
+      "generatedAt": "2026-09-26T23:09:27.483087+00:00",
+      "lastAttemptAt": "2026-09-26T23:09:27.483087+00:00",
       "slate": "2026-09-27 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -827,9 +939,67 @@
           "Reason": "Book -113 DK on the Under 51.5 pays more than fair -143; Carries up: 11 a game over his last 3 vs 7.9 over his last 10"
         }
       ],
+      "value": [
+        {
+          "Player": "Cam Skattebo",
+          "Tm": "NYG",
+          "Pos": "RB",
+          "Opp": "TEN",
+          "Time": "Sun 12:00PM",
+          "Proj": 45.7,
+          "Line": 57.5,
+          "Pick": "Under",
+          "Pick%": "61%",
+          "Fair": -158.0,
+          "Book": "-111 BOL",
+          "Edge": "+9%"
+        },
+        {
+          "Player": "Bhayshul Tuten",
+          "Tm": "JAX",
+          "Pos": "RB",
+          "Opp": "NE",
+          "Time": "Sun 12:00PM",
+          "Proj": 45.0,
+          "Line": 51.5,
+          "Pick": "Under",
+          "Pick%": "59%",
+          "Fair": -143.0,
+          "Book": "-113 DK",
+          "Edge": "+6%"
+        },
+        {
+          "Player": "Drake Maye",
+          "Tm": "NE",
+          "Pos": "QB",
+          "Opp": "JAX",
+          "Time": "Sun 12:00PM",
+          "Proj": 24.4,
+          "Line": 26.5,
+          "Pick": "Under",
+          "Pick%": "57%",
+          "Fair": -131.0,
+          "Book": "-113 FD",
+          "Edge": "+4%"
+        },
+        {
+          "Player": "Jonathan Taylor",
+          "Tm": "IND",
+          "Pos": "RB",
+          "Opp": "HOU",
+          "Time": "Sun 12:00PM",
+          "Proj": 77.2,
+          "Line": 81.5,
+          "Pick": "Under",
+          "Pick%": "56%",
+          "Fair": -126.0,
+          "Book": "-111 DK",
+          "Edge": "+3%"
+        }
+      ],
       "status": "ok",
-      "generatedAt": "2026-09-26T22:49:04.208177+00:00",
-      "lastAttemptAt": "2026-09-26T22:49:04.208177+00:00",
+      "generatedAt": "2026-09-26T23:09:44.658578+00:00",
+      "lastAttemptAt": "2026-09-26T23:09:44.658578+00:00",
       "slate": "2026-09-27 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -1183,9 +1353,151 @@
           "Reason": "Book -114 BR on the Under 45.5 pays more than fair -154; Targets up: 3.7 a game over his last 3 vs 2.8 over his last 10"
         }
       ],
+      "value": [
+        {
+          "Player": "Jordan Addison",
+          "Tm": "MIN",
+          "Pos": "WR",
+          "Opp": "TB",
+          "Time": "Sun 3:05PM",
+          "Proj": 22.2,
+          "Line": 36.5,
+          "Pick": "Under",
+          "Pick%": "65%",
+          "Fair": -187.0,
+          "Book": "-110 DK",
+          "Edge": "+13%"
+        },
+        {
+          "Player": "Emeka Egbuka",
+          "Tm": "TB",
+          "Pos": "WR",
+          "Opp": "MIN",
+          "Time": "Sun 3:05PM",
+          "Proj": 30.8,
+          "Line": 49.5,
+          "Pick": "Under",
+          "Pick%": "64%",
+          "Fair": -182.0,
+          "Book": "-111 DK",
+          "Edge": "+12%"
+        },
+        {
+          "Player": "Tommy Tremble",
+          "Tm": "CAR",
+          "Pos": "TE",
+          "Opp": "CLE",
+          "Time": "Sun 12:00PM",
+          "Proj": 21.5,
+          "Line": 9.5,
+          "Pick": "Over",
+          "Pick%": "64%",
+          "Fair": -177.0,
+          "Book": "-113 FD",
+          "Edge": "+11%"
+        },
+        {
+          "Player": "Elic Ayomanor",
+          "Tm": "TEN",
+          "Pos": "WR",
+          "Opp": "NYG",
+          "Time": "Sun 12:00PM",
+          "Proj": 26.7,
+          "Line": 13.5,
+          "Pick": "Over",
+          "Pick%": "61%",
+          "Fair": -159.0,
+          "Book": "-113 FD",
+          "Edge": "+8%"
+        },
+        {
+          "Player": "Justin Jefferson",
+          "Tm": "MIN",
+          "Pos": "WR",
+          "Opp": "TB",
+          "Time": "Sun 3:05PM",
+          "Proj": 54.2,
+          "Line": 71.5,
+          "Pick": "Under",
+          "Pick%": "61%",
+          "Fair": -156.0,
+          "Book": "-112 DK",
+          "Edge": "+8%"
+        },
+        {
+          "Player": "Hunter Henry",
+          "Tm": "NE",
+          "Pos": "TE",
+          "Opp": "JAX",
+          "Time": "Sun 12:00PM",
+          "Proj": 33.0,
+          "Line": 41.5,
+          "Pick": "Under",
+          "Pick%": "61%",
+          "Fair": -156.0,
+          "Book": "-113 FD",
+          "Edge": "+8%"
+        },
+        {
+          "Player": "Jakobi Meyers",
+          "Tm": "JAX",
+          "Pos": "WR",
+          "Opp": "NE",
+          "Time": "Sun 12:00PM",
+          "Proj": 26.2,
+          "Line": 34.5,
+          "Pick": "Under",
+          "Pick%": "61%",
+          "Fair": -155.0,
+          "Book": "-113 FD",
+          "Edge": "+8%"
+        },
+        {
+          "Player": "Chris Godwin Jr.",
+          "Tm": "TB",
+          "Pos": "WR",
+          "Opp": "MIN",
+          "Time": "Sun 3:05PM",
+          "Proj": 27.4,
+          "Line": 35.5,
+          "Pick": "Under",
+          "Pick%": "61%",
+          "Fair": -154.0,
+          "Book": "-113 FD",
+          "Edge": "+8%"
+        },
+        {
+          "Player": "Garrett Wilson",
+          "Tm": "NYJ",
+          "Pos": "WR",
+          "Opp": "DET",
+          "Time": "Sun 12:00PM",
+          "Proj": 57.2,
+          "Line": 76.5,
+          "Pick": "Under",
+          "Pick%": "61%",
+          "Fair": -156.0,
+          "Book": "-115 BR",
+          "Edge": "+7%"
+        },
+        {
+          "Player": "Rashod Bateman",
+          "Tm": "BAL",
+          "Pos": "WR",
+          "Opp": "DAL",
+          "Time": "Sun 3:25PM",
+          "Proj": 35.2,
+          "Line": 45.5,
+          "Pick": "Under",
+          "Pick%": "61%",
+          "Fair": -154.0,
+          "Book": "-114 BR",
+          "Edge": "+7%"
+        }
+      ],
       "status": "ok",
-      "generatedAt": "2026-09-26T22:49:21.748717+00:00",
-      "lastAttemptAt": "2026-09-26T22:49:21.748717+00:00",
+      "generatedAt": "2026-09-26T23:10:07.257821+00:00",
+      "lastAttemptAt": "2026-09-26T23:10:07.257821+00:00",
       "slate": "2026-09-27 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -1330,7 +1642,7 @@
           "Tm": "PHI",
           "L10": "8,89,48,37,50,42,25,52,53,117",
           "NewsHeadline": "Smith (hamstring) does not carry an injury designation into Monday's game against the Bears. Smith was working through a hamstring injury through Week 3 prep but ended with a full practice Saturday, which was enough for him to be cleared to play Monday. He has a 13-170-1 receiving line on 19 targets through the first\u2026 [RotoWire, Sep 26]",
-          "NewsProb": 0.91,
+          "NewsProb": 0.9,
           "G": 19
         },
         {
