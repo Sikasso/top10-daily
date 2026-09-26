@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "attemptedAt": "2026-09-26T19:41:13.470762+00:00",
+  "attemptedAt": "2026-09-26T20:30:30.460492+00:00",
   "categories": {
     "strikeouts": {
       "status": "ok",
-      "generatedAt": "2026-09-26T19:43:43.256430+00:00",
-      "lastAttemptAt": "2026-09-26T19:43:43.256430+00:00",
+      "generatedAt": "2026-09-26T20:32:55.982763+00:00",
+      "lastAttemptAt": "2026-09-26T20:32:55.982763+00:00",
       "slate": "2026-09-26",
       "columns": [
         "Time",
@@ -35,14 +35,14 @@
           "News": "LIMIT",
           "L10": "8,6,5,7,6,6,3,7,9,5",
           "NewsHeadline": "Connelly Early slated for Nationals debut today after successful rehab assignment [districtondeck.com, Sep 26]",
-          "NewsProb": 0.86,
+          "NewsProb": 0.9,
           "GS": 17
         },
         {
           "Time": "3:05PM",
           "Pitcher": "Blake Snell",
           "Opp": "SF",
-          "Proj": 6.9,
+          "Proj": 6.6,
           "Min10": 1.0,
           "Med": 6.5,
           "p4": 88,
@@ -54,6 +54,23 @@
           "NewsHeadline": null,
           "NewsProb": null,
           "GS": 8
+        },
+        {
+          "Time": "6:15PM",
+          "Pitcher": "Aaron Nola",
+          "Opp": "TB",
+          "Proj": 4.7,
+          "Min10": 3.0,
+          "Med": 6.0,
+          "p4": 90,
+          "p5": 70,
+          "p6": 50,
+          "Leash": "FLAG",
+          "News": null,
+          "L10": "5,8,9,8,7,4,5,3,4,8",
+          "NewsHeadline": null,
+          "NewsProb": null,
+          "GS": 32
         },
         {
           "Time": "3:10PM",
@@ -144,7 +161,7 @@
           "Time": "2:07PM",
           "Pitcher": "Trey Yesavage",
           "Opp": "CIN",
-          "Proj": 3.9,
+          "Proj": 3.8,
           "Min10": 0.0,
           "Med": 4.5,
           "p4": 60,
@@ -173,31 +190,14 @@
           "NewsHeadline": null,
           "NewsProb": null,
           "GS": 18
-        },
-        {
-          "Time": "8:40PM",
-          "Pitcher": "Hayden Wesneski",
-          "Opp": "ATH",
-          "Proj": 3.7,
-          "Min10": 2.0,
-          "Med": 4.0,
-          "p4": 70,
-          "p5": 30,
-          "p6": 20,
-          "Leash": "FLAG",
-          "News": null,
-          "L10": "4,4,4,6,4,6,5,3,2,3",
-          "NewsHeadline": null,
-          "NewsProb": null,
-          "GS": 10
         }
       ],
       "message": ""
     },
     "touchdowns": {
       "status": "ok",
-      "generatedAt": "2026-09-26T19:43:53.434875+00:00",
-      "lastAttemptAt": "2026-09-26T19:43:53.434875+00:00",
+      "generatedAt": "2026-09-26T20:33:01.804159+00:00",
+      "lastAttemptAt": "2026-09-26T20:33:01.804159+00:00",
       "slate": "2026-09-27 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -280,22 +280,6 @@
         },
         {
           "Time": "Sun 12:00PM",
-          "Player": "Josh Allen",
-          "Pos": "QB",
-          "Opp": "LAC",
-          "TmPts": 28.25,
-          "Wk1": "2",
-          "Wk2": "2",
-          "TD10": "6/10",
-          "TD%": "60%",
-          "Fair": -149,
-          "Flags": null,
-          "Inj": null,
-          "Tm": "BUF",
-          "G": 19
-        },
-        {
-          "Time": "Sun 12:00PM",
           "Player": "Amon-Ra St. Brown",
           "Pos": "WR",
           "Opp": "NYJ",
@@ -308,6 +292,22 @@
           "Flags": null,
           "Inj": null,
           "Tm": "DET",
+          "G": 19
+        },
+        {
+          "Time": "Sun 12:00PM",
+          "Player": "Josh Allen",
+          "Pos": "QB",
+          "Opp": "LAC",
+          "TmPts": 28.25,
+          "Wk1": "2",
+          "Wk2": "2",
+          "TD10": "6/10",
+          "TD%": "60%",
+          "Fair": -149,
+          "Flags": null,
+          "Inj": null,
+          "Tm": "BUF",
           "G": 19
         },
         {
@@ -379,8 +379,8 @@
     },
     "receptions": {
       "status": "ok",
-      "generatedAt": "2026-09-26T19:44:01.231943+00:00",
-      "lastAttemptAt": "2026-09-26T19:44:01.231943+00:00",
+      "generatedAt": "2026-09-26T20:33:07.579310+00:00",
+      "lastAttemptAt": "2026-09-26T20:33:07.579310+00:00",
       "slate": "2026-09-27 \u00b7 remaining games this week",
       "columns": [
         "Time",
