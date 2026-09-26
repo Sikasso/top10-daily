@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "attemptedAt": null,
+  "categories": {
+    "strikeouts": {
+      "status": "error",
+      "generatedAt": null,
+      "lastAttemptAt": null,
+      "slate": "",
+      "columns": [],
+      "rows": [],
+      "message": "The first daily update is being prepared."
+    },
+    "touchdowns": {
+      "status": "error",
+      "generatedAt": null,
+      "lastAttemptAt": null,
+      "slate": "",
+      "columns": [],
+      "rows": [],
+      "message": "The first daily update is being prepared."
+    },
+    "receptions": {
+      "status": "error",
+      "generatedAt": null,
+      "lastAttemptAt": null,
+      "slate": "",
+      "columns": [],
+      "rows": [],
+      "message": "The first daily update is being prepared."
+    }
+  }
+}
