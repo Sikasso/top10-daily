@@ -33,6 +33,8 @@ table{border-collapse:separate;border-spacing:0;width:100%;font-size:14px;font-v
 th{font-weight:600;font-size:12px;color:var(--muted);background:var(--head);letter-spacing:.02em}
 th,td{padding:14px 16px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--rule)}
 tbody tr:last-child td{border-bottom:0}
+table.wide th,table.wide td{padding-left:10px;padding-right:10px}
+table.wide th:nth-child(2),table.wide td:nth-child(2){min-width:180px}
 tbody tr:hover td{background:#141c26}
 th:first-child,td:first-child{position:sticky;left:0;min-width:44px;text-align:right;padding:14px 6px 14px 12px;background:var(--panel);z-index:2}
 th:nth-child(2),td:nth-child(2){position:sticky;left:44px;text-align:left;min-width:200px;background:var(--panel);z-index:2;box-shadow:9px 0 12px -12px #000}
@@ -49,6 +51,14 @@ summary{cursor:pointer;color:var(--muted);font-size:12px;margin-top:6px;list-sty
 summary:hover{color:var(--soft)}
 details p{white-space:normal;max-width:300px;font-size:13px;line-height:1.55;color:var(--soft);margin:8px 0}
 
+.mentions{margin-top:30px}
+.mentions h3{font-stretch:68%;font-weight:800;font-size:26px;line-height:1;margin:0}
+.mentions ol{list-style:none;margin:16px 0 0;padding:0;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+.mentions li{display:grid;grid-template-columns:minmax(200px,1fr) auto;gap:4px 24px;padding:14px 16px;border-bottom:1px solid var(--rule)}
+.mentions li:last-child{border-bottom:0}
+.mention-head .sub{margin-left:10px}
+.mention-nums{display:flex;gap:18px;font-size:14px;font-variant-numeric:tabular-nums;justify-content:end;align-items:baseline}
+.mentions .reason{grid-column:1/-1;margin:2px 0 0;color:var(--soft);font-size:14px;max-width:80ch}
 .swipe{display:none;margin:10px 2px 0;color:var(--muted);font-size:13px}
 .explanation{color:var(--muted);font-size:14px;line-height:1.65;max-width:72ch;margin:18px 0 0}
 footer{margin-top:40px;border-top:1px solid var(--line);padding:20px 0 28px;color:#7a899c;font-size:13px}
@@ -70,5 +80,8 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding:20px 0 28px;colo
   th:nth-child(2),td:nth-child(2){min-width:160px;max-width:180px}
   .player{font-size:17px}
   .swipe{display:block}
+  .mentions li{grid-template-columns:1fr}
+  .mention-nums{justify-content:start;flex-wrap:wrap;gap:6px 14px}
+  .mention-head .sub{display:block;margin:3px 0 0}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
