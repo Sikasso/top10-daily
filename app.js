@@ -5,7 +5,7 @@ const specs={strikeouts:{title:'Strikeouts',basis:'Ranked by how often each pitc
 let active='touchdowns',payload=null;
 const fmt=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'});
 function centralParts(date){return Object.fromEntries(new Intl.DateTimeFormat('en-CA',{timeZone:'America/Chicago',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(date).map(p=>[p.type,p.value]));}
-function isStale(category){return window.Top10Freshness.staleFor(active,category);}
+function isStale(category){const f=window.Top10Freshness;return f?f.staleFor(active,category):category.status==='error';}
 function slateText(slate){if(!slate)return '';const [day,...rest]=slate.split(' · ');const d=new Date(day+'T12:00:00Z');if(!Number.isFinite(d.getTime()))return slate;const nice=new Intl.DateTimeFormat('en-US',{timeZone:'UTC',weekday:'long',month:'long',day:'numeric'}).format(d);return rest.length?`Rest of this week, starting ${nice}`:`Games on ${nice}`;}
 function add(parent,tag,text,cls){const el=document.createElement(tag);el.textContent=text;if(cls)el.className=cls;parent.append(el);return el;}
 function value(column,v){if(v===null||v===undefined||v==='')return '—';if(/^p[3456]$/.test(column))return `${v}%`;if(column==='Fair'&&Number(v)>0)return `+${Number(v)}`;if(column==='Diff'&&Number(v)>0)return `+${v}`;return String(v);}
