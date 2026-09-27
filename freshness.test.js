@@ -17,6 +17,7 @@ assert.equal(staleFor('strikeouts',cat('2026-09-24T22:00:00Z'),new Date('2026-09
 // Sunday afternoon run that missed its 14:07 refresh becomes overdue at 14:37.
 assert.equal(staleFor('receiving',cat('2026-09-27T18:00:00Z'),new Date('2026-09-27T19:36:59Z')),false);
 assert.equal(staleFor('receiving',cat('2026-09-27T18:00:00Z'),new Date('2026-09-27T19:37:00Z')),true);
+assert.equal(staleFor('passing',cat('2026-09-27T18:00:00Z'),new Date('2026-09-27T19:37:00Z')),true);
 // Monday morning, Sunday's 18:07 refresh has expired; a Sunday morning board is stale.
 assert.equal(staleFor('touchdowns',cat('2026-09-27T15:00:00Z'),new Date('2026-09-28T11:00:00Z')),true);
 

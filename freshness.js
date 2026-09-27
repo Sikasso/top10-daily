@@ -2,7 +2,7 @@
 (function(root){
   const zone='America/Chicago';
   const grace=30*60*1000;
-  const nfl=new Set(['touchdowns','receptions','rushing','receiving']);
+  const nfl=new Set(['touchdowns','passing','receptions','rushing','receiving']);
   function parts(date){return Object.fromEntries(new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(date).map(p=>[p.type,p.value]));}
   function localInstant(day,minute){
     const [year,month,date]=day.split('-').map(Number), hour=Math.floor(minute/60), min=minute%60;
