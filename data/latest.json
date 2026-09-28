@@ -200,7 +200,7 @@
       "status": "ok",
       "generatedAt": "2026-09-28T02:09:00.692390+00:00",
       "lastAttemptAt": "2026-09-28T02:09:00.692390+00:00",
-      "slate": "2026-09-28 \u00b7 remaining games this week",
+      "slate": "2026-09-28 · remaining games this week",
       "columns": [
         "Time",
         "Player",
@@ -280,7 +280,7 @@
           "Flags": "Calcaterra, Goedert out",
           "Inj": null,
           "Tm": "PHI",
-          "NewsHeadline": "Smith (hamstring) is participating in Saturday's practice, Dave Zangaro of NBC Sports Philadelphia reports. Smith has been working through a hamstring injury, which prevented him from practicing Thursday before he returned for Friday's session in a limited capacity. His status for Monday night's game against the Bears\u2026 [RotoWire, Sep 26]",
+          "NewsHeadline": "Smith (hamstring) is participating in Saturday's practice, Dave Zangaro of NBC Sports Philadelphia reports. Smith has been working through a hamstring injury, which prevented him from practicing Thursday before he returned for Friday's session in a limited capacity. His status for Monday night's game against the Bears… [RotoWire, Sep 26]",
           "NewsProb": 1.0,
           "NoPick": "Yes: injury or role news against it",
           "G": 19
@@ -346,7 +346,7 @@
           "Flags": null,
           "Inj": null,
           "Tm": "PHI",
-          "NewsHeadline": "Bigsby (abdomen) does not carry an injury designation into Monday's game against the Bears. Bigsby was working through an abdominal injury throughout the week, but he faded an injury tag after logging a full practice Saturday. He worked in an elevated role on offense against the Titans in Week 2, but Bigsby will be\u2026 [RotoWire, Sep 26]",
+          "NewsHeadline": "Bigsby (abdomen) does not carry an injury designation into Monday's game against the Bears. Bigsby was working through an abdominal injury throughout the week, but he faded an injury tag after logging a full practice Saturday. He worked in an elevated role on offense against the Titans in Week 2, but Bigsby will be… [RotoWire, Sep 26]",
           "NewsProb": 0.69,
           "NoPick": "Yes: injury or role news against it",
           "G": 19
@@ -448,7 +448,7 @@
       "status": "ok",
       "generatedAt": "2026-09-28T02:09:07.264222+00:00",
       "lastAttemptAt": "2026-09-28T02:09:07.264222+00:00",
-      "slate": "2026-09-28 \u00b7 remaining games this week",
+      "slate": "2026-09-28 · remaining games this week",
       "columns": [
         "Time",
         "Player",
@@ -573,7 +573,7 @@
       "status": "ok",
       "generatedAt": "2026-09-28T02:09:13.426329+00:00",
       "lastAttemptAt": "2026-09-28T02:09:13.426329+00:00",
-      "slate": "2026-09-28 \u00b7 remaining games this week",
+      "slate": "2026-09-28 · remaining games this week",
       "columns": [
         "Time",
         "Player",
@@ -848,7 +848,7 @@
       "status": "ok",
       "generatedAt": "2026-09-28T02:09:20.049748+00:00",
       "lastAttemptAt": "2026-09-28T02:09:20.049748+00:00",
-      "slate": "2026-09-28 \u00b7 remaining games this week",
+      "slate": "2026-09-28 · remaining games this week",
       "columns": [
         "Time",
         "Player",
@@ -969,7 +969,7 @@
           "Inj": null,
           "Tm": "PHI",
           "L10": "34,8,0,4,57,37,7,75,3,33",
-          "NewsHeadline": "Bigsby (abdomen) does not carry an injury designation into Monday's game against the Bears. Bigsby was working through an abdominal injury throughout the week, but he faded an injury tag after logging a full practice Saturday. He worked in an elevated role on offense against the Titans in Week 2, but Bigsby will be\u2026 [RotoWire, Sep 26]",
+          "NewsHeadline": "Bigsby (abdomen) does not carry an injury designation into Monday's game against the Bears. Bigsby was working through an abdominal injury throughout the week, but he faded an injury tag after logging a full practice Saturday. He worked in an elevated role on offense against the Titans in Week 2, but Bigsby will be… [RotoWire, Sep 26]",
           "NewsProb": 0.69,
           "NoPick": null,
           "G": 19
@@ -1009,7 +1009,7 @@
       "status": "ok",
       "generatedAt": "2026-09-28T02:09:26.149528+00:00",
       "lastAttemptAt": "2026-09-28T02:09:26.149528+00:00",
-      "slate": "2026-09-28 \u00b7 remaining games this week",
+      "slate": "2026-09-28 · remaining games this week",
       "columns": [
         "Time",
         "Player",
@@ -1216,5 +1216,71 @@
       ],
       "message": ""
     }
+  },
+  "picks": {
+    "day": "2026-09-27",
+    "updatedAt": "2026-09-27T23:32:00+00:00",
+    "items": [
+      {
+        "player": "Matthew Stafford",
+        "team": "LAR",
+        "opp": "DEN",
+        "time": "Sun 7:20PM",
+        "kickoff": "2026-09-27T19:20:00-05:00",
+        "market": "pass TDs",
+        "pick": "Over",
+        "line": 1.5,
+        "book": "+105 MGM",
+        "chance": "72%",
+        "fair": "-253",
+        "edge": 0.11,
+        "note": "Hand-picked"
+      },
+      {
+        "player": "Bo Nix",
+        "team": "DEN",
+        "opp": "LAR",
+        "time": "Sun 7:20PM",
+        "kickoff": "2026-09-27T19:20:00-05:00",
+        "market": "pass TDs",
+        "pick": "Under",
+        "line": 1.5,
+        "book": "-149 DK",
+        "chance": "64%",
+        "fair": "-176",
+        "edge": 0.02,
+        "note": "Hand-picked"
+      },
+      {
+        "player": "Davante Adams",
+        "team": "LAR",
+        "opp": "DEN",
+        "time": "Sun 7:20PM",
+        "kickoff": "2026-09-27T19:20:00-05:00",
+        "market": "anytime TD",
+        "pick": "Yes",
+        "line": null,
+        "book": "+123 BR",
+        "chance": "52%",
+        "fair": "-107",
+        "edge": 0.035,
+        "note": "Hand-picked"
+      },
+      {
+        "player": "RJ Harvey",
+        "team": "DEN",
+        "opp": "LAR",
+        "time": "Sun 7:20PM",
+        "kickoff": "2026-09-27T19:20:00-05:00",
+        "market": "receptions",
+        "pick": "Over",
+        "line": 2.5,
+        "book": "-130 FD",
+        "chance": null,
+        "fair": null,
+        "edge": null,
+        "note": "Hand-picked"
+      }
+    ]
   }
 }
