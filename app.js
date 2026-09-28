@@ -10,13 +10,13 @@ function slateText(slate){if(!slate)return '';const [day,...rest]=slate.split(' 
 function closedSign(){$('basis').textContent='MLB’s regular season ended September 27.';$('slate').textContent='';$('notice').hidden=true;$('updated').textContent='';renderValue(null);renderMentions(null);$('explanation').replaceChildren();const b=$('board');b.replaceChildren();const door=add(b,'div','','door');door.setAttribute('role','img');door.setAttribute('aria-label','A black enamel sign hanging on a clubhouse wall: Closed for the season.');const hang=add(door,'div','','hang');hang.innerHTML='<svg class="strings" viewBox="0 0 300 64" aria-hidden="true"><line x1="150" y1="8" x2="25" y2="64"/><line x1="150" y1="8" x2="275" y2="64"/><circle cx="150" cy="8" r="5"/></svg>';const sign=add(hang,'div','','sign');add(sign,'span','BASEBALL','sign-top');add(sign,'span','Closed','sign-main');add(sign,'span','FOR THE SEASON','sign-sub');sign.insertAdjacentHTML('beforeend','<svg class="sign-ball" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="16"/><path d="M10 8c7 7 7 17 0 24M30 8c-7 7-7 17 0 24"/></svg>');add(door,'p','The clubhouse is quiet until next spring.','door-note');}
 function pickId(it){return `${it.player}|${it.market}`;}
 const results={};
-function renderPicks(p){const box=$('lotl');if(!box)return;box.replaceChildren();const items=p?.items||[];box.hidden=!items.length;if(!items.length)return;
+function renderPicks(p){const box=$('lotl');if(!box)return;const previousScroll=box.querySelector('.lotl-grid')?.scrollLeft||0;box.replaceChildren();const items=p?.items||[];box.hidden=!items.length;if(!items.length)return;
 
 const head=add(box,'div','','lotl-head');const t=add(head,'div','');const h=add(t,'h2','Life on the Line','lotl-title');h.id='lotl-title';
 h.insertAdjacentHTML('beforeend','<svg class="pulse" viewBox="0 0 120 24" aria-hidden="true"><polyline points="0,12 38,12 46,12 52,3 58,21 64,6 69,15 73,12 120,12"/></svg>');
 add(t,'p','Claude’s top 4 props, if everything rode on it.','lotl-sub');
 const up=p.updatedAt?new Date(p.updatedAt):null;if(up&&Number.isFinite(up.getTime()))add(head,'span',`Updated ${fmt.format(up)} Central`,'lotl-updated');
-const grid=add(box,'ol','','lotl-grid');const now=Date.now();
+const grid=add(box,'ol','','lotl-grid');grid.tabIndex=0;grid.setAttribute('aria-label','Featured props — scroll to browse all picks');const now=Date.now();
 items.forEach((it,i)=>{const r=results[pickId(it)];const li=add(grid,'li','',`lotl-card${r?.grade?' '+r.grade:''}`);add(li,'span',String(i+1),'lotl-num');
 add(li,'div',it.player,'lotl-player');add(li,'div',[it.team,it.opp?'vs '+it.opp:''].filter(Boolean).join(' '),'sub');
 const bet=it.line!=null?`${it.pick} ${it.line} ${it.market}`:it.market.replace(/^./,c=>c.toUpperCase());add(li,'div',bet,'lotl-bet');
@@ -26,6 +26,8 @@ const st=add(li,'div','',`lotl-status${r?.grade?' '+r.grade:started&&!r?.final?'
 if(r?.grade==='won')add(st,'span',`✓ Won: ${r.text}`);else if(r?.grade==='lost')add(st,'span',`✗ Lost: ${r.text}`);else if(r?.grade==='void')add(st,'span',`Void: ${r.text}`);
 else if(started){add(st,'span','','dot');add(st,'span',r?.text?`Live: ${r.text} so far`:'In progress');}
 else add(st,'span',`Kicks off ${it.time.replace(/(\d)(AM|PM)$/,'$1 $2')}`);});
+grid.scrollLeft=previousScroll;
+add(box,'p','Swipe to browse all '+items.length+' picks →','lotl-swipe');
 add(box,'p','Picks lock at kickoff and grade themselves from the box score. The edges are still being proven on real lines, so bet small.','lotl-foot');}
 const ESPN='https://site.api.espn.com/apis/site/v2/sports/football/nfl';
 const STAT={'receptions':[['receiving','receptions']],'rec yds':[['receiving','receivingYards']],'rush yds':[['rushing','rushingYards']],'pass yds':[['passing','passingYards']],'pass TDs':[['passing','passingTouchdowns']],'anytime TD':[['rushing','rushingTouchdowns'],['receiving','receivingTouchdowns']]};

@@ -150,5 +150,11 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding:20px 0 28px;colo
 .lotl-foot{margin:14px 0 0;color:#a89a82;font-size:12.5px;max-width:70ch}
 @media(max-width:900px){.lotl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.lotl{padding:18px 12px 12px}.lotl-title{font-size:30px}.lotl-grid{gap:8px}.lotl-card{padding:12px 11px 11px}.lotl-num{font-size:26px}.lotl-player{font-size:17px}.lotl-bet{font-size:14px}.lotl-meta{font-size:12px}}
-@media(max-width:360px){.lotl-grid{grid-template-columns:1fr}}
+ .lotl-swipe{display:none}
+@media(max-width:700px){
+ .lotl-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:2px 0 10px;scrollbar-width:thin;scrollbar-color:#9b773b #15130f}
+ .lotl-card{flex:0 0 85%;min-width:0;min-height:210px;scroll-snap-align:start}
+ .lotl-grid:focus-visible{outline:2px solid #d9a24b;outline-offset:4px;border-radius:8px}
+ .lotl-swipe{display:block;margin:8px 0 0;color:#c6ad7c;font-size:12px;letter-spacing:.02em}
+}
 @media(prefers-reduced-motion:reduce){.pulse polyline{animation:none;stroke-dashoffset:0}.lotl-status .dot{animation:none}}
