@@ -1233,8 +1233,7 @@
         "book": "+105 MGM",
         "chance": "72%",
         "fair": "-253",
-        "edge": 0.11,
-        "note": "Hand-picked"
+        "edge": 0.11
       },
       {
         "player": "Bo Nix",
@@ -1248,8 +1247,7 @@
         "book": "-149 DK",
         "chance": "64%",
         "fair": "-176",
-        "edge": 0.02,
-        "note": "Hand-picked"
+        "edge": 0.02
       },
       {
         "player": "Davante Adams",
@@ -1263,8 +1261,7 @@
         "book": "+123 BR",
         "chance": "52%",
         "fair": "-107",
-        "edge": 0.035,
-        "note": "Hand-picked"
+        "edge": 0.035
       },
       {
         "player": "RJ Harvey",
@@ -1278,8 +1275,7 @@
         "book": "-130 FD",
         "chance": null,
         "fair": null,
-        "edge": null,
-        "note": "Hand-picked"
+        "edge": null
       }
     ]
   }

@@ -8,20 +8,38 @@ function centralParts(date){return Object.fromEntries(new Intl.DateTimeFormat('e
 function isStale(category){const f=window.Top10Freshness;return f?f.staleFor(active,category):category.status==='error';}
 function slateText(slate){if(!slate)return '';const [day,...rest]=slate.split(' · ');const d=new Date(day+'T12:00:00Z');if(!Number.isFinite(d.getTime()))return slate;const nice=new Intl.DateTimeFormat('en-US',{timeZone:'UTC',weekday:'long',month:'long',day:'numeric'}).format(d);return rest.length?`Rest of this week, starting ${nice}`:`Games on ${nice}`;}
 function closedSign(){$('basis').textContent='MLB’s regular season ended September 27.';$('slate').textContent='';$('notice').hidden=true;$('updated').textContent='';renderValue(null);renderMentions(null);$('explanation').replaceChildren();const b=$('board');b.replaceChildren();const door=add(b,'div','','door');door.setAttribute('role','img');door.setAttribute('aria-label','A wooden sign hanging on a door: Sorry, we’re closed for the season.');const hang=add(door,'div','','hang');hang.innerHTML='<svg class="strings" viewBox="0 0 300 64" aria-hidden="true"><line x1="150" y1="8" x2="12" y2="76"/><line x1="150" y1="8" x2="288" y2="76"/><circle cx="150" cy="8" r="6"/></svg>';const sign=add(hang,'div','','sign');add(sign,'span','Sorry, we’re','sign-top');add(sign,'span','Closed','sign-main');add(sign,'span','for the season','sign-sub');add(door,'p','Baseball’s done for the year. Back next spring.','door-note');}
+function pickId(it){return `${it.player}|${it.market}`;}
+const results={};
 function renderPicks(p){const box=$('lotl');if(!box)return;box.replaceChildren();const items=p?.items||[];box.hidden=!items.length;if(!items.length)return;
+
 const head=add(box,'div','','lotl-head');const t=add(head,'div','');const h=add(t,'h2','Life on the Line','lotl-title');h.id='lotl-title';
 h.insertAdjacentHTML('beforeend','<svg class="pulse" viewBox="0 0 120 24" aria-hidden="true"><polyline points="0,12 38,12 46,12 52,3 58,21 64,6 69,15 73,12 120,12"/></svg>');
-add(t,'p','Claude’s top 4 props — if everything rode on it.','lotl-sub');if(p.note)add(t,'p',p.note,'lotl-note-line');
+add(t,'p','Claude’s top 4 props, if everything rode on it.','lotl-sub');
 const up=p.updatedAt?new Date(p.updatedAt):null;if(up&&Number.isFinite(up.getTime()))add(head,'span',`Updated ${fmt.format(up)} Central`,'lotl-updated');
 const grid=add(box,'ol','','lotl-grid');const now=Date.now();
-items.forEach((it,i)=>{const li=add(grid,'li','','lotl-card');add(li,'span',String(i+1).padStart(2,'0'),'lotl-num');
+items.forEach((it,i)=>{const r=results[pickId(it)];const li=add(grid,'li','',`lotl-card${r?.grade?' '+r.grade:''}`);add(li,'span',String(i+1),'lotl-num');
 add(li,'div',it.player,'lotl-player');add(li,'div',[it.team,it.opp?'vs '+it.opp:''].filter(Boolean).join(' '),'sub');
 const bet=it.line!=null?`${it.pick} ${it.line} ${it.market}`:it.market.replace(/^./,c=>c.toUpperCase());add(li,'div',bet,'lotl-bet');
 const m=add(li,'div','','lotl-meta');if(it.book)add(m,'span',it.book);if(it.chance)add(m,'span',`${it.chance} to hit`);if(it.edge!=null){const e=Math.round(it.edge*100);add(m,'span',`Edge ${e>0?'+':''}${e}%`,e>=3?'primary':'');}
-const k=new Date(it.kickoff).getTime();const live=now>=k&&now<k+3.5*3600e3,done=now>=k+3.5*3600e3;
-const st=add(li,'div','',`lotl-status${live?' live':''}`);if(live)add(st,'span','','dot');add(st,'span',live?'In progress':done?'Final':`Kicks off ${it.time.replace(/(\d)(AM|PM)$/,'$1 $2')}`);
-if(it.note)add(li,'span',it.note,'lotl-note');});
-add(box,'p','Picks lock at kickoff. The edges are still being proven on real lines, so bet small.','lotl-foot');}
+const k=new Date(it.kickoff).getTime();const started=now>=k;
+const st=add(li,'div','',`lotl-status${r?.grade?' '+r.grade:started&&!r?.final?' live':''}`);
+if(r?.grade==='won')add(st,'span',`✓ Won: ${r.text}`);else if(r?.grade==='lost')add(st,'span',`✗ Lost: ${r.text}`);else if(r?.grade==='void')add(st,'span',`Void: ${r.text}`);
+else if(started){add(st,'span','','dot');add(st,'span',r?.text?`Live: ${r.text} so far`:'In progress');}
+else add(st,'span',`Kicks off ${it.time.replace(/(\d)(AM|PM)$/,'$1 $2')}`);});
+add(box,'p','Picks lock at kickoff and grade themselves from the box score. The edges are still being proven on real lines, so bet small.','lotl-foot');}
+const ESPN='https://site.api.espn.com/apis/site/v2/sports/football/nfl';
+const STAT={'receptions':[['receiving','receptions']],'rec yds':[['receiving','receivingYards']],'rush yds':[['rushing','rushingYards']],'pass yds':[['passing','passingYards']],'pass TDs':[['passing','passingTouchdowns']],'anytime TD':[['rushing','rushingTouchdowns'],['receiving','receivingTouchdowns']]};
+const UNIT={'receptions':['catch','catches'],'rec yds':['yd','yds'],'rush yds':['yd','yds'],'pass yds':['yd','yds'],'pass TDs':['TD','TDs'],'anytime TD':['TD','TDs']};
+const normName=n=>n.toLowerCase().replace(/\b(jr|sr|ii|iii|iv)\b/g,'').replace(/[^a-z]/g,'');
+async function gradePicks(){const items=payload?.picks?.items||[];const now=Date.now();const due=items.filter(it=>now>=new Date(it.kickoff).getTime()&&!results[pickId(it)]?.final&&STAT[it.market]);if(!due.length)return;
+try{const boards={};for(const it of due){const pt=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date(it.kickoff)).map(x=>[x.type,x.value]));const day=pt.year+pt.month+pt.day;boards[day]??=await fetch(`${ESPN}/scoreboard?dates=${day}`).then(r=>r.json());
+const ev=(boards[day].events||[]).find(e=>e.competitions[0].competitors.some(c=>c.team.abbreviation===it.team));if(!ev)continue;const state=ev.competitions[0].status.type.state;if(state==='pre')continue;
+const box=await fetch(`${ESPN}/summary?event=${ev.id}`).then(r=>r.json());let total=null;
+for(const tm of box.boxscore?.players||[]){if(tm.team.abbreviation!==it.team)continue;for(const [grp,key] of STAT[it.market]){const g=tm.statistics.find(x=>x.name===grp);if(!g)continue;const ix=g.keys.indexOf(key);const a=g.athletes.find(x=>normName(x.athlete.displayName)===normName(it.player));if(a&&ix>=0){total=(total??0)+(parseFloat(a.stats[ix])||0);}}}
+const final=state==='post';const u=UNIT[it.market];const text=total==null?'':`${total} ${total===1?u[0]:u[1]}`;let grade=null;
+if(total==null){if(final)results[pickId(it)]={final,grade:'void',text:'didn’t play'};continue;}
+if(it.line==null)grade=total>=1?'won':final?'lost':null;else if(it.pick==='Over')grade=total>it.line?'won':final?'lost':null;else grade=total>it.line?'lost':final?'won':null;
+results[pickId(it)]={final:final||grade!=null&&!(it.pick==='Under'&&grade==='won'),grade,text};}}catch(e){}renderPicks(payload?.picks);}
 function notes(spec){const box=$('explanation');box.replaceChildren();add(box,'h3','Reading the board');const dl=add(box,'dl','','glossary');spec.terms.forEach(([t,d])=>{add(dl,'dt',t);add(dl,'dd',d);});if(spec.foot)add(box,'p',spec.foot,'foot');}
 function add(parent,tag,text,cls){const el=document.createElement(tag);el.textContent=text;if(cls)el.className=cls;parent.append(el);return el;}
 function value(column,v){if(v===null||v===undefined||v==='')return '—';if(/^p[3456]$/.test(column))return `${v}%`;if((column==='Fair'||column==='TD Fair')&&Number(v)>0)return `+${Number(v)}`;if(column==='Diff'&&Number(v)>0)return `+${v}`;return String(v);}
@@ -38,6 +56,6 @@ function renderMentions(c){const list=$('mention-list'),items=c?.mentions||[];if
 function select(key){active=key;$('tab-'+key).scrollIntoView({block:'nearest',inline:'nearest'});if(location.hash!=='#'+key)history.replaceState(null,'','#'+key);document.querySelectorAll('[role=tab]').forEach(b=>{const yes=b.dataset.key===key;b.setAttribute('aria-selected',String(yes));b.tabIndex=yes?0:-1;});render();}
 document.querySelectorAll('[role=tab]').forEach(b=>b.addEventListener('click',()=>select(b.dataset.key)));
 document.querySelector('nav').addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();let n=e.key==='Home'?0:e.key==='End'?keys.length-1:(keys.indexOf(active)+(e.key==='ArrowRight'?1:keys.length-1))%keys.length;select(keys[n]);$('tab-'+keys[n]).focus();});
-async function load(){try{const response=await fetch('./data/latest.json',{cache:'no-store'});if(!response.ok)throw Error('Unavailable');const next=await response.json();if(next.schemaVersion!==1||!next.categories)throw Error('Invalid data');payload=next;}catch(e){if(!payload)payload={categories:Object.fromEntries(keys.map(k=>[k,{status:'error',rows:[],message:'The board could not be loaded. Please try again shortly.'}]))};else for(const c of Object.values(payload.categories)){c.status='error';c.message='Could not check for updates. Showing the last loaded results.';}}renderPicks(payload.picks);render();}
+async function load(){try{const response=await fetch('./data/latest.json',{cache:'no-store'});if(!response.ok)throw Error('Unavailable');const next=await response.json();if(next.schemaVersion!==1||!next.categories)throw Error('Invalid data');payload=next;}catch(e){if(!payload)payload={categories:Object.fromEntries(keys.map(k=>[k,{status:'error',rows:[],message:'The board could not be loaded. Please try again shortly.'}]))};else for(const c of Object.values(payload.categories)){c.status='error';c.message='Could not check for updates. Showing the last loaded results.';}}renderPicks(payload.picks);render();gradePicks();}
 if(keys.includes(location.hash.slice(1)))select(location.hash.slice(1));
-$('today').textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',weekday:'long',month:'long',day:'numeric'}).format(new Date());load();setInterval(load,300000);setInterval(render,60000);
+$('today').textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',weekday:'long',month:'long',day:'numeric'}).format(new Date());load();setInterval(load,300000);setInterval(render,60000);setInterval(gradePicks,60000);
