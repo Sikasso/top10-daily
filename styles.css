@@ -127,11 +127,11 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding:20px 0 28px;colo
 .lotl-updated{color:#a89a82;font-size:13px}
 .lotl-grid{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .lotl-card{position:relative;display:flex;flex-direction:column;gap:6px;min-height:210px;padding:16px 16px 14px;border:1px solid rgba(217,162,75,.25);border-radius:10px;
- background:linear-gradient(100deg,rgba(6,7,9,.9) 0%,rgba(6,7,9,.6) 42%,rgba(6,7,9,0) 78%),var(--art) right center/cover no-repeat,#060709}
-.lotl-card:nth-child(1){--art:url(img/lotl-1.jpg)}
-.lotl-card:nth-child(2){--art:url(img/lotl-2.jpg)}
-.lotl-card:nth-child(3){--art:url(img/lotl-3.jpg)}
-.lotl-card:nth-child(4){--art:url(img/lotl-4.jpg)}
+ background:linear-gradient(100deg,rgba(6,7,9,.7) 0%,rgba(6,7,9,.34) 48%,rgba(6,7,9,.08) 100%),linear-gradient(0deg,rgba(6,7,9,.7),transparent 38%),var(--art) right center/cover no-repeat,#060709}
+.lotl-card:nth-child(1){--art:url(img/lotl-stadium.jpg)}
+.lotl-card:nth-child(2){--art:url(img/lotl-tunnel.jpg)}
+.lotl-card:nth-child(3){--art:url(img/lotl-goalline.jpg)}
+.lotl-card:nth-child(4){--art:url(img/lotl-playbook.jpg)}
 .lotl-card.won{border-color:rgba(199,243,107,.55)}
 .lotl-card.lost{opacity:.72}
 .lotl-num{font-stretch:66%;font-weight:900;font-size:34px;line-height:1;color:#d9a24b}
