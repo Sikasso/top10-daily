@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "attemptedAt": "2026-09-29T02:33:40.499611+00:00",
+  "attemptedAt": "2026-09-29T17:01:50.829551+00:00",
   "categories": {
     "strikeouts": {
       "status": "ok",
@@ -196,8 +196,8 @@
     },
     "touchdowns": {
       "status": "empty",
-      "generatedAt": "2026-09-29T02:33:41.020822+00:00",
-      "lastAttemptAt": "2026-09-29T02:33:41.020822+00:00",
+      "generatedAt": "2026-09-29T17:01:51.334989+00:00",
+      "lastAttemptAt": "2026-09-29T17:01:51.334989+00:00",
       "slate": "Remaining games this week",
       "columns": [],
       "rows": [],
@@ -205,8 +205,8 @@
     },
     "passing": {
       "status": "empty",
-      "generatedAt": "2026-09-29T02:33:41.515220+00:00",
-      "lastAttemptAt": "2026-09-29T02:33:41.515220+00:00",
+      "generatedAt": "2026-09-29T17:01:51.757843+00:00",
+      "lastAttemptAt": "2026-09-29T17:01:51.757843+00:00",
       "slate": "Remaining games this week",
       "columns": [],
       "rows": [],
@@ -214,8 +214,8 @@
     },
     "receptions": {
       "status": "empty",
-      "generatedAt": "2026-09-29T02:33:42.017353+00:00",
-      "lastAttemptAt": "2026-09-29T02:33:42.017353+00:00",
+      "generatedAt": "2026-09-29T17:01:52.212696+00:00",
+      "lastAttemptAt": "2026-09-29T17:01:52.212696+00:00",
       "slate": "Remaining games this week",
       "columns": [],
       "rows": [],
@@ -223,8 +223,8 @@
     },
     "rushing": {
       "status": "empty",
-      "generatedAt": "2026-09-29T02:33:42.485674+00:00",
-      "lastAttemptAt": "2026-09-29T02:33:42.485674+00:00",
+      "generatedAt": "2026-09-29T17:01:52.627597+00:00",
+      "lastAttemptAt": "2026-09-29T17:01:52.627597+00:00",
       "slate": "Remaining games this week",
       "columns": [],
       "rows": [],
@@ -232,8 +232,8 @@
     },
     "receiving": {
       "status": "empty",
-      "generatedAt": "2026-09-29T02:33:42.960816+00:00",
-      "lastAttemptAt": "2026-09-29T02:33:42.960816+00:00",
+      "generatedAt": "2026-09-29T17:01:53.061561+00:00",
+      "lastAttemptAt": "2026-09-29T17:01:53.061561+00:00",
       "slate": "Remaining games this week",
       "columns": [],
       "rows": [],
@@ -241,65 +241,8 @@
     }
   },
   "picks": {
-    "day": "2026-09-28",
-    "updatedAt": "2026-09-29T02:33:42.961927+00:00",
-    "items": [
-      {
-        "player": "Saquon Barkley",
-        "team": "PHI",
-        "opp": "CHI",
-        "time": "Mon 7:15PM",
-        "kickoff": "2026-09-28T19:15:00-05:00",
-        "market": "rush yds",
-        "pick": "Under",
-        "line": 72.5,
-        "book": "-110 BOL",
-        "chance": "60%",
-        "fair": -150,
-        "edge": 0.08
-      },
-      {
-        "player": "Jalen Hurts",
-        "team": "PHI",
-        "opp": "CHI",
-        "time": "Mon 7:15PM",
-        "kickoff": "2026-09-28T19:15:00-05:00",
-        "market": "rush yds",
-        "pick": "Under",
-        "line": 24.5,
-        "book": "-110 BOL",
-        "chance": "57%",
-        "fair": -133,
-        "edge": 0.05
-      },
-      {
-        "player": "Dontayvion Wicks",
-        "team": "PHI",
-        "opp": "CHI",
-        "time": "Mon 7:15PM",
-        "kickoff": "2026-09-28T19:15:00-05:00",
-        "market": "receptions",
-        "pick": "Under",
-        "line": 3.5,
-        "book": "-149 DK",
-        "chance": "64%",
-        "fair": -179,
-        "edge": 0.04
-      },
-      {
-        "player": "Colston Loveland",
-        "team": "CHI",
-        "opp": "PHI",
-        "time": "Mon 7:15PM",
-        "kickoff": "2026-09-28T19:15:00-05:00",
-        "market": "receptions",
-        "pick": "Under",
-        "line": 3.5,
-        "book": "-143 BOL",
-        "chance": "63%",
-        "fair": -169,
-        "edge": 0.04
-      }
-    ]
+    "day": null,
+    "updatedAt": "2026-09-29T17:01:53.062687+00:00",
+    "items": []
   }
 }
