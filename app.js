@@ -18,7 +18,7 @@ add(t,'p','Claude’s top 4 props, if everything rode on it.','lotl-sub');
 const up=items.length&&p.updatedAt?new Date(p.updatedAt):null;if(up&&Number.isFinite(up.getTime()))add(head,'span',`Updated ${fmt.format(up)} Central`,'lotl-updated');
 const grid=add(box,'ol','','lotl-grid');grid.tabIndex=0;grid.setAttribute('aria-label','Featured props — scroll to browse all picks');const now=Date.now();
 items.forEach((it,i)=>{const g=recItems.find(e=>e.grade&&e.player===it.player&&e.market===it.market&&e.kickoff===it.kickoff);const r=g?{grade:g.grade,text:g.result,final:true}:results[pickId(it)];const li=add(grid,'li','',`lotl-card${r?.grade?' '+r.grade:''}`);add(li,'span',String(i+1),'lotl-num');
-add(li,'div',it.player,'lotl-player');if(it.market!=='total')add(li,'div',[it.team,it.opp?'vs '+it.opp:''].filter(Boolean).join(' '),'sub');
+if(it.tag)add(li,'span',it.tag,'lotl-tag');add(li,'div',it.player,'lotl-player');if(it.market!=='total')add(li,'div',[it.team,it.opp?'vs '+it.opp:''].filter(Boolean).join(' '),'sub');
 const bet=it.line!=null?`${it.pick} ${it.line} ${it.market}`:it.market.replace(/^./,c=>c.toUpperCase());add(li,'div',bet,'lotl-bet');
 const m=add(li,'div','','lotl-meta');if(it.book)add(m,'span',it.book);if(it.chance)add(m,'span',`${it.chance} to hit`);if(it.edge!=null){const e=Math.round(it.edge*100);add(m,'span',`Edge ${e>0?'+':''}${e}%`,e>=3?'primary':'');}
 const k=new Date(it.kickoff).getTime();const started=now>=k;
@@ -27,7 +27,7 @@ if(r?.grade==='won')add(st,'span',`✓ Won: ${r.text}`);else if(r?.grade==='lost
 else if(started){add(st,'span','','dot');add(st,'span',r?.text?`Live: ${r.text} so far`:'In progress');}
 else add(st,'span',`Kicks off ${it.time.replace(/(\d)(AM|PM)$/,'$1 $2')}`);});
 grid.scrollLeft=previousScroll;
-if(items.length)add(box,'p','Swipe to browse all '+items.length+' picks →','lotl-swipe');
+if(items.length)add(box,'p','Swipe to browse all '+items.length+' picks →','lotl-swipe');if(items.length>1){const dec=items.map(it=>{const a=parseInt(String(it.book||'').split(' ')[0],10);return a>0?1+a/100:a<0?1+100/-a:null;});const ch=items.map(it=>parseFloat(it.chance)/100);if(dec.every(Boolean)&&ch.every(Number.isFinite)){const d=dec.reduce((x,y)=>x*y,1),c=ch.reduce((x,y)=>x*y,1),am=d>=2?`+${Math.round((d-1)*100)}`:`-${Math.round(100/(d-1))}`;add(box,'p',`All ${items.length} as a parlay: about ${am} at these prices, hits about ${Math.round(c*100)}% of the time. Each leg added multiplies the book’s cut, so keep it small.`,'lotl-parlay');}}
 if(!items.length)grid.remove();
 renderRecord(box,rec);
 add(box,'p','Picks lock at kickoff and grade themselves from the box score. The edges are still being proven on real lines, so bet small.','lotl-foot');}
