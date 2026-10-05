@@ -147,6 +147,8 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding:20px 0 28px;colo
 .lotl-card.won{border-color:rgba(199,243,107,.55)}
 .lotl-card.lost{opacity:.72}
 .lotl-num{font-stretch:66%;font-weight:900;font-size:34px;line-height:1;color:#d9a24b}
+.lotl-tag{position:absolute;top:14px;right:14px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0a0d12;background:#c7f36b;border-radius:999px;padding:3px 9px}
+.lotl-parlay{margin:10px 0 0;font-size:13px;color:#e8d2a6}
 .lotl-player{font-stretch:75%;font-weight:800;font-size:21px;line-height:1.1;margin-top:2px}
 .lotl-bet{font-weight:700;font-size:16px;color:var(--text);margin-top:4px}
 .lotl-meta{display:flex;flex-wrap:wrap;gap:4px 10px;color:var(--soft);font-size:13px}
