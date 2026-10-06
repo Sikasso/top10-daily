@@ -1379,7 +1379,7 @@
   },
   "picks": {
     "day": "2026-10-05",
-    "updatedAt": "2026-10-05T23:08:50.587156+00:00",
+    "updatedAt": "2026-10-05T20:51:21.538678+00:00",
     "items": [
       {
         "player": "Devaughn Vele",
@@ -1389,9 +1389,9 @@
         "market": "receptions",
         "pick": "Over",
         "line": 3.5,
-        "book": "-149 BOL",
+        "book": "-156 BOL",
         "kickoff": "2026-10-05T19:15:00-05:00",
-        "chance": "60%",
+        "chance": "61%",
         "edge": null
       },
       {
@@ -1402,9 +1402,22 @@
         "market": "receptions",
         "pick": "Over",
         "line": 1.5,
-        "book": "-135 DK",
+        "book": "-128 DK",
         "kickoff": "2026-10-05T19:15:00-05:00",
-        "chance": "57%",
+        "chance": "56%",
+        "edge": null
+      },
+      {
+        "player": "Juwan Johnson",
+        "team": "NO",
+        "opp": "ATL",
+        "time": "Mon 7:15PM",
+        "market": "receptions",
+        "pick": "Over",
+        "line": 3.5,
+        "book": "-147 BOL",
+        "kickoff": "2026-10-05T19:15:00-05:00",
+        "chance": "60%",
         "edge": null
       },
       {
@@ -1415,7 +1428,7 @@
         "market": "receptions",
         "pick": "Over",
         "line": 6.5,
-        "book": "-132 FD",
+        "book": "-130 BR",
         "kickoff": "2026-10-05T19:15:00-05:00",
         "chance": "57%",
         "edge": null
