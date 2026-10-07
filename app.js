@@ -16,16 +16,19 @@ const head=add(box,'div','','lotl-head');const t=add(head,'div','');const h=add(
 h.insertAdjacentHTML('beforeend','<svg class="pulse" viewBox="0 0 120 24" aria-hidden="true"><polyline points="0,12 38,12 46,12 52,3 58,21 64,6 69,15 73,12 120,12"/></svg>');
 add(t,'p','Claude’s top 4 props, if everything rode on it.','lotl-sub');
 const up=items.length&&p.updatedAt?new Date(p.updatedAt):null;if(up&&Number.isFinite(up.getTime()))add(head,'span',`Updated ${fmt.format(up)} Central`,'lotl-updated');
+const stateOf=it=>{const g=recItems.find(e=>e.grade&&e.player===it.player&&e.market===it.market&&e.kickoff===it.kickoff);const r=g?{grade:g.grade}:results[pickId(it)];return r?.grade||(Date.now()>=new Date(it.kickoff).getTime()?'live':'pre');};
+if(items.length){const states=items.map(stateOf),sl=window.Top10Live?.slip(states);if(sl){const strip=add(box,'div','',`lotl-slip${sl.sweep?' sweep':''}`);const pips=add(strip,'span','','lotl-pips');pips.setAttribute('aria-hidden','true');states.forEach(s=>add(pips,'i','',s));add(strip,'span',sl.text,'lotl-slip-text');}}
 const grid=add(box,'ol','','lotl-grid');grid.tabIndex=0;grid.setAttribute('aria-label','Featured props — scroll to browse all picks');const now=Date.now();
 items.forEach((it,i)=>{const g=recItems.find(e=>e.grade&&e.player===it.player&&e.market===it.market&&e.kickoff===it.kickoff);const r=g?{grade:g.grade,text:g.result,final:true}:results[pickId(it)];const li=add(grid,'li','',`lotl-card${r?.grade?' '+r.grade:''}`);add(li,'span',String(i+1),'lotl-num');
 if(it.tag)add(li,'span',it.tag,'lotl-tag');add(li,'div',it.player,'lotl-player');if(it.market!=='total')add(li,'div',[it.team,it.opp?'vs '+it.opp:''].filter(Boolean).join(' '),'sub');
 const bet=it.line!=null?`${it.pick} ${it.line} ${it.market}`:it.market.replace(/^./,c=>c.toUpperCase());add(li,'div',bet,'lotl-bet');
 const m=add(li,'div','','lotl-meta');if(it.book)add(m,'span',it.book);if(it.chance)add(m,'span',`${it.chance} to hit`);if(it.edge!=null){const e=Math.round(it.edge*100);add(m,'span',`Edge ${e>0?'+':''}${e}%`,e>=3?'primary':'');}
+window.Top10Live?.card(li,it,r,pickId(it),add,UNIT[it.market]||['','']);
 const k=new Date(it.kickoff).getTime();const started=now>=k;
 const st=add(li,'div','',`lotl-status${r?.grade?' '+r.grade:started&&!r?.final?' live':''}`);
 if(r?.grade==='won')add(st,'span',`✓ Won: ${r.text}`);else if(r?.grade==='lost')add(st,'span',`✗ Lost: ${r.text}`);else if(r?.grade==='void')add(st,'span',`Void: ${r.text}`);
-else if(started){add(st,'span','','dot');add(st,'span',r?.text?`Live: ${r.text} so far`:'In progress');}
-else add(st,'span',`Kicks off ${it.time.replace(/(\d)(AM|PM)$/,'$1 $2')}`);});
+else if(started){add(st,'span','','dot');add(st,'span',r?.clock?`Live · ${r.clock}`:r?.text?`Live: ${r.text} so far`:'In progress');}
+else{add(st,'span',`Kicks off ${it.time.replace(/(\d)(AM|PM)$/,'$1 $2')}`);const cd=add(st,'span','','lotl-countdown');cd.dataset.kick=String(k);cd.textContent=window.Top10Live?.countdown(k-now)||'';}});
 grid.scrollLeft=previousScroll;
 if(items.length)add(box,'p','Swipe to browse all '+items.length+' picks →','lotl-swipe');if(items.length>1){const dec=items.map(it=>{const a=parseInt(String(it.book||'').split(' ')[0],10);return a>0?1+a/100:a<0?1+100/-a:null;});const ch=items.map(it=>parseFloat(it.chance)/100);if(dec.every(Boolean)&&ch.every(Number.isFinite)){const d=dec.reduce((x,y)=>x*y,1),c=ch.reduce((x,y)=>x*y,1),am=d>=2?`+${Math.round((d-1)*100)}`:`-${Math.round(100/(d-1))}`;add(box,'p',`All ${items.length} as a parlay: about ${am} at these prices, hits about ${Math.round(c*100)}% of the time. Each leg added multiplies the book’s cut, so keep it small.`,'lotl-parlay');}}
 if(!items.length)grid.remove();
@@ -33,7 +36,7 @@ renderRecord(box,rec);
 add(box,'p','Picks lock at kickoff and grade themselves from the box score. The edges are still being proven on real lines, so bet small.','lotl-foot');}
 const money=u=>`${u>0?'+':u<0?'−':''}${Math.abs(u).toFixed(2)}u`;
 function renderRecord(box,rec){const all=rec?.items||[];if(!all.length)return;const done=all.filter(e=>e.grade);const sec=add(box,'div','','lotl-record');
-const sum=add(sec,'div','','lotl-tally');add(sum,'span','Record','lotl-tally-label');add(sum,'span',`${rec.won}–${rec.lost}${rec.void?'–'+rec.void:''}`,'lotl-tally-wl');add(sum,'span',money(rec.units||0),`lotl-tally-units ${rec.units>0?'up':rec.units<0?'down':''}`);add(sum,'span',`${done.length} graded · 1 unit per pick at the listed price`,'lotl-tally-note');
+const sum=add(sec,'div','','lotl-tally');add(sum,'span','Record','lotl-tally-label');const wl=add(sum,'span',`${rec.won}–${rec.lost}${rec.void?'–'+rec.void:''}`,'lotl-tally-wl');const un=add(sum,'span',money(rec.units||0),`lotl-tally-units ${rec.units>0?'up':rec.units<0?'down':''}`);window.Top10Live?.tally(wl,un,rec,money);add(sum,'span',`${done.length} graded · 1 unit per pick at the listed price`,'lotl-tally-note');
 const det=add(sec,'details','','lotl-history');add(det,'summary','Every pick so far');const tb=add(add(det,'table','','lotl-table'),'tbody');
 const day=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric'});
 all.forEach(e=>{const tr=add(tb,'tr','',e.grade||'pending');add(tr,'td',day.format(new Date(e.kickoff)));add(tr,'td',e.player);add(tr,'td',e.line!=null?`${e.pick} ${e.line} ${e.market}`:e.market);add(tr,'td',e.book||'');
@@ -47,10 +50,10 @@ try{const boards={};for(const it of due){const pt=Object.fromEntries(new Intl.Da
 const ev=(boards[day].events||[]).find(e=>e.competitions[0].competitors.some(c=>c.team.abbreviation===it.team));if(!ev)continue;const state=ev.competitions[0].status.type.state;if(state==='pre')continue;
 let total=null;if(it.market==='total'){total=ev.competitions[0].competitors.reduce((a,c)=>a+(parseFloat(c.score)||0),0);}else{const box=await fetch(`${ESPN}/summary?event=${ev.id}`).then(r=>r.json());
 for(const tm of box.boxscore?.players||[]){if(tm.team.abbreviation!==it.team)continue;for(const [grp,key] of STAT[it.market]){const g=tm.statistics.find(x=>x.name===grp);if(!g)continue;const ix=g.keys.indexOf(key);const a=g.athletes.find(x=>normName(x.athlete.displayName)===normName(it.player));if(a&&ix>=0){total=(total??0)+(parseFloat(a.stats[ix])||0);}}}}
-const final=state==='post';const u=UNIT[it.market];const text=total==null?'':`${total} ${total===1?u[0]:u[1]}`;let grade=null;
+const final=state==='post';const clock=ev.competitions[0].status.type.shortDetail||'';const u=UNIT[it.market];const text=total==null?'':`${total} ${total===1?u[0]:u[1]}`;let grade=null;
 if(total==null){if(final)results[pickId(it)]={final,grade:'void',text:'didn’t play'};continue;}
 if(it.line==null)grade=total>=1?'won':final?'lost':null;else if(it.pick==='Over')grade=total>it.line?'won':final?'lost':null;else grade=total>it.line?'lost':final?'won':null;
-results[pickId(it)]={final:final||grade!=null&&!(it.pick==='Under'&&grade==='won'),grade,text};}}catch(e){}renderPicks(payload?.picks);}
+results[pickId(it)]={final:final||grade!=null&&!(it.pick==='Under'&&grade==='won'),grade,text,total,clock};}}catch(e){}renderPicks(payload?.picks);}
 function notes(spec){const box=$('explanation');box.replaceChildren();add(box,'h3','Reading the board');const dl=add(box,'dl','','glossary');spec.terms.forEach(([t,d])=>{add(dl,'dt',t);add(dl,'dd',d);});if(spec.foot)add(box,'p',spec.foot,'foot');}
 function add(parent,tag,text,cls){const el=document.createElement(tag);el.textContent=text;if(cls)el.className=cls;parent.append(el);return el;}
 function value(column,v){if(v===null||v===undefined||v==='')return '—';if(/^p[3456]$/.test(column))return `${v}%`;if((column==='Fair'||column==='TD Fair')&&Number(v)>0)return `+${Number(v)}`;if(column==='Diff'&&Number(v)>0)return `+${v}`;return String(v);}
@@ -93,4 +96,4 @@ document.querySelectorAll('[role=tab]').forEach(b=>b.addEventListener('click',()
 document.querySelector('nav').addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();let n=e.key==='Home'?0:e.key==='End'?keys.length-1:(keys.indexOf(active)+(e.key==='ArrowRight'?1:keys.length-1))%keys.length;select(keys[n],true);$('tab-'+keys[n]).focus({preventScroll:true});});
 async function load(){try{const response=await fetch('./data/latest.json',{cache:'no-store'});if(!response.ok)throw Error('Unavailable');const next=await response.json();if(next.schemaVersion!==1||!next.categories)throw Error('Invalid data');payload=next;}catch(e){if(!payload)payload={categories:Object.fromEntries(keys.map(k=>[k,{status:'error',rows:[],message:'The board could not be loaded. Please try again shortly.'}]))};else for(const c of Object.values(payload.categories)){c.status='error';c.message='Could not check for updates. Showing the last loaded results.';}}renderPicks(payload.picks);render();gradePicks();}
 if(keys.includes(location.hash.slice(1)))select(location.hash.slice(1));
-$('today').textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',weekday:'long',month:'long',day:'numeric'}).format(new Date());load();setInterval(load,300000);setInterval(render,60000);setInterval(gradePicks,60000);
+$('today').textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',weekday:'long',month:'long',day:'numeric'}).format(new Date());load();setInterval(load,300000);setInterval(render,60000);setInterval(gradePicks,30000);window.Top10Live?.onKick(gradePicks);
