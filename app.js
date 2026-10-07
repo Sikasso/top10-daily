@@ -28,7 +28,7 @@ const k=new Date(it.kickoff).getTime();const started=now>=k;
 const st=add(li,'div','',`lotl-status${r?.grade?' '+r.grade:started&&!r?.final?' live':''}`);
 if(r?.grade==='won')add(st,'span',`✓ Won: ${r.text}`);else if(r?.grade==='lost')add(st,'span',`✗ Lost: ${r.text}`);else if(r?.grade==='void')add(st,'span',`Void: ${r.text}`);
 else if(started){add(st,'span','','dot');add(st,'span',r?.clock?`Live · ${r.clock}`:r?.text?`Live: ${r.text} so far`:'In progress');}
-else{add(st,'span',`Kicks off ${it.time.replace(/(\d)(AM|PM)$/,'$1 $2')}`);const cd=add(st,'span','','lotl-countdown');cd.dataset.kick=String(k);cd.textContent=window.Top10Live?.countdown(k-now)||'';}});
+else{add(st,'span',`${it.gamePk?'First pitch':'Kicks off'} ${it.time.replace(/(\d)(AM|PM)$/,'$1 $2')}`);const cd=add(st,'span','','lotl-countdown');cd.dataset.kick=String(k);cd.textContent=window.Top10Live?.countdown(k-now)||'';}});
 grid.scrollLeft=previousScroll;
 if(items.length)add(box,'p','Swipe to browse all '+items.length+' picks →','lotl-swipe');if(items.length>1){const dec=items.map(it=>{const a=parseInt(String(it.book||'').split(' ')[0],10);return a>0?1+a/100:a<0?1+100/-a:null;});const ch=items.map(it=>parseFloat(it.chance)/100);if(dec.every(Boolean)&&ch.every(Number.isFinite)){const d=dec.reduce((x,y)=>x*y,1),c=ch.reduce((x,y)=>x*y,1),am=d>=2?`+${Math.round((d-1)*100)}`:`-${Math.round(100/(d-1))}`;add(box,'p',`All ${items.length} as a parlay: about ${am} at these prices, hits about ${Math.round(c*100)}% of the time. Each leg added multiplies the book’s cut, so keep it small.`,'lotl-parlay');}}
 if(!items.length)grid.remove();
@@ -43,17 +43,24 @@ all.forEach(e=>{const tr=add(tb,'tr','',e.grade||'pending');add(tr,'td',day.form
 add(tr,'td',e.grade==='won'?`✓ ${e.result}`:e.grade==='lost'?`✗ ${e.result}`:e.grade==='void'?`Void: ${e.result}`:'Pending');add(tr,'td',e.grade?money(e.units||0):'','num');});}
 const ESPN='https://site.api.espn.com/apis/site/v2/sports/football/nfl';
 const STAT={'total':[],'receptions':[['receiving','receptions']],'rec yds':[['receiving','receivingYards']],'rush yds':[['rushing','rushingYards']],'pass yds':[['passing','passingYards']],'pass TDs':[['passing','passingTouchdowns']],'anytime TD':[['rushing','rushingTouchdowns'],['receiving','receivingTouchdowns']]};
-const UNIT={'total':['pt','pts'],'receptions':['catch','catches'],'rec yds':['yd','yds'],'rush yds':['yd','yds'],'pass yds':['yd','yds'],'pass TDs':['TD','TDs'],'anytime TD':['TD','TDs']};
+const UNIT={'total':['pt','pts'],'receptions':['catch','catches'],'rec yds':['yd','yds'],'rush yds':['yd','yds'],'pass yds':['yd','yds'],'pass TDs':['TD','TDs'],'anytime TD':['TD','TDs'],'strikeouts':['K','Ks']};
 const normName=n=>n.toLowerCase().replace(/\b(jr|sr|ii|iii|iv)\b/g,'').replace(/[^a-z]/g,'');
-async function gradePicks(){const items=payload?.picks?.items||[];const now=Date.now();const due=items.filter(it=>now>=new Date(it.kickoff).getTime()&&!results[pickId(it)]?.final&&STAT[it.market]);if(!due.length)return;
-try{const boards={};for(const it of due){const pt=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date(it.kickoff)).map(x=>[x.type,x.value]));const day=pt.year+pt.month+pt.day;boards[day]??=await fetch(`${ESPN}/scoreboard?dates=${day}`).then(r=>r.json());
+async function gradePicks(){const items=payload?.picks?.items||[];const now=Date.now();const due=items.filter(it=>now>=new Date(it.kickoff).getTime()&&!results[pickId(it)]?.final&&(it.gamePk?MLB_STAT[it.market]:STAT[it.market]));if(!due.length)return;
+try{const boards={};for(const it of due){if(it.gamePk){const m=await mlbStat(it);if(m)settle(it,m.state,m.total,m.clock);continue;}const pt=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date(it.kickoff)).map(x=>[x.type,x.value]));const day=pt.year+pt.month+pt.day;boards[day]??=await fetch(`${ESPN}/scoreboard?dates=${day}`).then(r=>r.json());
 const ev=(boards[day].events||[]).find(e=>e.competitions[0].competitors.some(c=>c.team.abbreviation===it.team));if(!ev)continue;const state=ev.competitions[0].status.type.state;if(state==='pre')continue;
 let total=null;if(it.market==='total'){total=ev.competitions[0].competitors.reduce((a,c)=>a+(parseFloat(c.score)||0),0);}else{const box=await fetch(`${ESPN}/summary?event=${ev.id}`).then(r=>r.json());
 for(const tm of box.boxscore?.players||[]){if(tm.team.abbreviation!==it.team)continue;for(const [grp,key] of STAT[it.market]){const g=tm.statistics.find(x=>x.name===grp);if(!g)continue;const ix=g.keys.indexOf(key);const a=g.athletes.find(x=>normName(x.athlete.displayName)===normName(it.player));if(a&&ix>=0){total=(total??0)+(parseFloat(a.stats[ix])||0);}}}}
-const final=state==='post';const clock=ev.competitions[0].status.type.shortDetail||'';const u=UNIT[it.market];const text=total==null?'':`${total} ${total===1?u[0]:u[1]}`;let grade=null;
-if(total==null){if(final)results[pickId(it)]={final,grade:'void',text:'didn’t play'};continue;}
+settle(it,state,total,ev.competitions[0].status.type.shortDetail||'');}}catch(e){}renderPicks(payload?.picks);}
+function settle(it,state,total,clock){const final=state==='post';const u=UNIT[it.market];const text=total==null?'':`${total} ${total===1?u[0]:u[1]}`;let grade=null;
+if(total==null){if(final)results[pickId(it)]={final,grade:'void',text:'didn’t play'};return;}
 if(it.line==null)grade=total>=1?'won':final?'lost':null;else if(it.pick==='Over')grade=total>it.line?'won':final?'lost':null;else grade=total>it.line?'lost':final?'won':null;
-results[pickId(it)]={final:final||grade!=null&&!(it.pick==='Under'&&grade==='won'),grade,text,total,clock};}}catch(e){}renderPicks(payload?.picks);}
+results[pickId(it)]={final:final||grade!=null&&!(it.pick==='Under'&&grade==='won'),grade,text,total,clock};}
+// MLB picks carry a gamePk and read MLB's live feed directly.
+const MLB='https://statsapi.mlb.com/api/v1.1/game';const MLB_STAT={'strikeouts':['pitching','strikeOuts']};
+async function mlbStat(it){const f=await fetch(`${MLB}/${it.gamePk}/feed/live`).then(r=>r.json());const st=f.gameData.status.abstractGameState;if(st==='Preview')return null;
+const ls=f.liveData.linescore,n=ls.currentInning||1,sfx=n%10===1&&n!==11?'st':n%10===2&&n!==12?'nd':n%10===3&&n!==13?'rd':'th';const [grp,key]=MLB_STAT[it.market];let total=null;
+for(const side of ['home','away'])for(const pl of Object.values(f.liveData.boxscore.teams[side].players)){const s=pl.stats?.[grp];if(s?.inningsPitched&&normName(pl.person.fullName)===normName(it.player))total=Number(s[key]);}
+return {state:st==='Final'?'post':'in',total,clock:st==='Final'?'Final':`${ls.inningState||''} ${n}${sfx}`};}
 function notes(spec){const box=$('explanation');box.replaceChildren();add(box,'h3','Reading the board');const dl=add(box,'dl','','glossary');spec.terms.forEach(([t,d])=>{add(dl,'dt',t);add(dl,'dd',d);});if(spec.foot)add(box,'p',spec.foot,'foot');}
 function add(parent,tag,text,cls){const el=document.createElement(tag);el.textContent=text;if(cls)el.className=cls;parent.append(el);return el;}
 function value(column,v){if(v===null||v===undefined||v==='')return '—';if(/^p[3456]$/.test(column))return `${v}%`;if((column==='Fair'||column==='TD Fair')&&Number(v)>0)return `+${Number(v)}`;if(column==='Diff'&&Number(v)>0)return `+${v}`;return String(v);}

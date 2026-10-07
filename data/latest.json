@@ -2391,9 +2391,53 @@
     }
   },
   "picks": {
-    "day": null,
-    "updatedAt": "2026-10-07T11:50:54.568006+00:00",
-    "items": []
+    "day": "2026-10-07",
+    "updatedAt": "2026-10-07T15:55:20.845039+00:00",
+    "items": [
+      {
+        "edge": null,
+        "player": "Nick Martinez",
+        "team": "TB",
+        "opp": "NYY",
+        "time": "Wed 7:00PM",
+        "market": "strikeouts",
+        "pick": "Over",
+        "line": 2.5,
+        "book": "-177 DK",
+        "kickoff": "2026-10-07T19:00:00-05:00",
+        "chance": "64%",
+        "gamePk": 849838
+      },
+      {
+        "edge": null,
+        "player": "Tyler Mahle",
+        "team": "ATL",
+        "opp": "LAD",
+        "time": "Wed 5:10PM",
+        "market": "strikeouts",
+        "pick": "Over",
+        "line": 3.5,
+        "book": "-150 MGM",
+        "kickoff": "2026-10-07T17:10:00-05:00",
+        "chance": "60%",
+        "gamePk": 849822
+      },
+      {
+        "edge": null,
+        "player": "Tyler Glasnow",
+        "team": "LAD",
+        "opp": "ATL",
+        "time": "Wed 5:10PM",
+        "market": "strikeouts",
+        "pick": "Over",
+        "line": 6.5,
+        "book": "+118 DK",
+        "kickoff": "2026-10-07T17:10:00-05:00",
+        "chance": "46%",
+        "gamePk": 849822,
+        "tag": "Value"
+      }
+    ]
   },
   "record": {
     "items": [
