@@ -2755,8 +2755,47 @@
   },
   "picks": {
     "day": "2026-10-08",
-    "updatedAt": "2026-10-08T23:10:20.188878+00:00",
+    "updatedAt": "2026-10-08T23:41:44.513707+00:00",
     "items": [
+      {
+        "player": "Ryan Flournoy",
+        "team": "DAL",
+        "opp": "TB",
+        "time": "Thu 7:15PM",
+        "market": "receptions",
+        "pick": "Under",
+        "line": 3.5,
+        "book": "-148 FD",
+        "kickoff": "2026-10-08T19:15:00-05:00",
+        "chance": "60%",
+        "edge": null
+      },
+      {
+        "player": "Emeka Egbuka",
+        "team": "TB",
+        "opp": "DAL",
+        "time": "Thu 7:15PM",
+        "market": "receptions",
+        "pick": "Under",
+        "line": 3.5,
+        "book": "-145 DK",
+        "kickoff": "2026-10-08T19:15:00-05:00",
+        "chance": "59%",
+        "edge": null
+      },
+      {
+        "player": "Jake Ferguson",
+        "team": "DAL",
+        "opp": "TB",
+        "time": "Thu 7:15PM",
+        "market": "receptions",
+        "pick": "Under",
+        "line": 3.5,
+        "book": "-136 FD",
+        "kickoff": "2026-10-08T19:15:00-05:00",
+        "chance": "58%",
+        "edge": null
+      },
       {
         "player": "Kenny Gainwell",
         "team": "TB",
@@ -2765,35 +2804,9 @@
         "market": "receptions",
         "pick": "Over",
         "line": 1.5,
-        "book": "-161 DK",
+        "book": "-141 DK",
         "kickoff": "2026-10-08T19:15:00-05:00",
-        "chance": "62%",
-        "edge": null
-      },
-      {
-        "player": "Javonte Williams",
-        "team": "DAL",
-        "opp": "TB",
-        "time": "Thu 7:15PM",
-        "market": "anytime TD",
-        "pick": "Yes",
-        "line": null,
-        "book": "-190 MGM",
-        "kickoff": "2026-10-08T19:15:00-05:00",
-        "chance": "66%",
-        "edge": null
-      },
-      {
-        "player": "CeeDee Lamb",
-        "team": "DAL",
-        "opp": "TB",
-        "time": "Thu 7:15PM",
-        "market": "anytime TD",
-        "pick": "Yes",
-        "line": null,
-        "book": "-111 MGM",
-        "kickoff": "2026-10-08T19:15:00-05:00",
-        "chance": "53%",
+        "chance": "59%",
         "edge": null
       }
     ]
