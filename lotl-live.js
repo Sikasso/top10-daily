@@ -19,7 +19,7 @@
   }else{
    const need=cash-total;
    if(need<=0){tone='cashed';note='Cleared';}
-   else{tone=total/line>=0.75?'close':'chasing';note=it.line==null?'Needs a touchdown':`Needs ${u(need)} more`;}
+   else{tone=total/line>=0.75?'close':'chasing';note=it.line==null?'Needs a touchdown':`Needs ${need} more ${need===1?unit[0]:unit[1]}`.trim();}
   }
   return {pct,mark,tone,note,line:it.line==null?null:it.line};
  }

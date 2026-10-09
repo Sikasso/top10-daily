@@ -5,7 +5,8 @@ const catches=['catch','catches'],yds=['yd','yds'],tds=['TD','TDs'];
 
 // Over 3.5 catches: 4 clears it, 3 needs one more, the line sits inside the track.
 assert.equal(meter({pick:'Over',line:3.5},4,catches).tone,'cashed');
-assert.equal(meter({pick:'Over',line:3.5},3,catches).note,'Needs 1 catch more');
+assert.equal(meter({pick:'Over',line:3.5},3,catches).note,'Needs 1 more catch');
+assert.equal(meter({pick:'Over',line:54.5},40,yds).note,'Needs 15 more yds');
 assert.equal(meter({pick:'Over',line:3.5},1,catches).tone,'chasing');
 assert.equal(meter({pick:'Over',line:3.5},3,catches).tone,'close');
 assert.ok(meter({pick:'Over',line:3.5},0,catches).mark<100);
@@ -26,7 +27,7 @@ assert.equal(meter({pick:'Under',line:54.5},50,yds).tone,'danger');
 assert.equal(meter({pick:'Yes',line:null},0,tds).note,'Needs a touchdown');
 assert.equal(meter({pick:'Yes',line:null},1,tds).tone,'cashed');
 // Pass TDs Over 1.5 needs 2.
-assert.equal(meter({pick:'Over',line:1.5},1,tds).note,'Needs 1 TD more');
+assert.equal(meter({pick:'Over',line:1.5},1,tds).note,'Needs 1 more TD');
 
 // No stat yet, no meter.
 assert.equal(meter({pick:'Over',line:3.5},null,catches),null);
