@@ -3,11 +3,13 @@ const assert=require('node:assert/strict');
 const {staleFor}=require('./freshness.js');
 const cat=generatedAt=>({status:'ok',generatedAt});
 
-// Daily schedule: the 30 minute grace expires exactly at 07:30 Central.
-assert.equal(staleFor('strikeouts',cat('2026-09-26T11:59:00Z'),new Date('2026-09-26T12:29:59Z')),false);
-assert.equal(staleFor('strikeouts',cat('2026-09-26T11:59:00Z'),new Date('2026-09-26T12:30:00Z')),true);
-assert.equal(staleFor('strikeouts',cat('2026-09-26T12:01:00Z'),new Date('2026-09-26T12:30:00Z')),false);
-assert.equal(staleFor('strikeouts',cat('2026-09-24T12:01:00Z'),new Date('2026-09-26T12:10:00Z')),true);
+// Daily schedule: the 6:47 AM Central run (11:47Z); its 30 minute grace expires at 07:17 Central.
+assert.equal(staleFor('strikeouts',cat('2026-09-26T11:46:00Z'),new Date('2026-09-26T12:16:59Z')),false);
+assert.equal(staleFor('strikeouts',cat('2026-09-26T11:46:00Z'),new Date('2026-09-26T12:17:00Z')),true);
+assert.equal(staleFor('strikeouts',cat('2026-09-26T11:48:00Z'),new Date('2026-09-26T12:17:00Z')),false);
+assert.equal(staleFor('strikeouts',cat('2026-09-24T11:48:00Z'),new Date('2026-09-26T12:10:00Z')),true);
+// The real 6:47 run finishes ~6:49 and stays current all day (Oct 11: it showed "overdue" from 7:30).
+assert.equal(staleFor('receptions',cat('2026-10-11T11:49:10Z'),new Date('2026-10-11T14:49:00Z')),false);
 
 // NFL boards get an additional Thursday refresh; MLB remains daily only.
 assert.equal(staleFor('touchdowns',cat('2026-09-24T22:00:00Z'),new Date('2026-09-24T23:36:59Z')),false);
@@ -25,8 +27,8 @@ assert.equal(staleFor('touchdowns',cat('2026-09-27T15:00:00Z'),new Date('2026-09
 assert.equal(staleFor('rushing',cat('2026-01-11T16:00:00Z'),new Date('2026-01-11T17:21:59Z')),false);
 assert.equal(staleFor('rushing',cat('2026-01-11T16:00:00Z'),new Date('2026-01-11T17:22:00Z')),true);
 
-// A valid prior-day board remains current until today's 07:30 grace expires.
-assert.equal(staleFor('strikeouts',cat('2026-09-25T12:05:00Z'),new Date('2026-09-26T12:29:59Z')),false);
-assert.equal(staleFor('strikeouts',cat('2026-09-25T12:05:00Z'),new Date('2026-09-26T12:30:00Z')),true);
-assert.equal(staleFor('strikeouts',cat('2026-09-25T11:59:00Z'),new Date('2026-09-26T12:10:00Z')),true);
+// A valid prior-day board remains current until today's 07:17 grace expires.
+assert.equal(staleFor('strikeouts',cat('2026-09-25T11:48:00Z'),new Date('2026-09-26T12:16:59Z')),false);
+assert.equal(staleFor('strikeouts',cat('2026-09-25T11:48:00Z'),new Date('2026-09-26T12:17:00Z')),true);
+assert.equal(staleFor('strikeouts',cat('2026-09-25T11:46:00Z'),new Date('2026-09-26T12:10:00Z')),true);
 console.log('freshness tests passed');

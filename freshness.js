@@ -21,7 +21,7 @@
     let due=null;
     for(let offset=-1;offset<=0;offset++){
       const d=new Date(base+offset*86400000), day=d.toISOString().slice(0,10), weekday=d.getUTCDay();
-      const mins=[420];
+      const mins=[407];   // daily run: 6:47 AM Central, same as pipeline scheduled_boards.PRIMARY_TIME
       if(nfl.has(category)){
         if(weekday===4)mins.push(18*60+7);
         if(weekday===0)mins.push(10*60+52,14*60+7,18*60+7);
