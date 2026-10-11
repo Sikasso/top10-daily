@@ -149,11 +149,23 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding:20px 0 28px;colo
 .lotl-num{font-stretch:66%;font-weight:900;font-size:34px;line-height:1;color:#d9a24b}
 .lotl-tag{position:absolute;top:14px;right:14px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0a0d12;background:#c7f36b;border-radius:999px;padding:3px 9px}
 .lotl-parlay{margin:10px 0 0;font-size:13px;color:#e8d2a6}
-.lotl-window{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px;margin:24px 0 0;padding-top:16px;border-top:1px solid rgba(217,162,75,.2)}
-.lotl-head+.lotl-window{margin-top:18px;padding-top:0;border-top:0}
+.lotl-window{margin:14px 0 0;border:1px solid rgba(217,162,75,.25);border-radius:10px;background:rgba(8,9,11,.45)}
+.lotl-head+.lotl-window{margin-top:18px}
+.lotl-window-sum{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;padding:12px 16px;cursor:pointer;list-style:none}
+.lotl-window-sum::-webkit-details-marker{display:none}
+.lotl-window-sum::after{content:'';margin-left:auto;width:9px;height:9px;border-right:2px solid #d9a24b;border-bottom:2px solid #d9a24b;transform:rotate(45deg);transition:transform .2s}
+.lotl-window[open]>.lotl-window-sum::after{transform:rotate(225deg)}
+.lotl-window-sum:focus-visible{outline:2px solid #d9a24b;outline-offset:2px;border-radius:10px}
 .lotl-window-name{margin:0;font-stretch:75%;font-weight:900;font-size:22px;line-height:1;color:#f5d08a}
 .lotl-window-times{color:#a89a82;font-size:13px}
-.lotl-window+.lotl-slip{margin-top:10px}
+.lotl-window-sum .lotl-slip{margin:0;padding:4px 10px 4px 8px;font-size:12px}
+.lotl-window>.lotl-grid{margin:0;padding:0 16px 4px}
+.lotl-window>.lotl-swipe,.lotl-window>.lotl-parlay{margin-left:16px;margin-right:16px}
+.lotl-window>.lotl-parlay{margin-bottom:14px}
+.lotl-window>p{max-width:none;white-space:normal;line-height:inherit}
+.lotl-window>.lotl-parlay{font-size:13px;color:#e8d2a6}
+.lotl-window>.lotl-swipe{color:#c6ad7c;font-size:12px}
+@media(max-width:560px){.lotl-window-sum{padding:10px 12px;gap:6px 10px}.lotl-window-name{font-size:19px}.lotl-window>.lotl-grid{padding:0 12px 4px}.lotl-window>.lotl-swipe,.lotl-window>.lotl-parlay{margin-left:12px;margin-right:12px}}
 .lotl-player{font-stretch:75%;font-weight:800;font-size:21px;line-height:1.1;margin-top:2px}
 .lotl-bet{font-weight:700;font-size:16px;color:var(--text);margin-top:4px}
 .lotl-meta{display:flex;flex-wrap:wrap;gap:4px 10px;color:var(--soft);font-size:13px}

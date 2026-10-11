@@ -3495,7 +3495,7 @@
         "kickoff": "2026-10-11T12:00:00-05:00",
         "chance": "63%",
         "edge": null,
-        "window": "Early"
+        "window": "Morning"
       },
       {
         "player": "Jaylen Warren",
@@ -3509,7 +3509,7 @@
         "kickoff": "2026-10-11T12:00:00-05:00",
         "chance": "61%",
         "edge": null,
-        "window": "Early"
+        "window": "Morning"
       },
       {
         "player": "Colston Loveland",
@@ -3523,7 +3523,7 @@
         "kickoff": "2026-10-11T12:00:00-05:00",
         "chance": "60%",
         "edge": null,
-        "window": "Early"
+        "window": "Morning"
       },
       {
         "player": "Devaughn Vele",
@@ -3537,7 +3537,7 @@
         "kickoff": "2026-10-11T12:00:00-05:00",
         "chance": "60%",
         "edge": null,
-        "window": "Early"
+        "window": "Morning"
       },
       {
         "player": "Rashid Shaheed",
@@ -3607,7 +3607,7 @@
         "kickoff": "2026-10-11T19:20:00-05:00",
         "chance": "60%",
         "edge": null,
-        "window": "Night"
+        "window": "Evening"
       },
       {
         "player": "Rashod Bateman",
@@ -3621,7 +3621,7 @@
         "kickoff": "2026-10-11T19:20:00-05:00",
         "chance": "59%",
         "edge": null,
-        "window": "Night"
+        "window": "Evening"
       },
       {
         "player": "Bijan Robinson",
@@ -3635,7 +3635,7 @@
         "kickoff": "2026-10-11T19:20:00-05:00",
         "chance": "69%",
         "edge": null,
-        "window": "Night"
+        "window": "Evening"
       },
       {
         "player": "Derrick Henry",
@@ -3649,7 +3649,7 @@
         "kickoff": "2026-10-11T19:20:00-05:00",
         "chance": "58%",
         "edge": null,
-        "window": "Night"
+        "window": "Evening"
       }
     ]
   },
