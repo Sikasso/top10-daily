@@ -15,7 +15,7 @@ function renderPicks(p){const box=$('lotl');if(!box)return;const previousScroll=
 const head=add(box,'div','','lotl-head');const t=add(head,'div','');const h=add(t,'h2','Life on the Line','lotl-title');h.id='lotl-title';
 h.insertAdjacentHTML('beforeend','<svg class="pulse" viewBox="0 0 120 24" aria-hidden="true"><polyline points="0,12 38,12 46,12 52,3 58,21 64,6 69,15 73,12 120,12"/></svg>');
 const wins=[...new Set(items.map(it=>it.window||''))];const multi=wins.length>1;
-add(t,'p',`Claude’s top 4 props${multi?' per window':''}, if everything rode on it.`,'lotl-sub');
+const top=multi?4:items.length||4;add(t,'p',`Claude’s top ${top} ${top===1?'prop':'props'}${multi?' per window':''}, if everything rode on it.`,'lotl-sub');
 const up=items.length&&p.updatedAt?new Date(p.updatedAt):null;if(up&&Number.isFinite(up.getTime()))add(head,'span',`Updated ${fmt.format(up)} Central`,'lotl-updated');
 const stateOf=it=>{const g=recItems.find(e=>e.grade&&e.player===it.player&&e.market===it.market&&e.kickoff===it.kickoff);const r=g?{grade:g.grade}:results[pickId(it)];return r?.grade||(Date.now()>=new Date(it.kickoff).getTime()?'live':'pre');};
 const now=Date.now();
