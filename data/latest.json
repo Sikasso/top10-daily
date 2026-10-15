@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "attemptedAt": "2026-10-14T11:49:42.897065+00:00",
+  "attemptedAt": "2026-10-15T11:48:45.849789+00:00",
   "categories": {
     "strikeouts": {
       "status": "ok",
@@ -269,9 +269,9 @@
       ],
       "value": [],
       "props": [],
-      "status": "ok",
+      "status": "error",
       "generatedAt": "2026-10-14T11:50:10.931273+00:00",
-      "lastAttemptAt": "2026-10-14T11:50:10.931273+00:00",
+      "lastAttemptAt": "2026-10-15T11:48:45.849789+00:00",
       "slate": "2026-10-15 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -556,14 +556,14 @@
           "G": 21
         }
       ],
-      "message": ""
+      "message": "Refresh failed. Showing the last successful results."
     },
     "passing": {
       "mentions": [],
       "value": [],
-      "status": "ok",
+      "status": "error",
       "generatedAt": "2026-10-14T11:50:20.543681+00:00",
-      "lastAttemptAt": "2026-10-14T11:50:20.543681+00:00",
+      "lastAttemptAt": "2026-10-15T11:48:45.849789+00:00",
       "slate": "2026-10-15 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -956,15 +956,15 @@
           "G": 22
         }
       ],
-      "message": ""
+      "message": "Refresh failed. Showing the last successful results."
     },
     "receptions": {
       "mentions": [],
       "value": [],
       "props": [],
-      "status": "ok",
+      "status": "error",
       "generatedAt": "2026-10-14T11:50:37.648763+00:00",
-      "lastAttemptAt": "2026-10-14T11:50:37.648763+00:00",
+      "lastAttemptAt": "2026-10-15T11:48:45.849789+00:00",
       "slate": "2026-10-15 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -1260,12 +1260,12 @@
           "G": 21
         }
       ],
-      "message": ""
+      "message": "Refresh failed. Showing the last successful results."
     },
     "targets": {
-      "status": "ok",
+      "status": "error",
       "generatedAt": "2026-10-14T11:50:37.668696+00:00",
-      "lastAttemptAt": "2026-10-14T11:50:37.668696+00:00",
+      "lastAttemptAt": "2026-10-15T11:48:45.849789+00:00",
       "slate": "2026-10-15 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -1462,7 +1462,7 @@
           "G": 9
         }
       ],
-      "message": ""
+      "message": "Refresh failed. Showing the last successful results."
     },
     "rushing": {
       "mentions": [
@@ -1554,9 +1554,9 @@
       ],
       "value": [],
       "props": [],
-      "status": "ok",
+      "status": "error",
       "generatedAt": "2026-10-14T11:50:51.191716+00:00",
-      "lastAttemptAt": "2026-10-14T11:50:51.191716+00:00",
+      "lastAttemptAt": "2026-10-15T11:48:45.849789+00:00",
       "slate": "2026-10-15 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -1884,7 +1884,7 @@
           "G": 13
         }
       ],
-      "message": ""
+      "message": "Refresh failed. Showing the last successful results."
     },
     "receiving": {
       "mentions": [
@@ -1975,9 +1975,9 @@
         }
       ],
       "value": [],
-      "status": "ok",
+      "status": "error",
       "generatedAt": "2026-10-14T11:51:08.495755+00:00",
-      "lastAttemptAt": "2026-10-14T11:51:08.495755+00:00",
+      "lastAttemptAt": "2026-10-15T11:48:45.849789+00:00",
       "slate": "2026-10-15 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -2305,14 +2305,14 @@
           "G": 17
         }
       ],
-      "message": ""
+      "message": "Refresh failed. Showing the last successful results."
     },
     "games": {
       "mentions": [],
       "value": [],
       "status": "ok",
-      "generatedAt": "2026-10-14T11:51:14.396997+00:00",
-      "lastAttemptAt": "2026-10-14T11:51:14.396997+00:00",
+      "generatedAt": "2026-10-15T11:49:08.604867+00:00",
+      "lastAttemptAt": "2026-10-15T11:49:08.604867+00:00",
       "slate": "2026-10-15 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -2339,7 +2339,7 @@
           "Proj": "SEA -1.5",
           "Total": 40.5,
           "Proj Tot": 43.0,
-          "Wind": "4 mph",
+          "Wind": "3 mph",
           "Pick": null,
           "Pick%": null,
           "Fair": null,
@@ -2355,17 +2355,17 @@
         {
           "Time": "Sun 8:30AM",
           "Game": "HOU @ JAX",
-          "Spread": "JAX -3",
+          "Spread": "JAX -2.5",
           "Proj": "JAX -1.5",
           "Total": 42.5,
           "Proj Tot": 40.6,
-          "Wind": "10 mph",
+          "Wind": "11 mph",
           "Pick": null,
           "Pick%": null,
           "Fair": null,
           "Book": null,
           "Edge": null,
-          "Teaser": null,
+          "Teaser": "HOU +8.5",
           "Ref": null,
           "Ref O/U": null,
           "Tm": "JAX",
@@ -2399,7 +2399,7 @@
           "Proj": "TB -1.5",
           "Total": 39.5,
           "Proj Tot": 44.0,
-          "Wind": "21 mph",
+          "Wind": "20 mph",
           "Pick": null,
           "Pick%": null,
           "Fair": null,
@@ -2415,17 +2415,17 @@
         {
           "Time": "Sun 12:00PM",
           "Game": "CAR @ PHI",
-          "Spread": "PHI -1.5",
+          "Spread": "CAR -1",
           "Proj": "PHI -6.5",
-          "Total": 40.5,
+          "Total": 39.5,
           "Proj Tot": 43.9,
-          "Wind": "6 mph",
+          "Wind": "4 mph",
           "Pick": null,
           "Pick%": null,
           "Fair": null,
           "Book": null,
           "Edge": null,
-          "Teaser": "CAR +7.5",
+          "Teaser": null,
           "Ref": null,
           "Ref O/U": null,
           "Tm": "PHI",
@@ -2435,17 +2435,17 @@
         {
           "Time": "Sun 12:00PM",
           "Game": "NO @ NYG",
-          "Spread": "NO -1.5",
+          "Spread": "NO -1",
           "Proj": "NYG -2.5",
-          "Total": 45.5,
+          "Total": 46.0,
           "Proj Tot": 43.8,
-          "Wind": "7 mph",
+          "Wind": "6 mph",
           "Pick": null,
           "Pick%": null,
           "Fair": null,
           "Book": null,
           "Edge": null,
-          "Teaser": "NYG +7.5",
+          "Teaser": null,
           "Ref": null,
           "Ref O/U": null,
           "Tm": "NYG",
@@ -2455,9 +2455,9 @@
         {
           "Time": "Sun 12:00PM",
           "Game": "BAL @ CLE",
-          "Spread": "BAL -4.5",
+          "Spread": "BAL -5",
           "Proj": "BAL -5.5",
-          "Total": 41.5,
+          "Total": 42.5,
           "Proj Tot": 44.8,
           "Wind": "11 mph",
           "Pick": null,
@@ -2475,9 +2475,9 @@
         {
           "Time": "Sun 12:00PM",
           "Game": "CHI @ ATL",
-          "Spread": "CHI -3",
+          "Spread": "CHI -1",
           "Proj": "CHI -1",
-          "Total": 49.5,
+          "Total": 51.0,
           "Proj Tot": 46.0,
           "Wind": "dome",
           "Pick": null,
@@ -2495,11 +2495,11 @@
         {
           "Time": "Sun 12:00PM",
           "Game": "NYJ @ NE",
-          "Spread": "NE -7.5",
+          "Spread": "NE -7",
           "Proj": "NE -9",
           "Total": 43.5,
           "Proj Tot": 41.7,
-          "Wind": "10 mph",
+          "Wind": "8 mph",
           "Pick": null,
           "Pick%": null,
           "Fair": null,
@@ -2535,7 +2535,7 @@
         {
           "Time": "Sun 3:25PM",
           "Game": "LAC @ KC",
-          "Spread": "KC -8.5",
+          "Spread": "KC -8",
           "Proj": "KC -5",
           "Total": 42.5,
           "Proj Tot": 40.9,
@@ -2555,7 +2555,7 @@
         {
           "Time": "Sun 3:25PM",
           "Game": "BUF @ LV",
-          "Spread": "BUF -5.5",
+          "Spread": "BUF -4.5",
           "Proj": "BUF -7",
           "Total": 53.5,
           "Proj Tot": 51.0,
@@ -2577,9 +2577,9 @@
           "Game": "DAL @ GB",
           "Spread": "GB -1.5",
           "Proj": "GB -4.5",
-          "Total": 52.5,
+          "Total": 53.0,
           "Proj Tot": 51.3,
-          "Wind": "18 mph",
+          "Wind": "16 mph",
           "Pick": null,
           "Pick%": null,
           "Fair": null,
@@ -2617,40 +2617,9 @@
     }
   },
   "picks": {
-    "day": "2026-10-14",
-    "updatedAt": "2026-10-14T15:02:22.813168+00:00",
-    "items": [
-      {
-        "edge": null,
-        "player": "Blake Snell",
-        "team": "LAD",
-        "opp": "MIL",
-        "time": "Wed 7:00PM",
-        "market": "strikeouts",
-        "pick": "Under",
-        "line": 6.5,
-        "book": "-138 FD",
-        "kickoff": "2026-10-14T19:00:00-05:00",
-        "chance": "58%",
-        "gamePk": 849811,
-        "record": false
-      },
-      {
-        "edge": null,
-        "player": "Robert Gasser",
-        "team": "MIL",
-        "opp": "LAD",
-        "time": "Wed 7:00PM",
-        "market": "strikeouts",
-        "pick": "Over",
-        "line": 3.5,
-        "book": "+105 MGM",
-        "kickoff": "2026-10-14T19:00:00-05:00",
-        "chance": "49%",
-        "gamePk": 849811,
-        "record": false
-      }
-    ]
+    "day": null,
+    "updatedAt": "2026-10-15T11:49:08.614566+00:00",
+    "items": []
   },
   "record": {
     "items": [
