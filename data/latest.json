@@ -2632,7 +2632,8 @@
         "book": "-138 FD",
         "kickoff": "2026-10-14T19:00:00-05:00",
         "chance": "58%",
-        "gamePk": 849811
+        "gamePk": 849811,
+        "record": false
       },
       {
         "edge": null,
@@ -2646,7 +2647,8 @@
         "book": "+105 MGM",
         "kickoff": "2026-10-14T19:00:00-05:00",
         "chance": "49%",
-        "gamePk": 849811
+        "gamePk": 849811,
+        "record": false
       }
     ]
   },
