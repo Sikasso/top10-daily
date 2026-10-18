@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "attemptedAt": "2026-10-18T11:48:46.331260+00:00",
+  "attemptedAt": "2026-10-18T12:23:25.333399+00:00",
   "categories": {
     "strikeouts": {
       "status": "ok",
@@ -211,6 +211,20 @@
           "Reason": "Picks up work from Chris Brooks, Jayden Reed, Skyy Moore; Book +120 DK pays more than fair -140"
         },
         {
+          "Player": "Dallas Goedert",
+          "Tm": "PHI",
+          "Pos": "TE",
+          "Opp": "CAR",
+          "Time": "Sun 12:00PM",
+          "TD%": "35%",
+          "Fair": 188,
+          "Book": "+320 FD",
+          "Edge": "+5%",
+          "NoPick": null,
+          "Matchup": "",
+          "Reason": "Picks up work from Saquon Barkley, Tank Bigsby, Will Shipley; Book +320 FD pays more than fair +188"
+        },
+        {
           "Player": "Quinshon Judkins",
           "Tm": "CLE",
           "Pos": "RB",
@@ -246,25 +260,11 @@
           "Time": "Sun 12:00PM",
           "TD%": "26%",
           "Fair": 283,
-          "Book": "+850 DK",
+          "Book": "+800 DK",
           "Edge": "+8%",
           "NoPick": null,
           "Matchup": "NO: most rushing TDs allowed (10 in 5)",
-          "Reason": "Picks up work from Theo Johnson; Book +850 DK pays more than fair +283"
-        },
-        {
-          "Player": "Rico Dowdle",
-          "Tm": "PIT",
-          "Pos": "RB",
-          "Opp": "TB",
-          "Time": "Sun 12:00PM",
-          "TD%": "23%",
-          "Fair": 327,
-          "Book": "+380 DK",
-          "Edge": null,
-          "NoPick": "Yes: new team",
-          "Matchup": "",
-          "Reason": "Volume says 3.9 TDs over his last 10; he has 2; Picks up work from Ben Skowronek, Michael Pittman Jr., Roman Wilson"
+          "Reason": "Picks up work from Theo Johnson; Book +800 DK pays more than fair +283"
         }
       ],
       "value": [
@@ -282,19 +282,6 @@
           "Matchup": ""
         },
         {
-          "Player": "Devin Singletary",
-          "Tm": "NYG",
-          "Pos": "RB",
-          "Opp": "NO",
-          "Time": "Sun 12:00PM",
-          "TD%": "26%",
-          "Fair": 283,
-          "Book": "+850 DK",
-          "Edge": "+8%",
-          "NoPick": null,
-          "Matchup": "NO: most rushing TDs allowed (10 in 5)"
-        },
-        {
           "Player": "Davante Adams",
           "Tm": "LAR",
           "Pos": "WR",
@@ -306,6 +293,19 @@
           "Edge": "+8%",
           "NoPick": null,
           "Matchup": "ARI: most receiving TDs allowed (14 in 5)"
+        },
+        {
+          "Player": "Devin Singletary",
+          "Tm": "NYG",
+          "Pos": "RB",
+          "Opp": "NO",
+          "Time": "Sun 12:00PM",
+          "TD%": "26%",
+          "Fair": 283,
+          "Book": "+800 DK",
+          "Edge": "+8%",
+          "NoPick": null,
+          "Matchup": "NO: most rushing TDs allowed (10 in 5)"
         },
         {
           "Player": "Christian Watson",
@@ -393,7 +393,7 @@
           "Time": "Sun 8:30AM",
           "TD%": "50%",
           "Fair": 102,
-          "Book": "+150 DK",
+          "Book": "+150 FD",
           "Edge": "+5%",
           "NoPick": null,
           "Matchup": ""
@@ -468,8 +468,8 @@
           "market": "anytime TD",
           "pick": "Yes",
           "line": null,
-          "book": "-180 DK",
-          "p": 0.6429,
+          "book": "-175 DK",
+          "p": 0.6364,
           "gap": null
         },
         {
@@ -564,7 +564,7 @@
           "market": "anytime TD",
           "pick": "Yes",
           "line": null,
-          "book": "+150 DK",
+          "book": "+150 FD",
           "p": 0.4,
           "gap": null
         },
@@ -588,14 +588,14 @@
           "market": "anytime TD",
           "pick": "Yes",
           "line": null,
-          "book": "-105 FD",
-          "p": 0.5122,
+          "book": "+100 FD",
+          "p": 0.5,
           "gap": null
         }
       ],
       "status": "ok",
-      "generatedAt": "2026-10-18T11:49:09.936965+00:00",
-      "lastAttemptAt": "2026-10-18T11:49:09.936965+00:00",
+      "generatedAt": "2026-10-18T12:23:40.151894+00:00",
+      "lastAttemptAt": "2026-10-18T12:23:40.151894+00:00",
       "slate": "2026-10-18 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -763,7 +763,7 @@
           "TD10": "6/10",
           "TD%": "68%",
           "Fair": -213,
-          "Book": "-180 DK",
+          "Book": "-175 DK",
           "Edge": "+2%",
           "News": null,
           "Flags": null,
@@ -886,8 +886,8 @@
       "mentions": [],
       "value": [],
       "status": "ok",
-      "generatedAt": "2026-10-18T11:49:20.971770+00:00",
-      "lastAttemptAt": "2026-10-18T11:49:20.971770+00:00",
+      "generatedAt": "2026-10-18T12:23:47.668886+00:00",
+      "lastAttemptAt": "2026-10-18T12:23:47.668886+00:00",
       "slate": "2026-10-18 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -1038,7 +1038,7 @@
           "Wk4": "286/1",
           "Wk5": "96/0",
           "Proj": 264.6,
-          "Line": 229.5,
+          "Line": 227.5,
           "Pick": null,
           "Pick%": null,
           "Fair": null,
@@ -1146,7 +1146,7 @@
           "Wk4": "347/2",
           "Wk5": "261/1",
           "Proj": 245.9,
-          "Line": 254.5,
+          "Line": 252.5,
           "Pick": null,
           "Pick%": null,
           "Fair": null,
@@ -1361,6 +1361,36 @@
           "Matchup": ""
         },
         {
+          "Player": "Tre Tucker",
+          "Tm": "LV",
+          "Pos": "WR",
+          "Opp": "BUF",
+          "Time": "Sun 3:25PM",
+          "Proj": 3.6,
+          "Line": 3.5,
+          "Pick": "Under",
+          "Pick%": "55%",
+          "Fair": -120.0,
+          "Book": "+103 DK",
+          "Edge": "+5%",
+          "Matchup": "BUF: most catches to WRs allowed (15.2/G)"
+        },
+        {
+          "Player": "Kayshon Boutte",
+          "Tm": "HOU",
+          "Pos": "WR",
+          "Opp": "JAX",
+          "Time": "Sun 8:30AM",
+          "Proj": 2.7,
+          "Line": 2.5,
+          "Pick": "Under",
+          "Pick%": "70%",
+          "Fair": -232.0,
+          "Book": "-186 DK",
+          "Edge": "+5%",
+          "Matchup": ""
+        },
+        {
           "Player": "Davante Adams",
           "Tm": "LAR",
           "Pos": "WR",
@@ -1376,19 +1406,19 @@
           "Matchup": ""
         },
         {
-          "Player": "Tre Tucker",
-          "Tm": "LV",
+          "Player": "Xavier Hutchinson",
+          "Tm": "HOU",
           "Pos": "WR",
-          "Opp": "BUF",
-          "Time": "Sun 3:25PM",
-          "Proj": 3.6,
-          "Line": 3.5,
+          "Opp": "JAX",
+          "Time": "Sun 8:30AM",
+          "Proj": 4.0,
+          "Line": 1.5,
           "Pick": "Under",
           "Pick%": "55%",
-          "Fair": -121.0,
-          "Book": "-101 DK",
+          "Fair": -123.0,
+          "Book": "-102 FD",
           "Edge": "+5%",
-          "Matchup": "BUF: most catches to WRs allowed (15.2/G)"
+          "Matchup": ""
         },
         {
           "Player": "Garrett Wilson",
@@ -1404,51 +1434,9 @@
           "Book": "-120 DK",
           "Edge": "+5%",
           "Matchup": ""
-        },
-        {
-          "Player": "Jonathan Taylor",
-          "Tm": "IND",
-          "Pos": "RB",
-          "Opp": "TEN",
-          "Time": "Sun 12:00PM",
-          "Proj": 2.7,
-          "Line": 2.5,
-          "Pick": "Under",
-          "Pick%": "55%",
-          "Fair": -122.0,
-          "Book": "-102 FD",
-          "Edge": "+4%",
-          "Matchup": ""
-        },
-        {
-          "Player": "Cade Otton",
-          "Tm": "TB",
-          "Pos": "TE",
-          "Opp": "PIT",
-          "Time": "Sun 12:00PM",
-          "Proj": 3.7,
-          "Line": 3.5,
-          "Pick": "Under",
-          "Pick%": "62%",
-          "Fair": -162.0,
-          "Book": "-135 BOV",
-          "Edge": "+4%",
-          "Matchup": ""
         }
       ],
       "props": [
-        {
-          "player": "Kayshon Boutte",
-          "team": "HOU",
-          "opp": "JAX",
-          "time": "Sun 8:30AM",
-          "market": "receptions",
-          "pick": "Over",
-          "line": 1.5,
-          "book": "-185 DK",
-          "p": 0.6491,
-          "gap": 0.8
-        },
         {
           "player": "Jaylin Noel",
           "team": "HOU",
@@ -1457,8 +1445,8 @@
           "market": "receptions",
           "pick": "Over",
           "line": 1.5,
-          "book": "-117 DK",
-          "p": 0.5392,
+          "book": "-122 DK",
+          "p": 0.5495,
           "gap": 0.8
         },
         {
@@ -1541,8 +1529,8 @@
           "market": "receptions",
           "pick": "Over",
           "line": 2.5,
-          "book": "-158 FD",
-          "p": 0.6124,
+          "book": "-154 BOL",
+          "p": 0.6063,
           "gap": 0.2
         },
         {
@@ -1727,8 +1715,8 @@
         }
       ],
       "status": "ok",
-      "generatedAt": "2026-10-18T11:49:37.888397+00:00",
-      "lastAttemptAt": "2026-10-18T11:49:37.888397+00:00",
+      "generatedAt": "2026-10-18T12:23:59.022421+00:00",
+      "lastAttemptAt": "2026-10-18T12:23:59.022421+00:00",
       "slate": "2026-10-18 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -1831,7 +1819,7 @@
           "Tm": "NO",
           "L10": "4,3,6,10,8,10,8,9,8,4",
           "NewsHeadline": "Olave (illness), who is listed as questionable for Sunday's game at the Giants, is expected to suit up, Ian Rapoport of NFL Network reports. Olave was contained to just one limited session (Friday) during Week 6 prep as he dealt with an illness, but it won't stop him from being available Sunday. His status will be\u2026 [RotoWire, Oct 18]",
-          "NewsProb": 0.94,
+          "NewsProb": 0.92,
           "G": 21
         },
         {
@@ -1950,10 +1938,10 @@
           "Proj": 5.7,
           "Line": 5.5,
           "Pick": "Under",
-          "Pick%": "52%",
-          "Fair": -109.0,
-          "Book": "-105 MGM",
-          "Edge": "+1%",
+          "Pick%": "54%",
+          "Fair": -118.0,
+          "Book": "-110 MGM",
+          "Edge": "+2%",
           "Min10": 3,
           "Med": 4.5,
           "p3": 100,
@@ -2028,8 +2016,8 @@
     },
     "targets": {
       "status": "ok",
-      "generatedAt": "2026-10-18T11:49:37.905190+00:00",
-      "lastAttemptAt": "2026-10-18T11:49:37.905190+00:00",
+      "generatedAt": "2026-10-18T12:23:59.046119+00:00",
+      "lastAttemptAt": "2026-10-18T12:23:59.046119+00:00",
       "slate": "2026-10-18 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -2096,7 +2084,7 @@
           "Tm": "NO",
           "L10": "4,3,6,10,8,10,8,9,8,4",
           "NewsHeadline": "Olave (illness), who is listed as questionable for Sunday's game at the Giants, is expected to suit up, Ian Rapoport of NFL Network reports. Olave was contained to just one limited session (Friday) during Week 6 prep as he dealt with an illness, but it won't stop him from being available Sunday. His status will be\u2026 [RotoWire, Oct 18]",
-          "NewsProb": 0.94,
+          "NewsProb": 0.92,
           "G": 21
         },
         {
@@ -2271,15 +2259,15 @@
           "Opp": "HOU",
           "Time": "Sun 8:30AM",
           "Proj": 56.7,
-          "Line": 62.5,
+          "Line": 61.5,
           "Pick": "Under",
           "Pick%": "58%",
-          "Fair": -141.0,
-          "Book": "-114 BOL",
+          "Fair": -140.0,
+          "Book": "-113 FD",
           "Edge": "+5%",
           "NoPick": null,
           "Matchup": "",
-          "Reason": "Book -114 BOL on the Under 62.5 pays more than fair -141; Carries up: 18 a game over his last 3 vs 10.5 over his last 10"
+          "Reason": "Book -113 FD on the Under 61.5 pays more than fair -140; Carries up: 18 a game over his last 3 vs 10.5 over his last 10"
         },
         {
           "Player": "Braelon Allen",
@@ -2350,6 +2338,22 @@
           "Matchup": ""
         },
         {
+          "Player": "Woody Marks",
+          "Tm": "HOU",
+          "Pos": "RB",
+          "Opp": "JAX",
+          "Time": "Sun 8:30AM",
+          "Proj": 24.3,
+          "Line": 45.5,
+          "Pick": "Under",
+          "Pick%": "61%",
+          "Fair": -159.0,
+          "Book": "-112 DK",
+          "Edge": "+8%",
+          "NoPick": null,
+          "Matchup": ""
+        },
+        {
           "Player": "Tyler Allgeier",
           "Tm": "ARI",
           "Pos": "RB",
@@ -2361,22 +2365,6 @@
           "Pick%": "62%",
           "Fair": -159.0,
           "Book": "-113 FD",
-          "Edge": "+8%",
-          "NoPick": null,
-          "Matchup": ""
-        },
-        {
-          "Player": "Woody Marks",
-          "Tm": "HOU",
-          "Pos": "RB",
-          "Opp": "JAX",
-          "Time": "Sun 8:30AM",
-          "Proj": 24.3,
-          "Line": 45.5,
-          "Pick": "Under",
-          "Pick%": "61%",
-          "Fair": -159.0,
-          "Book": "-114 BR",
           "Edge": "+8%",
           "NoPick": null,
           "Matchup": ""
@@ -2446,22 +2434,6 @@
           "Matchup": ""
         },
         {
-          "Player": "MarShawn Lloyd",
-          "Tm": "GB",
-          "Pos": "RB",
-          "Opp": "DAL",
-          "Time": "Sun 7:20PM",
-          "Proj": 34.8,
-          "Line": 42.5,
-          "Pick": "Under",
-          "Pick%": "59%",
-          "Fair": -144.0,
-          "Book": "-111 BOL",
-          "Edge": "+6%",
-          "NoPick": null,
-          "Matchup": "DAL: most rush yards allowed (168.4/G)"
-        },
-        {
           "Player": "Kendre Miller",
           "Tm": "NO",
           "Pos": "RB",
@@ -2476,12 +2448,28 @@
           "Edge": "+6%",
           "NoPick": null,
           "Matchup": ""
+        },
+        {
+          "Player": "MarShawn Lloyd",
+          "Tm": "GB",
+          "Pos": "RB",
+          "Opp": "DAL",
+          "Time": "Sun 7:20PM",
+          "Proj": 34.8,
+          "Line": 42.5,
+          "Pick": "Under",
+          "Pick%": "59%",
+          "Fair": -144.0,
+          "Book": "-113 FD",
+          "Edge": "+6%",
+          "NoPick": null,
+          "Matchup": "DAL: most rush yards allowed (168.4/G)"
         }
       ],
       "props": [],
       "status": "ok",
-      "generatedAt": "2026-10-18T11:49:50.719169+00:00",
-      "lastAttemptAt": "2026-10-18T11:49:50.719169+00:00",
+      "generatedAt": "2026-10-18T12:24:12.441628+00:00",
+      "lastAttemptAt": "2026-10-18T12:24:12.441628+00:00",
       "slate": "2026-10-18 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -2760,12 +2748,12 @@
           "Wk4": "58",
           "Wk5": "59",
           "Proj": 68.7,
-          "Line": 50.5,
-          "Diff": 18.2,
+          "Line": 48.5,
+          "Diff": 20.2,
           "Pick": "Under",
-          "Pick%": "55%",
-          "Fair": -120.0,
-          "Book": "-118 BOL",
+          "Pick%": "54%",
+          "Fair": -115.0,
+          "Book": "-115 MGM",
           "Edge": "+0%",
           "News": null,
           "Flags": null,
@@ -2901,8 +2889,8 @@
       ],
       "value": [],
       "status": "ok",
-      "generatedAt": "2026-10-18T11:50:07.426531+00:00",
-      "lastAttemptAt": "2026-10-18T11:50:07.426531+00:00",
+      "generatedAt": "2026-10-18T12:24:24.259726+00:00",
+      "lastAttemptAt": "2026-10-18T12:24:24.259726+00:00",
       "slate": "2026-10-18 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -3045,7 +3033,7 @@
           "Tm": "NO",
           "L10": "47,30,85,148,119,182,86,107,116,46",
           "NewsHeadline": "Olave (illness), who is listed as questionable for Sunday's game at the Giants, is expected to suit up, Ian Rapoport of NFL Network reports. Olave was contained to just one limited session (Friday) during Week 6 prep as he dealt with an illness, but it won't stop him from being available Sunday. His status will be\u2026 [RotoWire, Oct 18]",
-          "NewsProb": 0.94,
+          "NewsProb": 0.93,
           "NoPick": "Over: no edge: the books' own price beat every model on real lines",
           "G": 21
         },
@@ -3121,8 +3109,8 @@
           "Wk4": "96",
           "Wk5": "118",
           "Proj": 84.3,
-          "Line": 88.5,
-          "Diff": -4.2,
+          "Line": 89.5,
+          "Diff": -5.2,
           "Pick": null,
           "Pick%": null,
           "Fair": null,
@@ -3195,7 +3183,7 @@
           "Tm": "DAL",
           "L10": "37,33,130,78,9,28,40,82,75,130",
           "NewsHeadline": "With CeeDee Lamb (quadriceps) healthy and cleared to play Sunday night against the Packers, Pickens will handle his normal role as Dallas' WR2. Lamb exploded for 17 catches in Week 4, but the Cowboys made a concerted effort to get Pickens more involved last Thursday night against the Bucs, as he secured nine of 13\u2026 [RotoWire, Oct 16]",
-          "NewsProb": 0.9,
+          "NewsProb": 0.93,
           "NoPick": "Under: no edge: the books' own price beat every model on real lines",
           "G": 22
         },
@@ -3211,8 +3199,8 @@
           "Wk4": "118",
           "Wk5": "56",
           "Proj": 78.7,
-          "Line": 72.5,
-          "Diff": 6.2,
+          "Line": 71.5,
+          "Diff": 7.2,
           "Pick": null,
           "Pick%": null,
           "Fair": null,
@@ -3236,19 +3224,6 @@
       "mentions": [],
       "value": [
         {
-          "Game": "HOU @ JAX",
-          "Tm": "JAX",
-          "Opp": "HOU",
-          "Time": "Sun 8:30AM",
-          "Proj": "JAX -1.5",
-          "Line": 42.0,
-          "Pick": "Under",
-          "Pick%": "55%",
-          "Fair": -122.0,
-          "Book": "-105 BOV",
-          "Edge": "+4%"
-        },
-        {
           "Game": "DAL @ GB",
           "Tm": "GB",
           "Opp": "DAL",
@@ -3260,6 +3235,32 @@
           "Fair": -122.0,
           "Book": "-105 LV",
           "Edge": "+4%"
+        },
+        {
+          "Game": "HOU @ JAX",
+          "Tm": "JAX",
+          "Opp": "HOU",
+          "Time": "Sun 8:30AM",
+          "Proj": "JAX -1.5",
+          "Line": 42.0,
+          "Pick": "Under",
+          "Pick%": "55%",
+          "Fair": -122.0,
+          "Book": "-107 LV",
+          "Edge": "+3%"
+        },
+        {
+          "Game": "PIT @ TB",
+          "Tm": "TB",
+          "Opp": "PIT",
+          "Time": "Sun 12:00PM",
+          "Proj": "TB -1.5",
+          "Line": 39.0,
+          "Pick": "Under",
+          "Pick%": "55%",
+          "Fair": -122.0,
+          "Book": "-107 LV",
+          "Edge": "+3%"
         },
         {
           "Game": "WAS @ SF",
@@ -3276,8 +3277,8 @@
         }
       ],
       "status": "ok",
-      "generatedAt": "2026-10-18T11:50:13.003665+00:00",
-      "lastAttemptAt": "2026-10-18T11:50:13.003665+00:00",
+      "generatedAt": "2026-10-18T12:24:29.050550+00:00",
+      "lastAttemptAt": "2026-10-18T12:24:29.050550+00:00",
       "slate": "2026-10-18 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -3308,8 +3309,8 @@
           "Pick": "Under",
           "Pick%": "55%",
           "Fair": -122.0,
-          "Book": "-105 BOV",
-          "Edge": "+4%",
+          "Book": "-107 LV",
+          "Edge": "+3%",
           "Teaser": "HOU +8.5",
           "Ref": null,
           "Ref O/U": null,
@@ -3348,7 +3349,7 @@
           "Pick": "Under",
           "Pick%": "55%",
           "Fair": -122.0,
-          "Book": "-110 BETUS",
+          "Book": "-107 LV",
           "Edge": "+3%",
           "Teaser": "TB +8.5",
           "Ref": null,
@@ -3380,7 +3381,7 @@
         {
           "Time": "Sun 12:00PM",
           "Game": "NO @ NYG",
-          "Spread": "NO -1",
+          "Spread": "NO -0.5",
           "Proj": "NYG -2.5",
           "Total": 46.0,
           "Proj Tot": 43.8,
@@ -3440,7 +3441,7 @@
         {
           "Time": "Sun 12:00PM",
           "Game": "NYJ @ NE",
-          "Spread": "NE -7.5",
+          "Spread": "NE -7",
           "Proj": "NE -9",
           "Total": 43.0,
           "Proj Tot": 41.7,
@@ -3563,22 +3564,8 @@
   },
   "picks": {
     "day": "2026-10-18",
-    "updatedAt": "2026-10-18T11:50:13.009695+00:00",
+    "updatedAt": "2026-10-18T12:24:29.059853+00:00",
     "items": [
-      {
-        "player": "Kayshon Boutte",
-        "team": "HOU",
-        "opp": "JAX",
-        "time": "Sun 8:30AM",
-        "market": "receptions",
-        "pick": "Over",
-        "line": 1.5,
-        "book": "-185 DK",
-        "kickoff": "2026-10-18T08:30:00-05:00",
-        "chance": "65%",
-        "edge": null,
-        "window": "Morning"
-      },
       {
         "player": "Bucky Irving",
         "team": "TB",
@@ -3608,16 +3595,30 @@
         "window": "Morning"
       },
       {
-        "player": "Kalif Raymond",
-        "team": "CHI",
-        "opp": "ATL",
+        "player": "Malachi Fields",
+        "team": "NYG",
+        "opp": "NO",
         "time": "Sun 12:00PM",
         "market": "receptions",
         "pick": "Over",
-        "line": 2.5,
-        "book": "-129 BR",
+        "line": 1.5,
+        "book": "-164 DK",
         "kickoff": "2026-10-18T12:00:00-05:00",
-        "chance": "56%",
+        "chance": "62%",
+        "edge": null,
+        "window": "Morning"
+      },
+      {
+        "player": "Jaylin Noel",
+        "team": "HOU",
+        "opp": "JAX",
+        "time": "Sun 8:30AM",
+        "market": "receptions",
+        "pick": "Over",
+        "line": 1.5,
+        "book": "-122 DK",
+        "kickoff": "2026-10-18T08:30:00-05:00",
+        "chance": "55%",
         "edge": null,
         "tag": "Sleeper",
         "window": "Morning"
