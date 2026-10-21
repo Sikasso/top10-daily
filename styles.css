@@ -349,3 +349,19 @@ nav button[hidden]{display:none}
 .lotl-pp-record strong{color:#f5d08a;margin-right:4px}
 @media(max-width:700px){.lotl-pp-leg{grid-template-columns:1fr auto}.lotl-pp-meta{grid-column:1/-1}}
 @media(prefers-reduced-motion:reduce){.lotl-pp-sum::before{transition:none}}
+/* NBA headshots: ESPN cutouts (transparent PNG) sit behind the card text, under their own text gradient. */
+.lotl-nba .lotl-card{isolation:isolate}
+.lotl-face{position:absolute;inset:0;z-index:-1;overflow:hidden;border-radius:inherit;pointer-events:none}
+.lotl-face img{position:absolute;right:-9%;bottom:0;height:80%;width:auto;max-width:none;opacity:0;filter:brightness(1.06) contrast(1.04);
+ -webkit-mask-image:linear-gradient(to top,transparent 0,#000 14%),linear-gradient(to right,transparent 0,#000 22%,#000 92%,transparent 100%);-webkit-mask-composite:source-in;
+ mask-image:linear-gradient(to top,transparent 0,#000 14%),linear-gradient(to right,transparent 0,#000 22%,#000 92%,transparent 100%);mask-composite:intersect;transition:opacity .45s ease-out}
+.lotl-face img.in{opacity:1}
+.lotl-face::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(6,7,9,.78) 0%,rgba(6,7,9,.4) 36%,rgba(6,7,9,0) 58%),linear-gradient(0deg,rgba(6,7,9,.45),rgba(6,7,9,0) 26%)}
+.lotl-nba .lotl-card:has(.lotl-face img)>:not(.lotl-face){text-shadow:0 1px 3px rgba(0,0,0,.85)}
+.lotl-pp-who:has(.lotl-pp-face){display:grid;grid-template-columns:38px 1fr;column-gap:10px;align-items:center}
+.lotl-pp-who:has(.lotl-pp-face)>:not(.lotl-pp-face){grid-column:2}
+.lotl-pp-face{grid-row:1/3;position:relative;width:38px;height:38px;border-radius:50%;overflow:hidden;background:radial-gradient(circle at 50% 35%,#2a2418,#0d0f13 70%);box-shadow:0 0 0 2px #0a0d12,0 0 0 3px #d8b56655}
+.lotl-pp-face img{position:absolute;left:50%;top:-12%;height:165%;width:auto;max-width:none;transform:translateX(-50%);opacity:0;transition:opacity .3s ease-out}
+.lotl-pp-face img.in{opacity:1}
+@media(max-width:700px){.lotl-face img{height:74%;right:-6%}}
+@media(prefers-reduced-motion:reduce){.lotl-face img,.lotl-pp-face img{transition:none}}
