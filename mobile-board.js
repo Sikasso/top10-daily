@@ -14,11 +14,13 @@
   states.set(list.dataset.board,state);
  }
  function metric(active,row,value){
+  if(active.startsWith('nba_'))return present(row.Line)?[`Last 10 over ${row.Line}`,row.Hit10]:['Proj',value('Proj',row.Proj)];
   if(active==='games')return ['Spread · Total',[value('Spread',row.Spread),value('Total',row.Total)].join(' · ')];
   if(active==='touchdowns')return ['TD chance',value('TD%',row['TD%'])];
   return [active==='receptions'?'Proj · catches':active==='strikeouts'?'Proj · Ks':'Proj · yards',value('Proj',row.Proj)];
  }
  function pickText(active,row,value){
+  if(active.startsWith('nba_'))return present(row.Line)?`Proj ${value('Proj',row.Proj)} · O ${row.Over||'—'} · U ${row.Under||'—'}`:'No line posted yet';
   if(row.NoPick)return 'No pick';
   if(present(row.Pick))return [row.Pick,present(row.Line)?value('Line',row.Line):''].filter(Boolean).join(' ');
   if(active==='passing'||active==='receiving')return 'Projection only';
@@ -29,7 +31,7 @@
   const state=states.get(active)||{open:new Set(),focus:null};
   const list=add(parent,'ol','','mobile-board');
   list.dataset.board=active;
-  list.setAttribute('aria-label',active==='games'?'Games this week':active+' top 10');
+  list.setAttribute('aria-label',active==='games'?'Games this week':active.replace('nba_','NBA ')+' top 10');
   rows.forEach((row,i)=>{
    const item=add(list,'li','','mobile-board-item');
    const details=add(item,'details','','mobile-board-details');

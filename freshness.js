@@ -3,6 +3,7 @@
   const zone='America/Chicago';
   const grace=30*60*1000;
   const nfl=new Set(['touchdowns','passing','receptions','targets','rushing','receiving','games']);
+  const nba=new Set(['nba_points','nba_rebounds','nba_assists','nba_threes','nba_pra']);
   function parts(date){return Object.fromEntries(new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(date).map(p=>[p.type,p.value]));}
   function localInstant(day,minute){
     const [year,month,date]=day.split('-').map(Number), hour=Math.floor(minute/60), min=minute%60;
@@ -22,6 +23,7 @@
     for(let offset=-1;offset<=0;offset++){
       const d=new Date(base+offset*86400000), day=d.toISOString().slice(0,10), weekday=d.getUTCDay();
       const mins=[407];   // daily run: 6:47 AM Central, same as pipeline scheduled_boards.PRIMARY_TIME
+      if(nba.has(category))mins.push(16*60+15,20*60+15);   // pipeline scheduled_boards.NBA_SCHEDULES
       if(nfl.has(category)){
         if(weekday===4)mins.push(18*60+7);
         if(weekday===0)mins.push(10*60+52,14*60+7,18*60+7);

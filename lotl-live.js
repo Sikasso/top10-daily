@@ -24,18 +24,18 @@
   return {pct,mark,tone,note,line:it.line==null?null:it.line};
  }
  // Countdown text for a kickoff. ms = time left.
- function countdown(ms){
-  if(ms<=0)return 'Kicking off';
+ function countdown(ms,verb='Kicking off'){
+  if(ms<=0)return verb;
   const s=Math.floor(ms/1000),h=Math.floor(s/3600),m=Math.floor(s%3600/60);
   if(h>=24)return '';
   if(h)return `in ${h}h ${String(m).padStart(2,'0')}m`;
   return `in ${m}:${String(s%60).padStart(2,'0')}`;
  }
  // One-line state of the whole slip.
- function slip(states){
+ function slip(states,verb='kick off'){
   const n=k=>states.filter(s=>s===k).length,won=n('won'),lost=n('lost'),live=n('live'),pre=n('pre');
   const parts=[];
-  if(won)parts.push(`${won} cashed`);if(lost)parts.push(`${lost} busted`);if(live)parts.push(`${live} live`);if(pre)parts.push(`${pre} to kick off`);
+  if(won)parts.push(`${won} cashed`);if(lost)parts.push(`${lost} busted`);if(live)parts.push(`${live} live`);if(pre)parts.push(`${pre} to ${verb}`);
   const decided=won+lost;
   if(!live&&!pre&&decided&&!lost)return {text:`Clean sweep, ${won} for ${won}`,sweep:true};
   if(!live&&!pre&&decided)return {text:`Final: ${won}–${lost}`,sweep:false};
@@ -95,18 +95,18 @@
  function tick(){
   const now=Date.now();
   document.querySelectorAll('[data-kick]').forEach(el=>{
-   const left=Number(el.dataset.kick)-now;el.textContent=countdown(left);el.classList.toggle('soon',left<15*60000);
+   const left=Number(el.dataset.kick)-now;el.textContent=countdown(left,el.dataset.verb);el.classList.toggle('soon',left<15*60000);
    if(left<=0&&!el.dataset.fired){el.dataset.fired='1';onKick?.();}
   });
  }
  setInterval(tick,1000);
  // Record tally: W–L and units count up from what was last on screen.
- let lastTally=null;
- function tally(wl,units,rec,money){
-  const from=lastTally||{won:0,lost:0,units:0},v=rec.void?'–'+rec.void:'';
+ const lastTally={};   // per sport: NFL and NBA keep separate records
+ function tally(wl,units,rec,money,sport='nfl'){
+  const from=lastTally[sport]||{won:0,lost:0,units:0},v=rec.void?'–'+rec.void:'';
   if(from.won!==rec.won||from.lost!==rec.lost){const a=from.won,b=from.lost;tween(wl,0,1,k=>`${Math.round(a+(rec.won-a)*k)}–${Math.round(b+(rec.lost-b)*k)}${v}`,1100);}else wl.textContent=`${rec.won}–${rec.lost}${v}`;
   tween(units,from.units,rec.units||0,money,1100);
-  lastTally={won:rec.won,lost:rec.lost,units:rec.units||0};
+  lastTally[sport]={won:rec.won,lost:rec.lost,units:rec.units||0};
  }
  root.Top10Live={...api,card,tick,tally,onKick:f=>{onKick=f;}};
 })(typeof globalThis!=='undefined'?globalThis:this);

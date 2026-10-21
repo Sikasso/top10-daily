@@ -44,3 +44,10 @@ assert.equal(slip(['won','live','pre','pre']).text,'1 cashed · 1 live · 2 to k
 assert.deepEqual(slip(['won','won','won','won']),{text:'Clean sweep, 4 for 4',sweep:true});
 assert.equal(slip(['won','lost','won','won']).text,'Final: 3–1');
 console.log('lotl-live tests passed');
+
+// NBA (2026-10-20): the slip and countdown say tip off; threes meter like any count.
+assert.equal(slip(['pre','pre','live','won'],'tip off').text,'1 cashed · 1 live · 2 to tip off');
+assert.equal(countdown(0,'Tipping off'),'Tipping off');
+assert.equal(meter({pick:'Under',line:1.5},1,['three','threes']).note,'No room left');
+assert.equal(meter({pick:'Over',line:24.5},20,['pt','pts']).note,'Needs 5 more pts');
+console.log('nba ok');

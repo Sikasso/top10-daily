@@ -32,3 +32,16 @@ assert.equal(staleFor('strikeouts',cat('2026-09-25T11:48:00Z'),new Date('2026-09
 assert.equal(staleFor('strikeouts',cat('2026-09-25T11:48:00Z'),new Date('2026-09-26T12:17:00Z')),true);
 assert.equal(staleFor('strikeouts',cat('2026-09-25T11:46:00Z'),new Date('2026-09-26T12:10:00Z')),true);
 console.log('freshness tests passed');
+
+// NBA boards are due at 6:47 AM, 4:15 PM and 8:15 PM Central every day.
+{
+  const {staleFor}=require('./freshness.js');
+  const at=(iso)=>new Date(iso);
+  const ok=g=>({status:'ok',generatedAt:g});
+  // Wed Oct 21 2026, 5:00 PM CDT (22:00Z): 4:15 PM slot + 30 min grace has passed.
+  assert.equal(staleFor('nba_points',ok('2026-10-21T11:50:00Z'),at('2026-10-21T22:00:00Z')),true);
+  assert.equal(staleFor('nba_points',ok('2026-10-21T21:16:00Z'),at('2026-10-21T22:00:00Z')),false);
+  // NFL boards on a Wednesday only owe the morning run.
+  assert.equal(staleFor('touchdowns',ok('2026-10-21T11:50:00Z'),at('2026-10-21T22:00:00Z')),false);
+  console.log('nba freshness ok');
+}

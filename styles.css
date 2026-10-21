@@ -260,3 +260,15 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding:20px 0 28px;colo
 @keyframes spark{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(.2)}}
 @media(max-width:560px){.lotl-count{font-size:26px}.lotl-stamp{font-size:16px;top:11px;right:11px}.lotl-slip{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.pulse polyline{animation:none;stroke-dashoffset:0}.lotl-status .dot,.lotl-pips i,.lotl-slip.sweep,.lotl-card.bump,.lotl-card.bump .lotl-count,.lotl-stamp.fresh,.lotl-card.bust-in,.lotl-card.cash-in::after,.lotl-card:has(.lotl-status.live) .lotl-fill::after{animation:none}.lotl-fill{transition:none}}
+/* Sport row (2026-10-20): NBA · NFL · MLB above the board tabs */
+.sports{display:flex;gap:6px;margin:22px 0 4px}
+.sports button{min-height:40px;padding:8px 18px;border:1px solid var(--line);border-radius:999px;background:transparent;color:#8e97a4;font:800 15px var(--sans);font-stretch:68%;letter-spacing:.06em;cursor:pointer;transition:color .18s,background .18s,border-color .18s}
+.sports button:hover{color:#e5ce9a;border-color:#d8b56655}
+.sports button[aria-pressed=true]{color:#0a0d12;background:#d8b566;border-color:#d8b566}
+nav button[hidden]{display:none}
+.lotl+.lotl{margin-top:16px}
+.lotl-league,.lotl-trial{font:700 11px var(--sans);font-stretch:100%;letter-spacing:.1em;text-shadow:none;padding:4px 8px;border-radius:4px;align-self:center}
+.lotl-league{color:#0a0d12;background:#d8b566}
+.lotl-trial{color:#d8b566;border:1px solid #d8b56688}
+.lotl-nba .lotl-card{--art:radial-gradient(120% 90% at 85% 15%,rgba(216,181,102,.22),rgba(216,181,102,.04) 55%,transparent 75%)}
+@media(prefers-reduced-motion:reduce){.sports button{transition:none}}
