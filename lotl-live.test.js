@@ -51,3 +51,43 @@ assert.equal(countdown(0,'Tipping off'),'Tipping off');
 assert.equal(meter({pick:'Under',line:1.5},1,['three','threes']).note,'No room left');
 assert.equal(meter({pick:'Over',line:24.5},20,['pt','pts']).note,'Needs 5 more pts');
 console.log('nba ok');
+
+// Record history (2026-10-21): day groups on the Central calendar, market-side breakdown.
+{
+const {centralDay,summarize,byDay,byMarket}=require('./lotl-live.js');
+const rec=(kickoff,market,pick,grade,units,line=1.5)=>({player:'P',kickoff,market,pick,line,grade,units});
+// 7:20 PM CDT Sunday is 00:20 UTC Monday: still Sunday in Central.
+assert.equal(centralDay('2026-10-18T19:20:00-05:00'),'2026-10-18');
+assert.equal(centralDay('2026-10-19T04:59:00Z'),'2026-10-18');
+assert.equal(centralDay('2026-10-19T05:01:00Z'),'2026-10-19');
+const items=[
+ rec('2026-10-18T12:00:00-05:00','threes','Over','won',0.8),
+ rec('2026-10-19T00:20:00Z','threes','Over','lost',-1),           // Sun night game, after UTC midnight
+ rec('2026-10-18T15:25:00-05:00','points','Under','void',0),
+ rec('2026-10-20T18:30:00-05:00','threes','Over',null,null),       // pending
+ rec('2026-10-20T19:00:00-05:00','points','Under','won',0.7),
+ rec('2026-10-17T19:00:00-05:00','points','Under','won',0.6),
+ rec('2026-10-17T19:00:00-05:00','anytime TD','Yes','won',0.4,null),
+];
+const days=byDay(items);
+assert.deepEqual(days.map(d=>d.day),['2026-10-20','2026-10-18','2026-10-17']);
+assert.equal(days[1].label,'Sun, Oct 18');
+assert.equal(days[1].items.length,3);
+assert.equal(days[1].items[0].kickoff,'2026-10-19T00:20:00Z');   // newest pick first within the day
+assert.deepEqual([days[1].won,days[1].lost,days[1].void,days[1].pending],[1,1,1,0]);
+assert.equal(days[1].units,-0.2);
+// Pending counts as pending and adds no units.
+assert.deepEqual([days[0].won,days[0].pending,days[0].units],[1,1,0.7]);
+const s=summarize(items);
+assert.deepEqual([s.n,s.won,s.lost,s.void,s.pending],[7,4,1,1,1]);
+assert.equal(s.units,1.5);
+// Breakdown: keyed market + side, most-bet first, units summed over graded picks only.
+const m=byMarket(items);
+assert.deepEqual(m.map(x=>x.label),['Points Under','Threes Over','Anytime TD']);
+assert.deepEqual(m.map(x=>x.n),[3,3,1]);
+assert.equal(m[0].units,1.3);assert.equal(m[1].units,-0.2);
+assert.deepEqual([m[1].won,m[1].lost,m[1].pending],[1,1,1]);
+assert.equal(byMarket([rec('2026-10-18T12:00:00Z','pra','Over','won',1)])[0].label,'PRA Over');
+assert.deepEqual(byDay([]),[]);
+console.log('history ok');
+}

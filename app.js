@@ -21,7 +21,7 @@ function closedSign(){$('basis').textContent='MLB’s regular season ended Septe
 function pickId(it){return `${it.player}|${it.market}|${it.line}`;}   // line too: a PrizePicks leg can sit at another number
 const results={};const winOpen={};   // window -> open, once the viewer toggles it
 const NBA_LABEL={pra:'PRA'};
-function renderPicks(p,nba=false){const box=$(nba?'lotl-nba':'lotl');if(!box)return;const previousScroll=[...box.querySelectorAll('.lotl-grid')].map(g=>g.scrollLeft);box.replaceChildren();const items=p?.items||[];const rec=nba?payload?.recordNba:payload?.record;const recItems=rec?.items||[];const ppAny=nba&&(payload?.picksPp?.items?.length||payload?.recordPp?.items?.length);box.hidden=!items.length&&!recItems.length&&!ppAny;if(box.hidden)return;
+function renderPicks(p,nba=false){refreshHist();const box=$(nba?'lotl-nba':'lotl');if(!box)return;const previousScroll=[...box.querySelectorAll('.lotl-grid')].map(g=>g.scrollLeft);box.replaceChildren();const items=p?.items||[];const rec=nba?payload?.recordNba:payload?.record;const recItems=rec?.items||[];const ppAny=nba&&(payload?.picksPp?.items?.length||payload?.recordPp?.items?.length);box.hidden=!items.length&&!recItems.length&&!ppAny;if(box.hidden)return;
 
 const head=add(box,'div','','lotl-head');const t=add(head,'div','');const h=add(t,'h2','Life on the Line','lotl-title');h.id=nba?'lotl-nba-title':'lotl-title';add(h,'span',nba?'NBA':'NFL','lotl-league');if(nba&&p?.trial)add(h,'span','Trial','lotl-trial');
 h.insertAdjacentHTML('beforeend','<svg class="pulse" viewBox="0 0 120 24" aria-hidden="true"><polyline points="0,12 38,12 46,12 52,3 58,21 64,6 69,15 73,12 120,12"/></svg>');
@@ -60,14 +60,53 @@ items.forEach(it=>{const g=rec?.items?.find(e=>e.grade&&e.player===it.player&&e.
 const li=add(ol,'li','',`lotl-pp-leg${r?.grade?' '+r.grade:''}`);const who=add(li,'div','','lotl-pp-who');add(who,'span',it.player,'player');add(who,'span',`${it.team} vs ${it.opp}`,'sub');
 add(li,'div',`${it.pick} ${it.line} ${NBA_LABEL[it.market]||it.market}`,'lotl-pp-bet');const m=add(li,'div','','lotl-pp-meta');add(m,'span',`${it.chance} by the books`);add(m,'span',`${it.hits} last 10`);if(it.pp)add(m,'span',it.pp);
 const started=now>=new Date(it.kickoff).getTime();add(li,'div',r?.grade==='won'?`✓ Won: ${r.text}`:r?.grade==='lost'?`✗ Lost: ${r.text}`:r?.grade==='void'?`Void: ${r.text}`:started?(r?.text?`Live: ${r.text} so far`:'In progress'):`Tips off ${it.time.replace(/(\d)(AM|PM)$/,'$1 $2')}`,'lotl-pp-status');});
-if(rec?.items?.length){const t=add(det,'p','','lotl-pp-record');add(t,'strong',`${rec.won}–${rec.lost}${rec.void?'–'+rec.void:''}`);add(t,'span',` PrizePicks 4 record · ${money(rec.units||0)} at −137 a leg, a 3-pick Power play’s break-even price`);}}
+if(rec?.items?.length){const t=add(det,'p','','lotl-pp-record');add(t,'strong',`${rec.won}–${rec.lost}${rec.void?'–'+rec.void:''}`);add(t,'span',` PrizePicks 4 record · ${money(rec.units||0)} at −137 a leg, a 3-pick Power play’s break-even price`);histButton(t,'pp',rec.items.length);}}
 const money=u=>`${u>0?'+':u<0?'−':''}${Math.abs(u).toFixed(2)}u`;
+const betText=e=>e.line!=null?`${e.pick} ${e.line} ${NBA_LABEL[e.market]||e.market}`:e.market;
+const resultText=e=>e.grade==='won'?`✓ ${e.result}`:e.grade==='lost'?`✗ ${e.result}`:e.grade==='void'?`Void: ${e.result}`:'Pending';
+const wlv=s=>`${s.won}–${s.lost}${s.void?'–'+s.void:''}`;
+// One record row; withDay adds the date cell for the inline table.
+function recRow(tb,e,withDay){const tr=add(tb,'tr','',e.grade||'pending');if(withDay)add(tr,'td',recDay.format(new Date(e.kickoff)),'day');add(tr,'td',e.player,'who');add(tr,'td',betText(e),'bet');add(tr,'td',e.book||'','book');add(tr,'td',resultText(e),'res');add(tr,'td',e.grade?money(e.units||0):'','num');}
+const recDay=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric'});
 function renderRecord(box,rec,sport){const all=rec?.items||[];if(!all.length)return;const done=all.filter(e=>e.grade);const sec=add(box,'div','','lotl-record');
 const sum=add(sec,'div','','lotl-tally');add(sum,'span','Record','lotl-tally-label');const wl=add(sum,'span',`${rec.won}–${rec.lost}${rec.void?'–'+rec.void:''}`,'lotl-tally-wl');const un=add(sum,'span',money(rec.units||0),`lotl-tally-units ${rec.units>0?'up':rec.units<0?'down':''}`);window.Top10Live?.tally(wl,un,rec,money,sport);add(sum,'span',`${done.length} graded · 1 unit per pick at the listed price`,'lotl-tally-note');
-const det=add(sec,'details','','lotl-history');add(det,'summary','Every pick so far');const tb=add(add(det,'table','','lotl-table'),'tbody');
-const day=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric'});
-all.forEach(e=>{const tr=add(tb,'tr','',e.grade||'pending');add(tr,'td',day.format(new Date(e.kickoff)));add(tr,'td',e.player);add(tr,'td',e.line!=null?`${e.pick} ${e.line} ${NBA_LABEL[e.market]||e.market}`:e.market);add(tr,'td',e.book||'');
-add(tr,'td',e.grade==='won'?`✓ ${e.result}`:e.grade==='lost'?`✗ ${e.result}`:e.grade==='void'?`Void: ${e.result}`:'Pending');add(tr,'td',e.grade?money(e.units||0):'','num');});}
+const recent=add(sec,'div','','lotl-recent');add(recent,'h3',`Last ${Math.min(8,all.length)} ${all.length===1?'pick':'picks'}`,'lotl-recent-title');const tb=add(add(recent,'table','','lotl-table'),'tbody');
+newest(all).slice(0,8).forEach(e=>recRow(tb,e,true));
+if(all.length>8)histButton(recent,sport,all.length);}
+const newest=items=>items.map((e,i)=>[e,i]).sort((a,b)=>new Date(b[0].kickoff)-new Date(a[0].kickoff)||a[1]-b[1]).map(x=>x[0]);
+// Every pick lives in one shared dialog. The LOTL boxes re-render every 30 s; the dialog sits on
+// <body>, so it's never torn down, and it rebuilds in place only when its record actually changes.
+const HIST={nfl:{title:'Life on the Line',league:'NFL',rec:()=>payload?.record,note:'1 unit per pick at the listed price'},nba:{title:'Life on the Line',league:'NBA',rec:()=>payload?.recordNba,note:'1 unit per pick at the listed price'},pp:{title:'PrizePicks 4',league:'NBA',rec:()=>payload?.recordPp,note:'At −137 a leg, a 3-pick Power play’s break-even price'}};
+const hist={key:null,filter:null,open:{},sig:''};
+function histButton(parent,key,n){const b=add(parent,'button',`See all ${n} picks`,'lotl-seeall');b.type='button';b.setAttribute('aria-haspopup','dialog');b.addEventListener('click',()=>openHist(key));return b;}
+function histDialog(){let d=$('lotl-hist');if(d)return d;d=document.createElement('dialog');d.id='lotl-hist';d.className='lotl-dlg';d.setAttribute('aria-labelledby','lotl-hist-title');
+const shell=add(d,'div','','lotl-dlg-in');const head=add(shell,'div','','lotl-dlg-head');const t=add(head,'div','','lotl-dlg-titles');const h=add(t,'h2','','lotl-dlg-title');h.id='lotl-hist-title';add(t,'p','','lotl-dlg-tally');
+const x=add(head,'button','','lotl-dlg-close');x.type='button';x.setAttribute('aria-label','Close');x.innerHTML='<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>';x.addEventListener('click',()=>d.close());
+add(shell,'div','','lotl-dlg-body');
+d.addEventListener('click',e=>{if(e.target===d)d.close();});   // the backdrop: the shell covers the dialog box itself
+d.addEventListener('close',()=>{hist.key=null;});document.body.append(d);return d;}
+function openHist(key){const d=histDialog();hist.key=key;hist.filter=null;hist.open={};hist.sig='';fillHist(true);d.querySelector('.lotl-dlg-body').scrollTop=0;if(!d.open)d.showModal();}
+// Called on every LOTL render; a no-op unless the dialog is open and its record changed.
+function refreshHist(){const d=$('lotl-hist');if(d?.open&&hist.key)fillHist(false);}
+function fillHist(force){const L=window.Top10Live,d=$('lotl-hist'),cfg=HIST[hist.key];if(!L?.byDay||!d||!cfg)return;const rec=cfg.rec()||{},all=rec.items||[];
+const sig=JSON.stringify([rec.won,rec.lost,rec.void,rec.units,all.map(e=>[e.player,e.market,e.line,e.kickoff,e.grade,e.result,e.units])]);if(!force&&sig===hist.sig)return;hist.sig=sig;
+const body=d.querySelector('.lotl-dlg-body'),scroll=body.scrollTop,focusKey=document.activeElement?.dataset?.histFocus;
+const h=d.querySelector('.lotl-dlg-title');h.replaceChildren(cfg.title);add(h,'span',cfg.league,'lotl-league');
+const tl=d.querySelector('.lotl-dlg-tally');tl.replaceChildren();add(tl,'strong',`${rec.won||0}–${rec.lost||0}${rec.void?'–'+rec.void:''}`);add(tl,'span',money(rec.units||0),`units ${rec.units>0?'up':rec.units<0?'down':''}`);add(tl,'span',`${all.length} ${all.length===1?'pick':'picks'} · ${cfg.note}`,'note');
+body.replaceChildren();const markets=L.byMarket(all);if(hist.filter&&!markets.some(m=>m.key===hist.filter))hist.filter=null;
+add(body,'h3','By bet type','lotl-dlg-label');const chips=add(body,'div','','lotl-chips');chips.setAttribute('role','group');chips.setAttribute('aria-label','Filter by bet type');
+const chip=(key,parts,cls)=>{const b=add(chips,'button','',`lotl-chip${cls?' '+cls:''}`);b.type='button';b.dataset.histFocus='chip:'+(key||'all');b.setAttribute('aria-pressed',String((hist.filter||null)===key));parts.forEach(([t,c])=>add(b,'span',t,c));b.addEventListener('click',()=>{hist.filter=hist.filter===key||key===null?null:key;fillHist(true);});};
+chip(null,[['All',''],[wlv(L.summarize(all)),'wl']],'all');
+markets.forEach(m=>chip(m.key,[[m.label,''],[wlv(m),'wl'],[`${m.units>0?'+':m.units<0?'−':''}${Math.abs(m.units).toFixed(1)}u`,`u ${m.units>0?'up':m.units<0?'down':''}`]]));
+const shown=hist.filter?all.filter(e=>L.marketKey(e)===hist.filter):all;
+if(hist.filter){const m=markets.find(x=>x.key===hist.filter);add(body,'p',`${m.label}: ${wlv(m)} · ${money(m.units)}${m.pending?` · ${m.pending} pending`:''} over ${m.n} ${m.n===1?'pick':'picks'}`,'lotl-dlg-filter');}
+const days=add(body,'div','','lotl-days');
+L.byDay(shown).forEach((g,i)=>{const det=add(days,'details','','lotl-day');det.open=hist.open[g.day]??i===0;det.addEventListener('toggle',()=>{hist.open[g.day]=det.open;});
+const s=add(det,'summary','','lotl-day-sum');s.dataset.histFocus='day:'+g.day;add(s,'span',g.label,'lotl-day-name');const graded=g.won+g.lost+g.void;
+if(graded){add(s,'span',wlv(g),'lotl-day-wl');add(s,'span',money(g.units),`lotl-day-u ${g.units>0?'up':g.units<0?'down':''}`);}if(g.pending)add(s,'span',`${g.pending} pending`,'lotl-day-pend');
+const tb=add(add(det,'table','','lotl-table lotl-day-table'),'tbody');g.items.forEach(e=>recRow(tb,e,false));});
+if(!shown.length)add(body,'p','No picks yet.','lotl-dlg-filter');
+body.scrollTop=scroll;if(focusKey)body.querySelector(`[data-hist-focus="${CSS.escape(focusKey)}"]`)?.focus({preventScroll:true});}
 const ESPN='https://site.api.espn.com/apis/site/v2/sports/football/nfl';
 const STAT={'total':[],'receptions':[['receiving','receptions']],'rec yds':[['receiving','receivingYards']],'rush yds':[['rushing','rushingYards']],'pass yds':[['passing','passingYards']],'pass TDs':[['passing','passingTouchdowns']],'anytime TD':[['rushing','rushingTouchdowns'],['receiving','receivingTouchdowns']]};
 const UNIT={'total':['pt','pts'],'receptions':['catch','catches'],'rec yds':['yd','yds'],'rush yds':['yd','yds'],'pass yds':['yd','yds'],'pass TDs':['TD','TDs'],'anytime TD':['TD','TDs'],'strikeouts':['K','Ks'],'points':['pt','pts'],'rebounds':['reb','reb'],'assists':['ast','ast'],'threes':['three','threes'],'pra':['PRA','PRA']};

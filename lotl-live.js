@@ -41,7 +41,34 @@
   if(!live&&!pre&&decided)return {text:`Final: ${won}–${lost}`,sweep:false};
   return {text:parts.join(' · '),sweep:false};
  }
- const api={meter,countdown,slip};
+ // Record history. Pure: items are record entries {kickoff, market, pick, line, grade, units}.
+ const CT_DAY=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',year:'numeric',month:'2-digit',day:'2-digit'});
+ const CT_LABEL=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',weekday:'short',month:'short',day:'numeric'});
+ const centralDay=iso=>{const p=Object.fromEntries(CT_DAY.formatToParts(new Date(iso)).map(x=>[x.type,x.value]));return `${p.year}-${p.month}-${p.day}`;};   // 'YYYY-MM-DD' on the Central calendar
+ const newestFirst=items=>items.map((e,i)=>[e,i]).sort((a,b)=>new Date(b[0].kickoff)-new Date(a[0].kickoff)||a[1]-b[1]).map(x=>x[0]);
+ // W–L–V, pending, units (graded picks only), rounded clear of float noise.
+ function summarize(items){
+  const s={n:items.length,won:0,lost:0,void:0,pending:0,units:0};
+  for(const e of items){if(e.grade==='won'||e.grade==='lost'||e.grade==='void'){s[e.grade]++;s.units+=Number(e.units)||0;}else s.pending++;}
+  s.units=Math.round(s.units*1e4)/1e4;return s;
+ }
+ // Picks grouped by Central calendar day, newest day first, newest pick first within a day.
+ function byDay(items){
+  const days=new Map();
+  for(const e of newestFirst(items)){const d=centralDay(e.kickoff);if(!days.has(d))days.set(d,[]);days.get(d).push(e);}
+  return [...days].sort((a,b)=>a[0]<b[0]?1:a[0]>b[0]?-1:0).map(([day,list])=>({day,label:CT_LABEL.format(new Date(list[0].kickoff)),items:list,...summarize(list)}));
+ }
+ const MARKET_LABEL={pra:'PRA'};
+ const marketLabel=(market,pick)=>`${MARKET_LABEL[market]||String(market).replace(/^./,c=>c.toUpperCase())}${pick&&pick!=='Yes'?' '+pick:''}`;
+ const marketKey=e=>`${e.market}|${e.pick||''}`;
+ // One row per market + side (Threes Over, Receptions Under), most-bet first, then best units.
+ function byMarket(items){
+  const groups=new Map();
+  for(const e of items){const k=marketKey(e);if(!groups.has(k))groups.set(k,[]);groups.get(k).push(e);}
+  return [...groups].map(([key,list])=>({key,market:list[0].market,pick:list[0].pick,label:marketLabel(list[0].market,list[0].pick),...summarize(list)}))
+   .sort((a,b)=>b.n-a.n||b.units-a.units||a.label.localeCompare(b.label));
+ }
+ const api={meter,countdown,slip,centralDay,summarize,byDay,byMarket,marketKey,marketLabel};
  if(typeof module!=='undefined'&&module.exports){module.exports=api;return;}
 
  // Browser side: remembers what each card last showed so motion fires on change only.
