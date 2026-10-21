@@ -78,9 +78,11 @@ const wlv=s=>`${s.won}–${s.lost}${s.void?'–'+s.void:''}`;
 // One record row; withDay adds the date cell for the inline table.
 function recRow(tb,e,withDay){const tr=add(tb,'tr','',e.grade||'pending');if(withDay)add(tr,'td',recDay.format(new Date(e.kickoff)),'day');add(tr,'td',e.player,'who');add(tr,'td',betText(e),'bet');add(tr,'td',e.book||'','book');add(tr,'td',resultText(e),'res');add(tr,'td',e.grade?money(e.units||0):'','num');}
 const recDay=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',month:'short',day:'numeric'});
+const recentOpen={};
 function renderRecord(box,rec,sport){const all=rec?.items||[];if(!all.length)return;const done=all.filter(e=>e.grade);const sec=add(box,'div','','lotl-record');
 const sum=add(sec,'div','','lotl-tally');add(sum,'span','Record','lotl-tally-label');const wl=add(sum,'span',`${rec.won}–${rec.lost}${rec.void?'–'+rec.void:''}`,'lotl-tally-wl');const un=add(sum,'span',money(rec.units||0),`lotl-tally-units ${rec.units>0?'up':rec.units<0?'down':''}`);window.Top10Live?.tally(wl,un,rec,money,sport);add(sum,'span',`${done.length} graded · 1 unit per pick at the listed price`,'lotl-tally-note');
-const recent=add(sec,'div','','lotl-recent');add(recent,'h3',`Last ${Math.min(8,all.length)} ${all.length===1?'pick':'picks'}`,'lotl-recent-title');const tb=add(add(recent,'table','','lotl-table'),'tbody');
+// Folded by default (user, 10/21: the LOTL area is busy with two leagues); a viewer's open stays open across re-renders.
+const recent=add(sec,'details','','lotl-recent');recent.open=!!recentOpen[sport];recent.addEventListener('toggle',()=>{recentOpen[sport]=recent.open;});add(recent,'summary',`Last ${Math.min(8,all.length)} ${all.length===1?'pick':'picks'}`,'lotl-recent-title');const tb=add(add(recent,'table','','lotl-table'),'tbody');
 newest(all).slice(0,8).forEach(e=>recRow(tb,e,true));
 if(all.length>8)histButton(recent,sport,all.length);}
 const newest=items=>items.map((e,i)=>[e,i]).sort((a,b)=>new Date(b[0].kickoff)-new Date(a[0].kickoff)||a[1]-b[1]).map(x=>x[0]);

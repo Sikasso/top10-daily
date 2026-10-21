@@ -187,7 +187,11 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding:20px 0 28px;colo
 .lotl-tally-units.down{color:#e08a8a}
 .lotl-tally-note{color:#a89a82;font-size:12.5px}
 .lotl-recent{margin-top:12px}
-.lotl-recent-title{margin:0;color:#c6ad7c;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.lotl-recent-title{margin:0;color:#c6ad7c;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;min-height:32px}
+.lotl-recent-title::-webkit-details-marker{display:none}
+.lotl-recent-title::before{content:'▶';font-size:11px;color:#d8b566;transition:transform .18s}
+.lotl-recent[open]>.lotl-recent-title::before{transform:rotate(90deg)}
+@media(prefers-reduced-motion:reduce){.lotl-recent-title::before{transition:none}}
 .lotl-table td.who{font-weight:600}
 .lotl-seeall{display:inline-flex;align-items:center;gap:8px;min-height:40px;margin-top:12px;padding:8px 16px;border:1px solid #d8b56677;border-radius:999px;background:#d8b56612;color:#f5d08a;font:800 15px var(--sans);font-stretch:72%;letter-spacing:.05em;cursor:pointer;transition:background .18s,border-color .18s}
 .lotl-seeall::after{content:'';width:7px;height:7px;border-right:2px solid currentColor;border-top:2px solid currentColor;transform:rotate(45deg)}
