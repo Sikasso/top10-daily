@@ -39,7 +39,7 @@ const grid=add(sec,'ol','','lotl-grid');grid.tabIndex=0;grid.setAttribute('aria-
 group.forEach((it,i)=>{const g=recItems.find(e=>e.grade&&e.player===it.player&&e.market===it.market&&e.kickoff===it.kickoff);const r=g?{grade:g.grade,text:g.result,final:true}:results[pickId(it)];const li=add(grid,'li','',`lotl-card${r?.grade?' '+r.grade:''}`);add(li,'span',String(i+1),'lotl-num');
 if(it.tag)add(li,'span',it.tag,'lotl-tag');add(li,'div',it.player,'lotl-player');if(it.market!=='total')add(li,'div',[it.team,it.opp?'vs '+it.opp:''].filter(Boolean).join(' '),'sub');
 const mk=NBA_LABEL[it.market]||it.market;const bet=it.line!=null?`${it.pick} ${it.line} ${mk}`:mk.replace(/^./,c=>c.toUpperCase());add(li,'div',bet,'lotl-bet');
-const m=add(li,'div','','lotl-meta');if(it.book)add(m,'span',it.book);if(it.chance)add(m,'span',`${it.chance} to hit`);if(it.hits)add(m,'span',`${it.hits} last 10`);if(it.edge!=null){const e=Math.round(it.edge*100);add(m,'span',`Edge ${e>0?'+':''}${e}%`,e>=3?'primary':'');}
+const m=add(li,'div','','lotl-meta');if(it.book)add(m,'span',it.book);if(it.chance)add(m,'span',`${it.chance} to hit`);if(it.hits)add(m,'span',`${it.hits} last 10`);if(it.pp)add(m,'span',it.pp,/easier|same/.test(it.pp)?'primary':'');if(it.edge!=null){const e=Math.round(it.edge*100);add(m,'span',`Edge ${e>0?'+':''}${e}%`,e>=3?'primary':'');}
 window.Top10Live?.card(li,it,r,pickId(it),add,UNIT[it.market]||['','']);
 const k=new Date(it.kickoff).getTime();const started=now>=k;
 const st=add(li,'div','',`lotl-status${r?.grade?' '+r.grade:started&&!r?.final?' live':''}`);
