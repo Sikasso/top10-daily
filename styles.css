@@ -272,3 +272,24 @@ nav button[hidden]{display:none}
 .lotl-trial{color:#d8b566;border:1px solid #d8b56688}
 .lotl-nba .lotl-card{--art:radial-gradient(120% 90% at 85% 15%,rgba(216,181,102,.22),rgba(216,181,102,.04) 55%,transparent 75%)}
 @media(prefers-reduced-motion:reduce){.sports button{transition:none}}
+/* PrizePicks 4 (2026-10-21): folded under the NBA Life on the Line */
+.lotl-pp{margin-top:14px;border:1px solid #d8b56633;border-radius:8px;background:#0a0d1299}
+.lotl-pp-sum{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:12px 14px;cursor:pointer;list-style:none}
+.lotl-pp-sum::-webkit-details-marker{display:none}
+.lotl-pp-sum::before{content:'▶';color:#d8b566;font-size:11px;line-height:1;transition:transform .18s}
+.lotl-pp[open] .lotl-pp-sum::before{transform:rotate(90deg)}
+.lotl-pp-title{font:800 18px var(--sans);font-stretch:68%;color:#f5d08a}
+.lotl-pp-note{font-size:13px;color:var(--muted)}
+.lotl-pp-basis{margin:0 14px 10px;font-size:12px;color:var(--muted);max-width:72ch}
+.lotl-pp-list{list-style:none;margin:0;padding:0 14px 6px;display:grid;gap:8px}
+.lotl-pp-leg{display:grid;grid-template-columns:minmax(150px,1.2fr) minmax(140px,1fr) 2fr auto;gap:6px 14px;align-items:baseline;padding:10px 0;border-top:1px solid var(--line)}
+.lotl-pp-who{display:flex;flex-direction:column}
+.lotl-pp-bet{font-weight:700;color:#ffe5a1}
+.lotl-pp-meta{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.lotl-pp-status{font-size:12px;color:var(--muted)}
+.lotl-pp-leg.won .lotl-pp-status{color:var(--lime)}
+.lotl-pp-leg.lost .lotl-pp-status{color:#e07a6a}
+.lotl-pp-record{margin:4px 14px 14px;font-size:13px;color:var(--muted);max-width:none}
+.lotl-pp-record strong{color:#f5d08a;margin-right:4px}
+@media(max-width:700px){.lotl-pp-leg{grid-template-columns:1fr auto}.lotl-pp-meta{grid-column:1/-1}}
+@media(prefers-reduced-motion:reduce){.lotl-pp-sum::before{transition:none}}
