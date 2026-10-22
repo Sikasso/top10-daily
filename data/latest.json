@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "attemptedAt": "2026-10-22T16:24:45.091954+00:00",
+  "attemptedAt": "2026-10-22T16:27:46.751980+00:00",
   "categories": {
     "strikeouts": {
       "status": "ok",
@@ -297,8 +297,8 @@
         }
       ],
       "status": "ok",
-      "generatedAt": "2026-10-22T16:25:05.024655+00:00",
-      "lastAttemptAt": "2026-10-22T16:25:05.024655+00:00",
+      "generatedAt": "2026-10-22T16:28:15.526683+00:00",
+      "lastAttemptAt": "2026-10-22T16:28:15.526683+00:00",
       "slate": "2026-10-22 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -394,13 +394,13 @@
           "Fair": -166,
           "Book": null,
           "Edge": null,
-          "News": null,
+          "News": "More Looks",
           "Flags": null,
           "Inj": null,
           "Matchup": "",
           "Tm": "SF",
-          "NewsHeadline": null,
-          "NewsProb": null,
+          "NewsHeadline": "McCaffrey rushed 16 times for 64 yards and two touchdowns and brought in nine of 10 targets for 53 yards in the 49ers' 23-17 win over the Commanders on Monday night. He also lost a fumble. McCaffrey, who's been subject to a markedly lighter workload than usual over the first weeks of the campaign, recorded season\u2026 [RotoWire, Oct 19]",
+          "NewsProb": 0.61,
           "NoPick": null,
           "G": 23
         },
@@ -427,7 +427,7 @@
           "Matchup": "",
           "Tm": "CHI",
           "NewsHeadline": "Swift rushed 16 times for 44 yards and two touchdowns and brought in four of five targets for 26 yards in the Bears' 31-23 win over the Falcons on Sunday. The Falcons' front did a good job on Swift overall, but the veteran running back was able to offset his average of 2.8 yards per carry with four- and two-yard\u2026 [RotoWire, Oct 19]",
-          "NewsProb": 0.97,
+          "NewsProb": 0.98,
           "NoPick": "Yes: injury or role news against it",
           "G": 22
         },
@@ -481,7 +481,7 @@
           "Matchup": "PHI: 5th most rushing TDs allowed (8 in 6)",
           "Tm": "DAL",
           "NewsHeadline": "Williams rushed 11 times for 41 yards and a touchdown while catching both of his targets for nine yards in Sunday's 23-13 loss to the Packers. Williams got the Cowboys on the board with a one-yard touchdown run in the third quarter. That was his seventh rushing score and eighth total touchdown through six games this\u2026 [RotoWire, Oct 18]",
-          "NewsProb": 0.92,
+          "NewsProb": 0.96,
           "NoPick": null,
           "G": 22
         },
@@ -1065,10 +1065,60 @@
         }
       ],
       "props": [],
+      "fill": [
+        {
+          "player": "Hunter Henry",
+          "team": "NE",
+          "opp": "CHI",
+          "time": "Thu 7:15PM",
+          "market": "receptions",
+          "pick": "Under",
+          "line": 3.5,
+          "book": "-154 FD",
+          "p": 0.6063,
+          "gap": 0.086
+        },
+        {
+          "player": "Luther Burden III",
+          "team": "CHI",
+          "opp": "NE",
+          "time": "Thu 7:15PM",
+          "market": "receptions",
+          "pick": "Over",
+          "line": 4.5,
+          "book": "-132 BR",
+          "p": 0.569,
+          "gap": 0.156
+        },
+        {
+          "player": "Colston Loveland",
+          "team": "CHI",
+          "opp": "NE",
+          "time": "Thu 7:15PM",
+          "market": "receptions",
+          "pick": "Over",
+          "line": 3.5,
+          "book": "-160 DK",
+          "p": 0.6154,
+          "gap": 0.057
+        },
+        {
+          "player": "Rome Odunze",
+          "team": "CHI",
+          "opp": "NE",
+          "time": "Thu 7:15PM",
+          "market": "receptions",
+          "pick": "Under",
+          "line": 3.5,
+          "book": "-150 MGM",
+          "p": 0.6,
+          "gap": 0.114
+        }
+      ],
       "pp": [],
       "status": "ok",
-      "generatedAt": "2026-10-22T16:25:21.109532+00:00",
-      "lastAttemptAt": "2026-10-22T16:25:21.109532+00:00",
+      "generatedAt": "2026-10-22T16:28:37.674862+00:00",
+      "lastAttemptAt": "2026-10-22T16:28:37.674862+00:00",
       "slate": "2026-10-22 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -1761,10 +1811,24 @@
         }
       ],
       "props": [],
+      "fill": [
+        {
+          "player": "Drake Maye",
+          "team": "NE",
+          "opp": "CHI",
+          "time": "Thu 7:15PM",
+          "market": "rush yds",
+          "pick": "Under",
+          "line": 27.5,
+          "book": "-112 BOL",
+          "p": 0.5283,
+          "gap": 0.076
+        }
+      ],
       "pp": [],
       "status": "ok",
-      "generatedAt": "2026-10-22T16:25:28.686693+00:00",
-      "lastAttemptAt": "2026-10-22T16:25:28.686693+00:00",
+      "generatedAt": "2026-10-22T16:28:53.755548+00:00",
+      "lastAttemptAt": "2026-10-22T16:28:53.755548+00:00",
       "slate": "2026-10-22 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -4330,7 +4394,7 @@
   },
   "picks": {
     "day": "2026-10-22",
-    "updatedAt": "2026-10-22T16:25:56.228739+00:00",
+    "updatedAt": "2026-10-22T16:28:53.786711+00:00",
     "items": [
       {
         "player": "Rhamondre Stevenson",
@@ -4343,6 +4407,48 @@
         "book": "-105 FD",
         "kickoff": "2026-10-22T19:15:00-05:00",
         "chance": "51%",
+        "edge": null,
+        "window": "Evening"
+      },
+      {
+        "player": "Colston Loveland",
+        "team": "CHI",
+        "opp": "NE",
+        "time": "Thu 7:15PM",
+        "market": "receptions",
+        "pick": "Over",
+        "line": 3.5,
+        "book": "-160 DK",
+        "kickoff": "2026-10-22T19:15:00-05:00",
+        "chance": "62%",
+        "edge": null,
+        "window": "Evening"
+      },
+      {
+        "player": "Hunter Henry",
+        "team": "NE",
+        "opp": "CHI",
+        "time": "Thu 7:15PM",
+        "market": "receptions",
+        "pick": "Under",
+        "line": 3.5,
+        "book": "-154 FD",
+        "kickoff": "2026-10-22T19:15:00-05:00",
+        "chance": "61%",
+        "edge": null,
+        "window": "Evening"
+      },
+      {
+        "player": "Rome Odunze",
+        "team": "CHI",
+        "opp": "NE",
+        "time": "Thu 7:15PM",
+        "market": "receptions",
+        "pick": "Under",
+        "line": 3.5,
+        "book": "-150 MGM",
+        "kickoff": "2026-10-22T19:15:00-05:00",
+        "chance": "60%",
         "edge": null,
         "window": "Evening"
       }
