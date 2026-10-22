@@ -371,3 +371,5 @@ nav button[hidden]{display:none}
 .lotl-pp-face img.in{opacity:1}
 @media(max-width:700px){.lotl-face img{height:74%;right:-6%}}
 @media(prefers-reduced-motion:reduce){.lotl-face img,.lotl-pp-face img{transition:none}}
+/* On PrizePicks (2026-10-22): a badge only when the feed confirmed a PrizePicks line */
+.pp-badge{display:inline-flex;align-items:center;justify-content:center;margin-left:8px;padding:1px 6px;min-width:22px;height:18px;border-radius:5px;background:#7b3fe4;color:#fff;font:800 10px var(--sans);font-stretch:100%;letter-spacing:.04em;vertical-align:middle;text-shadow:none;box-shadow:0 0 0 1px #a77cff55}

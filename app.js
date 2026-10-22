@@ -21,6 +21,9 @@ function closedSign(){$('basis').textContent='MLB’s regular season ended Septe
 function pickId(it){return `${it.player}|${it.market}|${it.line}`;}   // line too: a PrizePicks leg can sit at another number
 const results={};const winOpen={};   // window -> open, once the viewer toggles it
 const NBA_LABEL={pra:'PRA'};
+// The feed misses some PrizePicks lines, so it can only ever confirm one: badge when it did, silence otherwise.
+const onPP=it=>!!it.pp&&!/^Not on/.test(it.pp);
+function ppBadge(parent){const b=add(parent,'span','PP','pp-badge');b.title='On PrizePicks';b.setAttribute('aria-label','On PrizePicks');return b;}
 function renderPicks(p,nba=false){refreshHist();const box=$(nba?'lotl-nba':'lotl');if(!box)return;const previousScroll=[...box.querySelectorAll('.lotl-grid')].map(g=>g.scrollLeft);box.replaceChildren();const items=p?.items||[];const rec=nba?payload?.recordNba:payload?.record;const recItems=rec?.items||[];const ppAny=nba&&(payload?.picksPp?.items?.length||payload?.recordPp?.items?.length);box.hidden=!items.length&&!recItems.length&&!ppAny;if(box.hidden)return;
 
 const head=add(box,'div','','lotl-head');const t=add(head,'div','');const h=add(t,'h2','Life on the Line','lotl-title');h.id=nba?'lotl-nba-title':'lotl-title';add(h,'span',nba?'NBA':'NFL','lotl-league');if(nba&&p?.trial)add(h,'span','Trial','lotl-trial');
@@ -37,9 +40,9 @@ if(multi){sec=add(box,'details','','lotl-window');sec.open=winOpen[w]??w===curre
 {const states=group.map(stateOf),sl=window.Top10Live?.slip(states,nba?'tip off':'kick off');if(sl){const strip=add(top,'div','',`lotl-slip${sl.sweep?' sweep':''}`);const pips=add(strip,'span','','lotl-pips');pips.setAttribute('aria-hidden','true');states.forEach(s=>add(pips,'i','',s));add(strip,'span',sl.text,'lotl-slip-text');}}
 const grid=add(sec,'ol','','lotl-grid');grid.tabIndex=0;grid.setAttribute('aria-label',`${multi?w+' window: ':''}featured props — scroll to browse all picks`);
 group.forEach((it,i)=>{const g=recItems.find(e=>e.grade&&e.player===it.player&&e.market===it.market&&e.kickoff===it.kickoff);const r=g?{grade:g.grade,text:g.result,final:true}:results[pickId(it)];const li=add(grid,'li','',`lotl-card${r?.grade?' '+r.grade:''}`);if(nba)headshot(add(li,'span','','lotl-face'),it.pid,'card');add(li,'span',String(i+1),'lotl-num');
-if(it.tag)add(li,'span',it.tag,'lotl-tag');add(li,'div',it.player,'lotl-player');if(it.market!=='total')add(li,'div',[it.team,it.opp?'vs '+it.opp:''].filter(Boolean).join(' '),'sub');
+if(it.tag)add(li,'span',it.tag,'lotl-tag');{const pl=add(li,'div',it.player,'lotl-player');if(it.sport==='nba'&&onPP(it))ppBadge(pl);}if(it.market!=='total')add(li,'div',[it.team,it.opp?'vs '+it.opp:''].filter(Boolean).join(' '),'sub');
 const mk=NBA_LABEL[it.market]||it.market;const bet=it.line!=null?`${it.pick} ${it.line} ${mk}`:mk.replace(/^./,c=>c.toUpperCase());add(li,'div',bet,'lotl-bet');
-const m=add(li,'div','','lotl-meta');if(it.book)add(m,'span',it.book);if(it.chance)add(m,'span',`${it.chance} to hit`);if(it.hits)add(m,'span',`${it.hits} last 10`);if(it.pp)add(m,'span',it.pp,/easier|same/.test(it.pp)?'primary':'');if(it.edge!=null){const e=Math.round(it.edge*100);add(m,'span',`Edge ${e>0?'+':''}${e}%`,e>=3?'primary':'');}
+const m=add(li,'div','','lotl-meta');if(it.book)add(m,'span',it.book);if(it.chance)add(m,'span',`${it.chance} to hit`);if(it.hits)add(m,'span',`${it.hits} last 10`);if(it.edge!=null){const e=Math.round(it.edge*100);add(m,'span',`Edge ${e>0?'+':''}${e}%`,e>=3?'primary':'');}
 window.Top10Live?.card(li,it,r,pickId(it),add,UNIT[it.market]||['','']);
 const k=new Date(it.kickoff).getTime();const started=now>=k;
 const st=add(li,'div','',`lotl-status${r?.grade?' '+r.grade:started&&!r?.final?' live':''}`);
@@ -67,8 +70,8 @@ const sum=add(det,'summary','','lotl-pp-sum');add(sum,'span','PrizePicks 4','lot
 add(det,'p','Our 4 for a PrizePicks slip, at the books’ line: same rules and vetoes as above, plus rebound and assist Overs (PrizePicks pays the same whatever the price, and after our vetoes those hit 59.5% and 58.2% on last season’s lines). Each leg notes what PrizePicks has posted, its standard line and any goblin at the books’ number, so you pick the version to play. Graded at the books’ line.','lotl-pp-basis');
 const ol=add(det,'ol','','lotl-pp-list');const now=Date.now();
 items.forEach(it=>{const g=rec?.items?.find(e=>e.grade&&e.player===it.player&&e.market===it.market&&e.kickoff===it.kickoff&&e.line===it.line);const r=g?{grade:g.grade,text:g.result}:results[pickId(it)];
-const li=add(ol,'li','',`lotl-pp-leg${r?.grade?' '+r.grade:''}`);const who=add(li,'div','','lotl-pp-who');headshot(add(who,'span','','lotl-pp-face'),it.pid,'leg');add(who,'span',it.player,'player');add(who,'span',`${it.team} vs ${it.opp}`,'sub');
-const bt=add(li,'div',`${it.pick} ${it.line} ${NBA_LABEL[it.market]||it.market}`,'lotl-pp-bet');if(it.tag==='Goblin')add(bt,'span','Goblin','goblin-tag');const m=add(li,'div','','lotl-pp-meta');add(m,'span',`${it.chance} by the books${it.books?' at '+it.books:''}`);add(m,'span',`${it.hits} last 10`);if(it.pp)add(m,'span',it.pp);
+const li=add(ol,'li','',`lotl-pp-leg${r?.grade?' '+r.grade:''}`);const who=add(li,'div','','lotl-pp-who');headshot(add(who,'span','','lotl-pp-face'),it.pid,'leg');{const pl=add(who,'span',it.player,'player');if(onPP(it))ppBadge(pl);}add(who,'span',`${it.team} vs ${it.opp}`,'sub');
+const bt=add(li,'div',`${it.pick} ${it.line} ${NBA_LABEL[it.market]||it.market}`,'lotl-pp-bet');if(it.tag==='Goblin')add(bt,'span','Goblin','goblin-tag');const m=add(li,'div','','lotl-pp-meta');add(m,'span',`${it.chance} by the books${it.books?' at '+it.books:''}`);add(m,'span',`${it.hits} last 10`);
 const started=now>=new Date(it.kickoff).getTime();add(li,'div',r?.grade==='won'?`✓ Won: ${r.text}`:r?.grade==='lost'?`✗ Lost: ${r.text}`:r?.grade==='void'?`Void: ${r.text}`:started?(r?.text?`Live: ${r.text} so far`:'In progress'):`Tips off ${it.time.replace(/(\d)(AM|PM)$/,'$1 $2')}`,'lotl-pp-status');});
 if(rec?.items?.length){const t=add(det,'p','','lotl-pp-record');add(t,'strong',`${rec.won}–${rec.lost}${rec.void?'–'+rec.void:''}`);add(t,'span',` PrizePicks 4 record · ${money(rec.units||0)} at −137 a leg (a 3-pick Power play’s break-even), graded at the books’ line`);histButton(t,'pp',rec.items.length);}}
 const money=u=>`${u>0?'+':u<0?'−':''}${Math.abs(u).toFixed(2)}u`;
