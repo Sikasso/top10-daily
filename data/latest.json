@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "attemptedAt": "2026-10-26T01:16:42.289247+00:00",
+  "attemptedAt": "2026-10-26T03:51:38.278881+00:00",
   "categories": {
     "strikeouts": {
       "status": "ok",
@@ -1854,8 +1854,8 @@
     },
     "nba_points": {
       "status": "empty",
-      "generatedAt": "2026-10-26T01:17:26.403475+00:00",
-      "lastAttemptAt": "2026-10-26T01:17:26.403475+00:00",
+      "generatedAt": "2026-10-26T03:51:40.272286+00:00",
+      "lastAttemptAt": "2026-10-26T03:51:40.272286+00:00",
       "slate": "2026-10-25",
       "columns": [],
       "rows": [],
@@ -1863,8 +1863,8 @@
     },
     "nba_rebounds": {
       "status": "empty",
-      "generatedAt": "2026-10-26T01:17:26.853403+00:00",
-      "lastAttemptAt": "2026-10-26T01:17:26.853403+00:00",
+      "generatedAt": "2026-10-26T03:51:40.772422+00:00",
+      "lastAttemptAt": "2026-10-26T03:51:40.772422+00:00",
       "slate": "2026-10-25",
       "columns": [],
       "rows": [],
@@ -1872,8 +1872,8 @@
     },
     "nba_assists": {
       "status": "empty",
-      "generatedAt": "2026-10-26T01:17:27.293112+00:00",
-      "lastAttemptAt": "2026-10-26T01:17:27.293112+00:00",
+      "generatedAt": "2026-10-26T03:51:41.274506+00:00",
+      "lastAttemptAt": "2026-10-26T03:51:41.274506+00:00",
       "slate": "2026-10-25",
       "columns": [],
       "rows": [],
@@ -1881,8 +1881,8 @@
     },
     "nba_threes": {
       "status": "empty",
-      "generatedAt": "2026-10-26T01:17:27.739268+00:00",
-      "lastAttemptAt": "2026-10-26T01:17:27.739268+00:00",
+      "generatedAt": "2026-10-26T03:51:41.761939+00:00",
+      "lastAttemptAt": "2026-10-26T03:51:41.761939+00:00",
       "slate": "2026-10-25",
       "columns": [],
       "rows": [],
@@ -1890,8 +1890,8 @@
     },
     "nba_pra": {
       "status": "empty",
-      "generatedAt": "2026-10-26T01:17:28.206908+00:00",
-      "lastAttemptAt": "2026-10-26T01:17:28.206908+00:00",
+      "generatedAt": "2026-10-26T03:51:42.250361+00:00",
+      "lastAttemptAt": "2026-10-26T03:51:42.250361+00:00",
       "slate": "2026-10-25",
       "columns": [],
       "rows": [],
@@ -2086,7 +2086,9 @@
         "book": "-144 DK",
         "chance": "59%",
         "edge": null,
-        "grade": null
+        "grade": "won",
+        "result": "4 catches",
+        "units": 0.694
       },
       {
         "player": "Kenneth Walker III",
@@ -2099,7 +2101,9 @@
         "book": "-120 DK",
         "chance": "55%",
         "edge": null,
-        "grade": null
+        "grade": "lost",
+        "result": "0 TDs",
+        "units": -1.0
       },
       {
         "player": "Jaxon Smith-Njigba",
@@ -2112,7 +2116,9 @@
         "book": "+125 DK",
         "chance": "44%",
         "edge": null,
-        "grade": null
+        "grade": "won",
+        "result": "1 TD",
+        "units": 1.25
       },
       {
         "player": "Travis Kelce",
@@ -2125,7 +2131,9 @@
         "book": "-150 BOV",
         "chance": "60%",
         "edge": null,
-        "grade": null
+        "grade": "won",
+        "result": "4 catches",
+        "units": 0.667
       },
       {
         "player": "Tyler Higbee",
@@ -3256,14 +3264,14 @@
         "units": 0.769
       }
     ],
-    "won": 50,
-    "lost": 24,
+    "won": 53,
+    "lost": 25,
     "void": 1,
-    "units": 10.79
+    "units": 12.4
   },
   "picksNba": {
     "day": "2026-10-25",
-    "updatedAt": "2026-10-26T01:17:28.209981+00:00",
+    "updatedAt": "2026-10-26T03:51:42.254075+00:00",
     "trial": true,
     "items": [
       {
@@ -3356,7 +3364,9 @@
         "sport": "nba",
         "game": "401909864",
         "trial": true,
-        "grade": null
+        "grade": "won",
+        "result": "2 threes",
+        "units": 0.714
       },
       {
         "player": "Scottie Barnes",
@@ -3372,7 +3382,9 @@
         "sport": "nba",
         "game": "401909864",
         "trial": true,
-        "grade": null
+        "grade": "won",
+        "result": "0 threes",
+        "units": 0.385
       },
       {
         "player": "Kris Dunn",
@@ -3388,7 +3400,9 @@
         "sport": "nba",
         "game": "401909865",
         "trial": true,
-        "grade": null
+        "grade": "won",
+        "result": "1 three",
+        "units": 0.476
       },
       {
         "player": "Ace Bailey",
@@ -3697,9 +3711,9 @@
         "units": -1.0
       }
     ],
-    "won": 14,
+    "won": 17,
     "lost": 3,
     "void": 0,
-    "units": 4.67
+    "units": 6.25
   }
 }
