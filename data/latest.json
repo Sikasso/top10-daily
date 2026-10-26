@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "attemptedAt": "2026-10-26T17:43:33.988861+00:00",
+  "attemptedAt": "2026-10-26T17:46:17.817260+00:00",
   "categories": {
     "strikeouts": {
       "status": "ok",
@@ -226,8 +226,8 @@
         }
       ],
       "status": "ok",
-      "generatedAt": "2026-10-26T17:43:41.861431+00:00",
-      "lastAttemptAt": "2026-10-26T17:43:41.861431+00:00",
+      "generatedAt": "2026-10-26T17:46:24.473833+00:00",
+      "lastAttemptAt": "2026-10-26T17:46:24.473833+00:00",
       "slate": "2026-10-26 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -329,7 +329,7 @@
           "Matchup": "",
           "Tm": "PHI",
           "NewsHeadline": "Goedert (knee) is on the field for the start of Saturday's practice, Dave Zangaro of NBC Sports Philadelphia reports. Goedert missed the first two practices of Week 7 prep while tending to a knee injury, but he's back on the field and in pads for Saturday's session. The Eagles are also dealing with injuries to DeVonta\u2026 [RotoWire, Oct 24]",
-          "NewsProb": 0.71,
+          "NewsProb": 0.7,
           "NoPick": null,
           "G": 19
         },
@@ -375,7 +375,7 @@
           "TD10": "2/10",
           "TD%": "30%",
           "Fair": 234,
-          "Book": "+180 FAN",
+          "Book": "+175 DK",
           "Edge": "-3%",
           "News": null,
           "Flags": null,
@@ -723,8 +723,8 @@
       ],
       "pp": [],
       "status": "ok",
-      "generatedAt": "2026-10-26T17:43:55.907601+00:00",
-      "lastAttemptAt": "2026-10-26T17:43:55.907601+00:00",
+      "generatedAt": "2026-10-26T17:46:31.091653+00:00",
+      "lastAttemptAt": "2026-10-26T17:46:31.091653+00:00",
       "slate": "2026-10-26 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -864,7 +864,7 @@
           "Tm": "PHI",
           "L10": "2,2,8,6,3,3,4,1,6,6",
           "NewsHeadline": "Goedert (knee) is on the field for the start of Saturday's practice, Dave Zangaro of NBC Sports Philadelphia reports. Goedert missed the first two practices of Week 7 prep while tending to a knee injury, but he's back on the field and in pads for Saturday's session. The Eagles are also dealing with injuries to DeVonta\u2026 [RotoWire, Oct 24]",
-          "NewsProb": 0.7,
+          "NewsProb": 0.71,
           "G": 19
         },
         {
@@ -1283,11 +1283,24 @@
         }
       ],
       "props": [],
-      "fill": [],
+      "fill": [
+        {
+          "player": "Saquon Barkley",
+          "team": "PHI",
+          "opp": "DAL",
+          "time": "Mon 7:15PM",
+          "market": "rush yds",
+          "pick": "Under",
+          "line": 68.5,
+          "book": "-110 DK",
+          "p": 0.5238,
+          "gap": 0.145
+        }
+      ],
       "pp": [],
       "status": "ok",
-      "generatedAt": "2026-10-26T17:44:01.907298+00:00",
-      "lastAttemptAt": "2026-10-26T17:44:01.907298+00:00",
+      "generatedAt": "2026-10-26T17:46:37.323729+00:00",
+      "lastAttemptAt": "2026-10-26T17:46:37.323729+00:00",
       "slate": "2026-10-26 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -1379,7 +1392,7 @@
           "Tm": "PHI",
           "L10": "22,56,122,78,132,68,83,9,82,8",
           "NewsHeadline": "Barkley (hamstring), who is listed as questionable for Monday's game against the Cowboys, is \"trending toward playing,\" Mike Garafolo of NFL Network reports. Though No. 1 wideout DeVonta Smith (hamstring) has been ruled out for the Week 7 contest, the Eagles are expected to get one of their other top playmakers in\u2026 [RotoWire, Oct 26]",
-          "NewsProb": 0.96,
+          "NewsProb": 0.95,
           "NoPick": null,
           "G": 20
         },
@@ -4690,7 +4703,7 @@
   },
   "picks": {
     "day": "2026-10-26",
-    "updatedAt": "2026-10-26T17:44:39.500695+00:00",
+    "updatedAt": "2026-10-26T17:46:37.344367+00:00",
     "items": [
       {
         "player": "George Pickens",
@@ -4731,6 +4744,20 @@
         "book": "-159 BR",
         "kickoff": "2026-10-26T19:15:00-05:00",
         "chance": "61%",
+        "edge": null,
+        "window": "Evening"
+      },
+      {
+        "player": "Saquon Barkley",
+        "team": "PHI",
+        "opp": "DAL",
+        "time": "Mon 7:15PM",
+        "market": "rush yds",
+        "pick": "Under",
+        "line": 68.5,
+        "book": "-110 DK",
+        "kickoff": "2026-10-26T19:15:00-05:00",
+        "chance": "52%",
         "edge": null,
         "window": "Evening"
       }
