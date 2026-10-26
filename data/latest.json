@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "attemptedAt": "2026-10-26T03:51:38.278881+00:00",
+  "attemptedAt": "2026-10-26T03:58:00.272829+00:00",
   "categories": {
     "strikeouts": {
       "status": "ok",
@@ -1854,8 +1854,8 @@
     },
     "nba_points": {
       "status": "empty",
-      "generatedAt": "2026-10-26T03:51:40.272286+00:00",
-      "lastAttemptAt": "2026-10-26T03:51:40.272286+00:00",
+      "generatedAt": "2026-10-26T03:58:01.841728+00:00",
+      "lastAttemptAt": "2026-10-26T03:58:01.841728+00:00",
       "slate": "2026-10-25",
       "columns": [],
       "rows": [],
@@ -1863,8 +1863,8 @@
     },
     "nba_rebounds": {
       "status": "empty",
-      "generatedAt": "2026-10-26T03:51:40.772422+00:00",
-      "lastAttemptAt": "2026-10-26T03:51:40.772422+00:00",
+      "generatedAt": "2026-10-26T03:58:02.338096+00:00",
+      "lastAttemptAt": "2026-10-26T03:58:02.338096+00:00",
       "slate": "2026-10-25",
       "columns": [],
       "rows": [],
@@ -1872,8 +1872,8 @@
     },
     "nba_assists": {
       "status": "empty",
-      "generatedAt": "2026-10-26T03:51:41.274506+00:00",
-      "lastAttemptAt": "2026-10-26T03:51:41.274506+00:00",
+      "generatedAt": "2026-10-26T03:58:02.812489+00:00",
+      "lastAttemptAt": "2026-10-26T03:58:02.812489+00:00",
       "slate": "2026-10-25",
       "columns": [],
       "rows": [],
@@ -1881,8 +1881,8 @@
     },
     "nba_threes": {
       "status": "empty",
-      "generatedAt": "2026-10-26T03:51:41.761939+00:00",
-      "lastAttemptAt": "2026-10-26T03:51:41.761939+00:00",
+      "generatedAt": "2026-10-26T03:58:03.291104+00:00",
+      "lastAttemptAt": "2026-10-26T03:58:03.291104+00:00",
       "slate": "2026-10-25",
       "columns": [],
       "rows": [],
@@ -1890,8 +1890,8 @@
     },
     "nba_pra": {
       "status": "empty",
-      "generatedAt": "2026-10-26T03:51:42.250361+00:00",
-      "lastAttemptAt": "2026-10-26T03:51:42.250361+00:00",
+      "generatedAt": "2026-10-26T03:58:03.772000+00:00",
+      "lastAttemptAt": "2026-10-26T03:58:03.772000+00:00",
       "slate": "2026-10-25",
       "columns": [],
       "rows": [],
@@ -3271,8 +3271,7 @@
   },
   "picksNba": {
     "day": "2026-10-25",
-    "updatedAt": "2026-10-26T03:51:42.254075+00:00",
-    "trial": true,
+    "updatedAt": "2026-10-26T03:58:03.775079+00:00",
     "items": [
       {
         "player": "Ace Bailey",
