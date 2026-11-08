@@ -23,7 +23,7 @@ const results={};const winOpen={};   // window -> open, once the viewer toggles 
 const NBA_LABEL={pra:'PRA'};
 // One image of a window's picks for the share sheet (lotl-shot.js): the cards scroll sideways on a phone.
 const SHOT_DAY=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',weekday:'short',month:'short',day:'numeric'}),SHOT_AT=new Intl.DateTimeFormat('en-US',{timeZone:'America/Chicago',hour:'numeric',minute:'2-digit'});
-function shotButton(sec,group,w,nba,p,recItems){if(!window.Top10Shot||!group.length)return;const b=add(sec,'button','Save as image','lotl-seeall lotl-shot-btn');b.type='button';b.setAttribute('aria-haspopup','dialog');
+function shotButton(sec,group,w,nba,p,recItems){if(!window.Top10Shot||!group.length)return;const b=add(sec,'button','📸','lotl-seeall lotl-shot-btn');b.type='button';b.setAttribute('aria-label','Save as image');b.title='Save as image';b.setAttribute('aria-haspopup','dialog');
 b.addEventListener('click',()=>{const now=Date.now();const legs=group.map(it=>{const g=recItems.find(e=>e.grade&&e.player===it.player&&e.market===it.market&&e.kickoff===it.kickoff);return {it,r:g?{grade:g.grade,text:g.result,final:true}:results[pickId(it)],unit:UNIT[it.market]||['',''],started:now>=new Date(it.kickoff).getTime(),label:NBA_LABEL[it.market]||it.market};});
 const day=new Date(group[0].kickoff),league=nba?'NBA':'NFL';const iso=(p?.day||'').slice(0,10)||day.toISOString().slice(0,10);
 window.Top10Shot.open({league,window:w,day:SHOT_DAY.format(day),subtitle:[w,SHOT_DAY.format(day)].filter(Boolean).join(' · '),verb:nba?'tip off':'kick off',stamp:`as of ${SHOT_AT.format(new Date(now))} CT`,file:`life-on-the-line-${league.toLowerCase()}-${iso}${w?'-'+w.toLowerCase():''}.png`,legs});});}

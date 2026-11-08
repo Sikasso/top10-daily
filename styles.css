@@ -375,7 +375,7 @@ nav button[hidden]{display:none}
 .pp-badge{display:inline-flex;align-items:center;justify-content:center;margin-left:8px;padding:1px 6px;min-width:22px;height:18px;border-radius:5px;background:#7b3fe4;color:#fff;font:800 10px var(--sans);font-stretch:100%;letter-spacing:.04em;vertical-align:middle;text-shadow:none;box-shadow:0 0 0 1px #a77cff55}
 
 /* Save as image (lotl-shot.js) */
-.lotl-shot-btn{margin:0 0 14px}.lotl-shot-btn::after{display:none}
+.lotl-shot-btn{margin:0 0 14px;min-height:40px;padding:4px 14px;font-size:20px;line-height:1;letter-spacing:0}.lotl-shot-btn::after{display:none}
 .lotl-window>.lotl-shot-btn{margin-left:16px}
 @media (max-width:640px){.lotl-window>.lotl-shot-btn{margin-left:12px}}
 .lotl-shot-hint{margin:8px 0 0;color:#a89a82;font-size:13px}
