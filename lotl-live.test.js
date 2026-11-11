@@ -91,3 +91,7 @@ assert.equal(byMarket([rec('2026-10-18T12:00:00Z','pra','Over','won',1)])[0].lab
 assert.deepEqual(byDay([]),[]);
 console.log('history ok');
 }
+
+// NBA rebounds and assists read in their own units (the niche card, 2026-11-11).
+assert.equal(meter({pick:'Under',line:4.5},3,['ast','ast']).note,'1 ast to spare');
+assert.equal(meter({pick:'Over',line:7.5},5,['reb','reb']).note,'Needs 3 more reb');

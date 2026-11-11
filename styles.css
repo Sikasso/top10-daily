@@ -170,6 +170,7 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding:20px 0 28px;colo
 .lotl-bet{font-weight:700;font-size:16px;color:var(--text);margin-top:4px}
 .lotl-meta{display:flex;flex-wrap:wrap;gap:4px 10px;color:var(--soft);font-size:13px}
 .lotl-meta .primary{color:var(--lime);font-weight:700}
+.lotl-why{color:var(--muted);font-size:12px;line-height:1.35;margin-top:2px}
 .lotl-status{margin-top:auto;padding-top:8px;display:flex;align-items:center;gap:6px;color:#a89a82;font-size:12.5px}
 .lotl-status.live{color:#ff9a8a;font-weight:700}
 .lotl-status.won{color:var(--lime);font-weight:800;font-size:14px}
@@ -178,6 +179,7 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding:20px 0 28px;colo
 .lotl-status .dot{width:8px;height:8px;border-radius:50%;background:#ff5a4a;animation:ping 1.6s infinite}
 @keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,90,74,.6)}100%{box-shadow:0 0 0 8px rgba(255,90,74,0)}}
 .lotl-foot{margin:14px 0 0;color:#a89a82;font-size:12.5px;max-width:70ch}
+.lotl-foot.lotl-frozen{margin-top:6px}
 .lotl-record{margin:16px 0 0;padding-top:14px;border-top:1px solid rgba(217,162,75,.2)}
 .lotl-tally{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
 .lotl-tally-label{color:#d9a24b;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase}

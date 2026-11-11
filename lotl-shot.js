@@ -26,6 +26,16 @@
   const s=Math.max(w/img.width,h/img.height),iw=img.width*s,ih=img.height*s;
   ctx.drawImage(img,x+w-iw,y+(h-ih)/2,iw,ih);
  }
+ // Wrap to at most maxLines lines of maxW (ellipsis on the last); the font must already be set.
+ function wrap(ctx,text,maxW,maxLines){
+  const lines=[];let cur='';
+  for(const w of String(text).split(/\s+/)){const t=cur?cur+' '+w:w;if(!cur||ctx.measureText(t).width<=maxW)cur=t;else{lines.push(cur);cur=w;}}
+  if(cur)lines.push(cur);
+  if(lines.length<=maxLines)return lines;
+  const keep=lines.slice(0,maxLines);let last=keep[maxLines-1];
+  while(last&&ctx.measureText(last+'…').width>maxW)last=last.slice(0,-1);
+  keep[maxLines-1]=last.replace(/[\s,;]+$/,'')+'…';return keep;
+ }
  const clock=t=>String(t||'').replace(/^\S+ /,'').replace(/(\d)(AM|PM)$/,'$1 $2');
  function parlay(legs){
   if(legs.length<2)return '';
@@ -47,13 +57,13 @@
  function card(ctx,x,y,l,i,img,o){
   const {it,r,unit,st}=l,g=st.grade;
   ctx.save();if(g==='lost')ctx.globalAlpha=.72;
-  rr(ctx,x,y,CW,CH,10*S);ctx.save();ctx.clip();
-  ctx.fillStyle='#060709';ctx.fillRect(x,y,CW,CH);
-  if(img)cover(ctx,img,x,y,CW,CH);
-  let gr=ctx.createLinearGradient(x,y,x+CW,y);gr.addColorStop(0,'rgba(6,7,9,.7)');gr.addColorStop(.48,'rgba(6,7,9,.34)');gr.addColorStop(1,'rgba(6,7,9,.08)');ctx.fillStyle=gr;ctx.fillRect(x,y,CW,CH);
-  gr=ctx.createLinearGradient(x,y+CH,x,y+CH*.62);gr.addColorStop(0,'rgba(6,7,9,.7)');gr.addColorStop(1,'rgba(6,7,9,0)');ctx.fillStyle=gr;ctx.fillRect(x,y,CW,CH);
+  rr(ctx,x,y,CW,o.ch,10*S);ctx.save();ctx.clip();
+  ctx.fillStyle='#060709';ctx.fillRect(x,y,CW,o.ch);
+  if(img)cover(ctx,img,x,y,CW,o.ch);
+  let gr=ctx.createLinearGradient(x,y,x+CW,y);gr.addColorStop(0,'rgba(6,7,9,.7)');gr.addColorStop(.48,'rgba(6,7,9,.34)');gr.addColorStop(1,'rgba(6,7,9,.08)');ctx.fillStyle=gr;ctx.fillRect(x,y,CW,o.ch);
+  gr=ctx.createLinearGradient(x,y+o.ch,x,y+o.ch*.62);gr.addColorStop(0,'rgba(6,7,9,.7)');gr.addColorStop(1,'rgba(6,7,9,0)');ctx.fillStyle=gr;ctx.fillRect(x,y,CW,o.ch);
   ctx.restore();
-  rr(ctx,x+S/2,y+S/2,CW-S,CH-S,10*S);ctx.lineWidth=S;ctx.strokeStyle=g==='won'?'rgba(199,243,107,.55)':'rgba(217,162,75,.25)';
+  rr(ctx,x+S/2,y+S/2,CW-S,o.ch-S,10*S);ctx.lineWidth=S;ctx.strokeStyle=g==='won'?'rgba(199,243,107,.55)':'rgba(217,162,75,.25)';
   if(g==='won'){ctx.shadowColor='rgba(199,243,107,.25)';ctx.shadowBlur=26*S;}ctx.stroke();ctx.shadowBlur=0;
   const px=x+16*S,inner=CW-32*S;ctx.textBaseline='alphabetic';ctx.shadowColor='rgba(0,0,0,.85)';ctx.shadowBlur=3*S;
   font(ctx,900,34*S,'extra-condensed');ctx.fillStyle=C.amber;ctx.fillText(String(i+1),px,y+46*S);
@@ -64,8 +74,10 @@
   yy+=30*S;fit(ctx,bet,inner,700,16*S,'normal');ctx.fillStyle=C.text;ctx.fillText(bet,px,yy);
   yy+=24*S;font(ctx,500,13*S,'normal');ctx.fillStyle=C.soft;let mx=px;
   [it.book,it.chance?`${it.chance} to hit`:'',it.hits?`${it.hits} last 10`:''].filter(Boolean).forEach(t=>{ctx.fillText(t,mx,yy);mx+=ctx.measureText(t).width+10*S;});
+  // The niche pick's reason, wrapped under the meta row; the card grows (draw) so it never meets the meter below.
+  if(l.whyLines?.length){font(ctx,500,12*S,'normal');ctx.fillStyle=C.muted;l.whyLines.forEach((t,k)=>ctx.fillText(t,px,yy+20*S+k*16*S));}
   // Bottom up: status line, then the meter above it.
-  const sy=y+CH-16*S;let status,scol,sw=500,ssz=12.5;
+  const sy=y+o.ch-16*S;let status,scol,sw=500,ssz=12.5;
   if(g==='won'){status=`✓ Won: ${r?.text||''}`;scol=C.lime;sw=800;ssz=14;}
   else if(g==='lost'){status=`✗ Lost: ${r?.text||''}`;scol=C.lost;sw=700;}
   else if(g==='void'){status=`Void: ${r?.text||''}`;scol=C.muted;}
@@ -109,8 +121,12 @@
   const legs=o.legs,L=window.Top10Live;
   const [imgs]=await Promise.all([Promise.all(ARTS.map(loadArt)),fontsReady()]);
   const rows=Math.ceil(legs.length/COLS),cols=Math.min(COLS,legs.length);
-  const W=PAD*2+cols*CW+(cols-1)*GAP,H=HEAD+rows*CH+(rows-1)*GAP+FOOT;
-  const cv=document.createElement('canvas');cv.width=W;cv.height=H;const ctx=cv.getContext('2d');
+  const cv=document.createElement('canvas'),ctx=cv.getContext('2d');
+  font(ctx,500,12*S,'normal');legs.forEach(l=>{l.whyLines=l.it.why?wrap(ctx,l.it.why,CW-32*S,3):[];});
+  // 2x2 stays: every card is as tall as the one with the longest reason needs (280 css px with none).
+  const lines=Math.max(0,...legs.map(l=>l.whyLines.length));o.ch=Math.max(CH,(268+16*Math.max(0,lines-1))*S);
+  const W=PAD*2+cols*CW+(cols-1)*GAP,H=HEAD+rows*o.ch+(rows-1)*GAP+FOOT;cv.width=W;cv.height=H;
+  font(ctx,500,12*S,'normal');
   const bg=ctx.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#17130d');bg.addColorStop(.35,C.bg);bg.addColorStop(1,C.bg);ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
   // Header, as the section reads: title + league, then the window and its slip.
   ctx.textBaseline='alphabetic';font(ctx,900,34*S,'extra-condensed');ctx.fillStyle=C.gold;ctx.shadowColor='rgba(217,162,75,.35)';ctx.shadowBlur=24*S;
@@ -125,7 +141,7 @@
   states.forEach(s=>{ctx.beginPath();ctx.arc(x,py,5*S,0,Math.PI*2);const f={won:C.lime,lost:C.lost,void:C.muted,live:C.red}[s];
    if(f){ctx.fillStyle=f;ctx.fill();}else{ctx.lineWidth=1.5*S;ctx.strokeStyle='rgba(217,162,75,.55)';ctx.stroke();}x+=15*S;});
   if(sl){font(ctx,600,13*S,'normal');ctx.fillStyle=sl.sweep?C.lime:C.cream;ctx.fillText(sl.text,x+4*S,py+4.5*S);}
-  legs.forEach((l,i)=>card(ctx,PAD+(i%COLS)*(CW+GAP),HEAD+Math.floor(i/COLS)*(CH+GAP),l,i,imgs[i%ARTS.length],o));
+  legs.forEach((l,i)=>card(ctx,PAD+(i%COLS)*(CW+GAP),HEAD+Math.floor(i/COLS)*(o.ch+GAP),l,i,imgs[i%ARTS.length],o));
   const fy=H-FOOT+30*S,pl=parlay(legs);
   if(pl){fit(ctx,pl,W-2*PAD,500,13*S,'normal');ctx.fillStyle=C.parlay;ctx.fillText(pl,PAD,fy);}
   font(ctx,800,13*S,'normal');ctx.fillStyle=C.gold;ctx.fillText('Top10 Daily',PAD,fy+24*S);const bw=ctx.measureText('Top10 Daily').width;
