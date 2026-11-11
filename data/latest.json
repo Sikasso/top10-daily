@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "attemptedAt": "2026-11-11T12:35:15.843356+00:00",
+  "attemptedAt": "2026-11-11T12:36:33.491515+00:00",
   "categories": {
     "strikeouts": {
       "status": "ok",
@@ -568,8 +568,8 @@
       ],
       "pp": [],
       "status": "ok",
-      "generatedAt": "2026-11-11T12:35:21.917311+00:00",
-      "lastAttemptAt": "2026-11-11T12:35:21.917311+00:00",
+      "generatedAt": "2026-11-11T12:36:40.638123+00:00",
+      "lastAttemptAt": "2026-11-11T12:36:40.638123+00:00",
       "slate": "2026-11-11",
       "columns": [
         "Time",
@@ -881,8 +881,8 @@
         }
       ],
       "status": "ok",
-      "generatedAt": "2026-11-11T12:35:26.420256+00:00",
-      "lastAttemptAt": "2026-11-11T12:35:26.420256+00:00",
+      "generatedAt": "2026-11-11T12:36:46.663388+00:00",
+      "lastAttemptAt": "2026-11-11T12:36:46.663388+00:00",
       "slate": "2026-11-11",
       "columns": [
         "Time",
@@ -1290,8 +1290,8 @@
         }
       ],
       "status": "ok",
-      "generatedAt": "2026-11-11T12:35:30.752796+00:00",
-      "lastAttemptAt": "2026-11-11T12:35:30.752796+00:00",
+      "generatedAt": "2026-11-11T12:36:52.549045+00:00",
+      "lastAttemptAt": "2026-11-11T12:36:52.549045+00:00",
       "slate": "2026-11-11",
       "columns": [
         "Time",
@@ -1547,6 +1547,24 @@
           "vacFrom": ""
         },
         {
+          "player": "Landry Shamet",
+          "team": "NY",
+          "opp": "CLE",
+          "time": "Wed 6:00PM",
+          "kickoff": "2026-11-12T00:00:00+00:00",
+          "game": "401909967",
+          "sport": "nba",
+          "market": "threes",
+          "pick": "Over",
+          "line": 1.5,
+          "book": "-192 FD",
+          "p": 0.6296,
+          "gap": 0.267,
+          "hits": "7/10",
+          "pid": "3914044",
+          "vacFrom": "Hart"
+        },
+        {
           "player": "Cameron Boozer",
           "team": "MEM",
           "opp": "DEN",
@@ -1619,6 +1637,25 @@
           "hits": "6/10",
           "pid": "4395712",
           "vacFrom": "",
+          "tier": 2
+        },
+        {
+          "player": "Landry Shamet",
+          "team": "NY",
+          "opp": "CLE",
+          "time": "Wed 6:00PM",
+          "kickoff": "2026-11-12T00:00:00+00:00",
+          "game": "401909967",
+          "sport": "nba",
+          "market": "threes",
+          "pick": "Over",
+          "line": 1.5,
+          "book": "-192 FD",
+          "p": 0.6296,
+          "gap": 0.267,
+          "hits": "7/10",
+          "pid": "3914044",
+          "vacFrom": "Hart",
           "tier": 2
         },
         {
@@ -1870,25 +1907,25 @@
           "tag": "Goblin"
         },
         {
-          "Player": "Alex Sarr",
-          "Tm": "WSH",
-          "Pos": "C",
-          "Opp": "IND",
+          "Player": "Landry Shamet",
+          "Tm": "NY",
+          "Pos": "G",
+          "Opp": "CLE",
           "Time": "Wed 6:00PM",
-          "PP": 0.5,
+          "PP": 1.5,
           "PPPick": "Over",
-          "PP play": "Over 60% \u00b7 Goblin 0.5",
-          "PPHit10": "5/10",
-          "Line": 0.5,
-          "Over": "-172 BOL",
-          "Under": "+138 BR",
+          "PP play": "Over 60% \u00b7 Goblin 1.5",
+          "PPHit10": "7/10",
+          "Line": 1.5,
+          "Over": "-170 BOV",
+          "Under": "+142 FD",
           "UD": null,
           "tag": "Goblin"
         }
       ],
       "status": "ok",
-      "generatedAt": "2026-11-11T12:35:35.286524+00:00",
-      "lastAttemptAt": "2026-11-11T12:35:35.286524+00:00",
+      "generatedAt": "2026-11-11T12:36:58.672973+00:00",
+      "lastAttemptAt": "2026-11-11T12:36:58.672973+00:00",
       "slate": "2026-11-11",
       "columns": [
         "Time",
@@ -2135,8 +2172,8 @@
       ],
       "pp": [],
       "status": "ok",
-      "generatedAt": "2026-11-11T12:35:38.415872+00:00",
-      "lastAttemptAt": "2026-11-11T12:35:38.415872+00:00",
+      "generatedAt": "2026-11-11T12:37:03.071426+00:00",
+      "lastAttemptAt": "2026-11-11T12:37:03.071426+00:00",
       "slate": "2026-11-11",
       "columns": [
         "Time",
@@ -4235,7 +4272,7 @@
   },
   "picksNba": {
     "day": "2026-11-11",
-    "updatedAt": "2026-11-11T12:35:38.431937+00:00",
+    "updatedAt": "2026-11-11T12:37:03.089452+00:00",
     "items": [
       {
         "player": "Damian Lillard",
@@ -4258,46 +4295,6 @@
         "why": "The books price this Under at 63% (-173), a favourite; he averages 2.9 threes over his last 10 and went under 3.5 in 6 of them."
       },
       {
-        "player": "Michael Porter Jr.",
-        "team": "BKN",
-        "opp": "NO",
-        "time": "Wed 7:00PM",
-        "kickoff": "2026-11-12T01:00:00+00:00",
-        "game": "401909972",
-        "sport": "nba",
-        "market": "threes",
-        "pick": "Under",
-        "line": 3.5,
-        "book": "-188 FD",
-        "hits": "4/10",
-        "pid": "4278104",
-        "vacFrom": "",
-        "chance": "65%",
-        "edge": null,
-        "niche": "band_fav",
-        "why": "The books price this Under at 62% (-160), a favourite; he averages 3.5 threes over his last 10 and went under 3.5 in 4 of them."
-      },
-      {
-        "player": "Stephen Curry",
-        "team": "GS",
-        "opp": "HOU",
-        "time": "Wed 8:30PM",
-        "kickoff": "2026-11-12T02:30:00+00:00",
-        "game": "401909974",
-        "sport": "nba",
-        "market": "threes",
-        "pick": "Under",
-        "line": 4.5,
-        "book": "-140 FD",
-        "hits": "5/10",
-        "pid": "3975",
-        "vacFrom": "",
-        "chance": "58%",
-        "edge": null,
-        "niche": "band_fav",
-        "why": "The books price this Under at 58% (-139), a favourite; he averages 4.6 threes over his last 10 and went under 4.5 in 5 of them."
-      },
-      {
         "player": "Franz Wagner",
         "team": "ORL",
         "opp": "UTAH",
@@ -4317,6 +4314,47 @@
         "niche": "b2b_heavy_U",
         "why": "Second night of a back-to-back for a 37-minute player; he averages 22.0 points over his last 10 and went under 23.5 in 6 of them.",
         "watch": "role growing: Silva out"
+      },
+      {
+        "player": "Jayson Tatum",
+        "team": "BOS",
+        "opp": "TOR",
+        "time": "Wed 6:00PM",
+        "kickoff": "2026-11-12T00:00:00+00:00",
+        "game": "401909968",
+        "sport": "nba",
+        "market": "points",
+        "pick": "Under",
+        "line": 26.5,
+        "book": "-112 FD",
+        "hits": "6/10",
+        "pid": "4065648",
+        "vacFrom": "",
+        "chance": "53%",
+        "edge": null,
+        "niche": "b2b_heavy_U",
+        "why": "Second night of a back-to-back for a 34-minute player; he averages 26.5 points over his last 10 and went under 26.5 in 6 of them."
+      },
+      {
+        "player": "Jalen Brunson",
+        "team": "NY",
+        "opp": "CLE",
+        "time": "Wed 6:00PM",
+        "kickoff": "2026-11-12T00:00:00+00:00",
+        "game": "401909967",
+        "sport": "nba",
+        "market": "points",
+        "pick": "Under",
+        "line": 25.5,
+        "book": "-108 FD",
+        "hits": "6/10",
+        "pid": "3934672",
+        "vacFrom": "Hart",
+        "chance": "52%",
+        "edge": null,
+        "niche": "b2b_heavy_U",
+        "why": "Second night of a back-to-back for a 33-minute player; he averages 25.9 points over his last 10 and went under 25.5 in 6 of them.",
+        "watch": "role growing: Hart out"
       }
     ],
     "card": "niche"
