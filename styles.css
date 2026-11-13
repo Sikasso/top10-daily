@@ -385,3 +385,10 @@ nav button[hidden]{display:none}
 .lotl-shot-body{display:flex;flex-direction:column;gap:14px;padding:16px 22px 22px;overflow:auto}
 .lotl-shot-img{display:block;width:100%;height:auto;max-height:64vh;object-fit:contain;border:1px solid #d8b56633;border-radius:10px;background:#0a0d12}
 .lotl-shot-actions{display:flex;flex-wrap:wrap;gap:10px}.lotl-shot-actions .lotl-seeall{margin:0;text-decoration:none}
+.lotl-dropped{margin:12px 0 0;font-size:12.5px;line-height:1.4;color:#a89a82}
+.lotl-dropped-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#c6ad7c;margin-bottom:4px}
+.lotl-dropped ul{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+.lotl-dropped s{color:#cbbfa8;margin-right:8px}
+.lotl-window>.lotl-dropped{margin:0 16px 14px}
+.lotl-meta .lotl-added{color:#e8d2a6}
+@media(max-width:560px){.lotl-window>.lotl-dropped{margin:0 12px 12px}}
