@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "attemptedAt": "2026-11-13T00:08:58.072689+00:00",
+  "attemptedAt": "2026-11-13T00:22:32.339239+00:00",
   "categories": {
     "strikeouts": {
       "status": "ok",
@@ -284,8 +284,8 @@
       ],
       "props": [],
       "status": "ok",
-      "generatedAt": "2026-11-13T00:09:20.592543+00:00",
-      "lastAttemptAt": "2026-11-13T00:09:20.592543+00:00",
+      "generatedAt": "2026-11-13T00:22:54.771905+00:00",
+      "lastAttemptAt": "2026-11-13T00:22:54.771905+00:00",
       "slate": "2026-11-12 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -399,7 +399,7 @@
           "Matchup": "",
           "Tm": "SF",
           "NewsHeadline": "McCaffrey is expected to take on a full workload Sunday against the Raiders, Mike Garafolo of NFL Network reports. McCaffrey was limited to a 52 percent snap share when he missed a portion of the 49ers' Week 7 loss in Atlanta due to a left hamstring injury, but he still put up 13 touches for 100 yards from scrimmage\u2026 [RotoWire, Nov 08]",
-          "NewsProb": 0.67,
+          "NewsProb": 0.65,
           "NoPick": null,
           "G": 25
         },
@@ -621,8 +621,8 @@
       "value": [],
       "pp": [],
       "status": "ok",
-      "generatedAt": "2026-11-13T00:09:29.379967+00:00",
-      "lastAttemptAt": "2026-11-13T00:09:29.379967+00:00",
+      "generatedAt": "2026-11-13T00:23:03.575536+00:00",
+      "lastAttemptAt": "2026-11-13T00:23:03.575536+00:00",
       "slate": "2026-11-12 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -1087,21 +1087,6 @@
       "mentions": [],
       "value": [
         {
-          "Player": "Darnell Mooney",
-          "Tm": "NYG",
-          "Pos": "WR",
-          "Opp": "WSH",
-          "Time": "Thu 7:15PM",
-          "Proj": 2.1,
-          "Line": 1.5,
-          "Pick": "Under",
-          "Pick%": "62%",
-          "Fair": -166.0,
-          "Book": "-140 MGM",
-          "Edge": "+4%",
-          "Matchup": "WSH: 4th most catches to WRs allowed (13.2/G)"
-        },
-        {
           "Player": "Malachi Fields",
           "Tm": "NYG",
           "Pos": "WR",
@@ -1128,6 +1113,21 @@
           "Pick%": "52%",
           "Fair": -109.0,
           "Book": "+105 BOL",
+          "Edge": "+3%",
+          "Matchup": "WSH: 4th most catches to WRs allowed (13.2/G)"
+        },
+        {
+          "Player": "Darnell Mooney",
+          "Tm": "NYG",
+          "Pos": "WR",
+          "Opp": "WSH",
+          "Time": "Thu 7:15PM",
+          "Proj": 2.1,
+          "Line": 1.5,
+          "Pick": "Under",
+          "Pick%": "62%",
+          "Fair": -160.0,
+          "Book": "-140 FD",
           "Edge": "+3%",
           "Matchup": "WSH: 4th most catches to WRs allowed (13.2/G)"
         }
@@ -1173,8 +1173,8 @@
       "fill": [],
       "pp": [],
       "status": "ok",
-      "generatedAt": "2026-11-13T00:09:44.822262+00:00",
-      "lastAttemptAt": "2026-11-13T00:09:44.822262+00:00",
+      "generatedAt": "2026-11-13T00:23:18.486612+00:00",
+      "lastAttemptAt": "2026-11-13T00:23:18.486612+00:00",
       "slate": "2026-11-12 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -1401,7 +1401,7 @@
           "Tm": "IND",
           "L10": "3,5,5,3,6,9,5,7,4,4",
           "NewsHeadline": "Warren may see more targets after the Colts traded wideouts Josh Downs and Keenan Allen on Tuesday, Chris Bumbaca of ColtsWire reports. The trade deadline went as well as possible for Warren's fantasy value, considering the Colts moved their top wide receivers but avoided an all-out purge. The only problem is that\u2026 [RotoWire, Nov 11]",
-          "NewsProb": 0.92,
+          "NewsProb": 0.91,
           "G": 24
         },
         {
@@ -1496,8 +1496,8 @@
     },
     "targets": {
       "status": "ok",
-      "generatedAt": "2026-11-13T00:09:44.850618+00:00",
-      "lastAttemptAt": "2026-11-13T00:09:44.850618+00:00",
+      "generatedAt": "2026-11-13T00:23:18.516487+00:00",
+      "lastAttemptAt": "2026-11-13T00:23:18.516487+00:00",
       "slate": "2026-11-12 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -1759,12 +1759,12 @@
           "Line": 64.5,
           "Pick": "Under",
           "Pick%": "60%",
-          "Fair": -148.0,
+          "Fair": -149.0,
           "Book": "-112 BOL",
           "Edge": "+7%",
           "NoPick": null,
           "Matchup": "",
-          "Reason": "Book -112 BOL on the Under 64.5 pays more than fair -148; News: Skattebo (hamstring) was listed as a full participant in Tuesday's practice, Dan Salomone of the Giants' official site reports. Prior to Tuesday's practice,\u2026; Picks up carries from Tyrone Tracy Jr."
+          "Reason": "Book -112 BOL on the Under 64.5 pays more than fair -149; News: Skattebo (hamstring) was listed as a full participant in Tuesday's practice, Dan Salomone of the Giants' official site reports. Prior to Tuesday's practice,\u2026; Picks up carries from Tyrone Tracy Jr."
         },
         {
           "Player": "Jayden Daniels",
@@ -1773,15 +1773,15 @@
           "Opp": "NYG",
           "Time": "Thu 7:15PM",
           "Proj": 35.0,
-          "Line": 34.5,
+          "Line": 33.5,
           "Pick": "Under",
           "Pick%": "57%",
-          "Fair": -134.0,
-          "Book": "-111 DK",
+          "Fair": -133.0,
+          "Book": "-110 DK",
           "Edge": "+5%",
           "NoPick": null,
           "Matchup": "",
-          "Reason": "Book -111 DK on the Under 34.5 pays more than fair -134; NYG has allowed 38% more rushing yards to QBs than average (after shrinkage)"
+          "Reason": "Book -110 DK on the Under 33.5 pays more than fair -133; NYG has allowed 38% more rushing yards to QBs than average (after shrinkage)"
         }
       ],
       "value": [
@@ -1795,7 +1795,7 @@
           "Line": 64.5,
           "Pick": "Under",
           "Pick%": "60%",
-          "Fair": -148.0,
+          "Fair": -149.0,
           "Book": "-112 BOL",
           "Edge": "+7%",
           "NoPick": null,
@@ -1811,7 +1811,7 @@
           "Line": 38.5,
           "Pick": "Under",
           "Pick%": "59%",
-          "Fair": -143.0,
+          "Fair": -144.0,
           "Book": "-112 BOL",
           "Edge": "+6%",
           "NoPick": null,
@@ -1824,11 +1824,11 @@
           "Opp": "NYG",
           "Time": "Thu 7:15PM",
           "Proj": 35.0,
-          "Line": 34.5,
+          "Line": 33.5,
           "Pick": "Under",
           "Pick%": "57%",
-          "Fair": -134.0,
-          "Book": "-111 DK",
+          "Fair": -133.0,
+          "Book": "-110 DK",
           "Edge": "+5%",
           "NoPick": null,
           "Matchup": ""
@@ -1851,11 +1851,24 @@
         }
       ],
       "props": [],
-      "fill": [],
+      "fill": [
+        {
+          "player": "Cam Skattebo",
+          "team": "NYG",
+          "opp": "WSH",
+          "time": "Thu 7:15PM",
+          "market": "rush yds",
+          "pick": "Under",
+          "line": 64.5,
+          "book": "-112 BOL",
+          "p": 0.5283,
+          "gap": 0.096
+        }
+      ],
       "pp": [],
       "status": "ok",
-      "generatedAt": "2026-11-13T00:09:57.254889+00:00",
-      "lastAttemptAt": "2026-11-13T00:09:57.254889+00:00",
+      "generatedAt": "2026-11-13T00:23:30.599032+00:00",
+      "lastAttemptAt": "2026-11-13T00:23:30.599032+00:00",
       "slate": "2026-11-12 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -2208,7 +2221,7 @@
           "Tm": "SF",
           "L10": "140,23,68,23,75,52,68,64,39,68",
           "NewsHeadline": "McCaffrey is expected to take on a full workload Sunday against the Raiders, Mike Garafolo of NFL Network reports. McCaffrey was limited to a 52 percent snap share when he missed a portion of the 49ers' Week 7 loss in Atlanta due to a left hamstring injury, but he still put up 13 touches for 100 yards from scrimmage\u2026 [RotoWire, Nov 08]",
-          "NewsProb": 0.67,
+          "NewsProb": 0.69,
           "NoPick": null,
           "G": 25
         },
@@ -2244,7 +2257,7 @@
           "Tm": "LAR",
           "L10": "60,41,85,88,80,49,50,99,56,45",
           "NewsHeadline": "Williams carried the ball 15 times for 45 yards and caught three of four targets for 16 yards in Sunday's 20-13 win over Washington. Blake Corum was the more productive Ram on the ground, turning 11 carries into 58 yards and a touchdown, but the offense mainly flowed through Puka Nacua on the afternoon. Williams\u2026 [RotoWire, Nov 08]",
-          "NewsProb": 0.92,
+          "NewsProb": 0.93,
           "NoPick": null,
           "G": 26
         }
@@ -2342,8 +2355,8 @@
       "value": [],
       "pp": [],
       "status": "ok",
-      "generatedAt": "2026-11-13T00:10:13.794614+00:00",
-      "lastAttemptAt": "2026-11-13T00:10:13.794614+00:00",
+      "generatedAt": "2026-11-13T00:23:46.451993+00:00",
+      "lastAttemptAt": "2026-11-13T00:23:46.451993+00:00",
       "slate": "2026-11-12 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -2757,8 +2770,8 @@
         }
       ],
       "status": "ok",
-      "generatedAt": "2026-11-13T00:10:16.005094+00:00",
-      "lastAttemptAt": "2026-11-13T00:10:16.005094+00:00",
+      "generatedAt": "2026-11-13T00:23:49.179692+00:00",
+      "lastAttemptAt": "2026-11-13T00:23:49.179692+00:00",
       "slate": "2026-11-12 \u00b7 remaining games this week",
       "columns": [
         "Time",
@@ -4651,7 +4664,7 @@
   },
   "picks": {
     "day": "2026-11-12",
-    "updatedAt": "2026-11-13T00:10:31.479457+00:00",
+    "updatedAt": "2026-11-13T00:23:49.188971+00:00",
     "items": [
       {
         "player": "Stefon Diggs",
@@ -4692,6 +4705,20 @@
         "book": "-135 BOL",
         "kickoff": "2026-11-12T19:15:00-06:00",
         "chance": "57%",
+        "edge": null,
+        "window": "Evening"
+      },
+      {
+        "player": "Cam Skattebo",
+        "team": "NYG",
+        "opp": "WSH",
+        "time": "Thu 7:15PM",
+        "market": "rush yds",
+        "pick": "Under",
+        "line": 64.5,
+        "book": "-112 BOL",
+        "kickoff": "2026-11-12T19:15:00-06:00",
+        "chance": "53%",
         "edge": null,
         "window": "Evening"
       }
