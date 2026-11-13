@@ -76,6 +76,8 @@
   [it.book,it.chance?`${it.chance} to hit`:'',it.hits?`${it.hits} last 10`:''].filter(Boolean).forEach(t=>{ctx.fillText(t,mx,yy);mx+=ctx.measureText(t).width+10*S;});
   // The niche pick's reason, wrapped under the meta row; the card grows (draw) so it never meets the meter below.
   if(l.whyLines?.length){font(ctx,500,12*S,'normal');ctx.fillStyle=C.muted;l.whyLines.forEach((t,k)=>ctx.fillText(t,px,yy+20*S+k*16*S));}
+  // The NBA pick's context line (Proj, who is out, the matchup note) under the reason, in the card's softer tan.
+  if(l.ctxLines?.length){font(ctx,500,12*S,'normal');ctx.fillStyle=C.tan;const k0=l.whyLines?.length||0;l.ctxLines.forEach((t,k)=>ctx.fillText(t,px,yy+20*S+(k0+k)*16*S));}
   // Bottom up: status line, then the meter above it.
   const sy=y+o.ch-16*S;let status,scol,sw=500,ssz=12.5;
   if(g==='won'){status=`✓ Won: ${r?.text||''}`;scol=C.lime;sw=800;ssz=14;}
@@ -122,9 +124,9 @@
   const [imgs]=await Promise.all([Promise.all(ARTS.map(loadArt)),fontsReady()]);
   const rows=Math.ceil(legs.length/COLS),cols=Math.min(COLS,legs.length);
   const cv=document.createElement('canvas'),ctx=cv.getContext('2d');
-  font(ctx,500,12*S,'normal');legs.forEach(l=>{l.whyLines=l.it.why?wrap(ctx,l.it.why,CW-32*S,3):[];});
-  // 2x2 stays: every card is as tall as the one with the longest reason needs (280 css px with none).
-  const lines=Math.max(0,...legs.map(l=>l.whyLines.length));o.ch=Math.max(CH,(268+16*Math.max(0,lines-1))*S);
+  font(ctx,500,12*S,'normal');legs.forEach(l=>{l.whyLines=l.it.why?wrap(ctx,l.it.why,CW-32*S,3):[];l.ctxLines=l.it.ctx?wrap(ctx,l.it.ctx,CW-32*S,2):[];});
+  // 2x2 stays: every card is as tall as the one with the longest reason + context needs (280 css px with none).
+  const lines=Math.max(0,...legs.map(l=>l.whyLines.length+l.ctxLines.length));o.ch=Math.max(CH,(268+16*Math.max(0,lines-1))*S);
   const W=PAD*2+cols*CW+(cols-1)*GAP,H=HEAD+rows*o.ch+(rows-1)*GAP+FOOT;cv.width=W;cv.height=H;
   font(ctx,500,12*S,'normal');
   const bg=ctx.createLinearGradient(0,0,0,H);bg.addColorStop(0,'#17130d');bg.addColorStop(.35,C.bg);bg.addColorStop(1,C.bg);ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
