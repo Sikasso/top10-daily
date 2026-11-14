@@ -6755,7 +6755,8 @@
         "droppedAt": "2026-11-14T01:31:26.811357+00:00",
         "why": "line pulled"
       }
-    ]
+    ],
+    "trial": true
   },
   "recordNba": {
     "items": [
