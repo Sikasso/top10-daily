@@ -177,7 +177,7 @@ function select(key,fromInteraction=false){
  active=key;const sport=sportOf(key);lastBySport[sport]=key;
  document.querySelectorAll('[role=tab]').forEach(b=>{b.hidden=sportOf(b.dataset.key)!==sport;});
  document.querySelectorAll('.sports button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.sport===sport)));
- {const l=$('lotl'),n=$('lotl-nba');if(l&&n){if(sport==='nba')l.before(n);else n.before(l);}}   // the chosen sport's Life on the Line first
+ {const l=$('lotl'),n=$('lotl-nba');if(l&&n)n.before(l);}   // the NFL card always comes first (owner, 2026-11-15)
  const mobile=window.matchMedia('(max-width:700px)').matches;
  if(location.hash!=='#'+hashOf(key))history.replaceState(null,'','#'+hashOf(key));
  document.querySelectorAll('[role=tab]').forEach(b=>{const yes=b.dataset.key===key;b.setAttribute('aria-selected',String(yes));b.tabIndex=yes?0:-1;});
