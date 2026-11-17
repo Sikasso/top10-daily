@@ -1,4 +1,5 @@
 'use strict';
+const NBA_SHOW=false;   // NBA Life on the Line pulled (owner, 2026-11-16): no edge at the book's prices
 const $=id=>document.getElementById(id);
 // Sport row -> its boards. Hashes read #nba/points, #nfl/touchdowns; old #touchdowns links still work.
 const SPORTS={nba:['nba_points','nba_rebounds','nba_assists','nba_threes','nba_pra'],nfl:['games','touchdowns','passing','receptions','targets','rushing','receiving'],mlb:['strikeouts']};
@@ -28,7 +29,7 @@ function shotButton(sec,group,w,nba,p,recItems){if(!window.Top10Shot||!group.len
 b.addEventListener('click',()=>{const now=Date.now();const legs=group.map(it=>{const g=recItems.find(e=>e.grade&&e.player===it.player&&e.market===it.market&&e.kickoff===it.kickoff);return {it,r:g?{grade:g.grade,text:g.result,final:true}:results[pickId(it)],unit:UNIT[it.market]||['',''],started:now>=new Date(it.kickoff).getTime(),label:NBA_LABEL[it.market]||it.market};});
 const day=new Date(group[0].kickoff),league=nba?'NBA':'NFL';const iso=(p?.day||'').slice(0,10)||day.toISOString().slice(0,10);
 window.Top10Shot.open({league,window:w,day:SHOT_DAY.format(day),subtitle:[w,SHOT_DAY.format(day)].filter(Boolean).join(' · '),verb:nba?'tip off':'kick off',stamp:`as of ${SHOT_AT.format(new Date(now))} CT`,file:`life-on-the-line-${league.toLowerCase()}-${iso}${w?'-'+w.toLowerCase():''}.png`,legs});});}
-function renderPicks(p,nba=false){refreshHist();const box=$(nba?'lotl-nba':'lotl');if(!box)return;const previousScroll=[...box.querySelectorAll('.lotl-grid')].map(g=>g.scrollLeft);box.replaceChildren();const items=p?.items||[];const rec=nba?payload?.recordNba:payload?.record;const recItems=rec?.items||[];const niche=nba&&p?.card==='niche';box.hidden=!items.length&&!recItems.length&&!niche;if(box.hidden)return;
+function renderPicks(p,nba=false){refreshHist();const box=$(nba?'lotl-nba':'lotl');if(!box)return;if(nba&&!NBA_SHOW){box.hidden=true;return;}const previousScroll=[...box.querySelectorAll('.lotl-grid')].map(g=>g.scrollLeft);box.replaceChildren();const items=p?.items||[];const rec=nba?payload?.recordNba:payload?.record;const recItems=rec?.items||[];const niche=nba&&p?.card==='niche';box.hidden=!items.length&&!recItems.length&&!niche;if(box.hidden)return;
 
 const head=add(box,'div','','lotl-head');const t=add(head,'div','');const h=add(t,'h2','Life on the Line','lotl-title');h.id=nba?'lotl-nba-title':'lotl-title';add(h,'span',nba?'NBA':'NFL','lotl-league');if(nba&&p?.trial)add(h,'span','Trial','lotl-trial');
 h.insertAdjacentHTML('beforeend','<svg class="pulse" viewBox="0 0 120 24" aria-hidden="true"><polyline points="0,12 38,12 46,12 52,3 58,21 64,6 69,15 73,12 120,12"/></svg>');
